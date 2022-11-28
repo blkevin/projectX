@@ -11,6 +11,10 @@ class User < ApplicationRecord
   has_many :preferences
   has_many :messages
   has_many :conversations
-  belongs_to :institution, through: :educations
   has_one_attached :photo
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :description, presence: true
+  validates :status, presence: true
+  validates :description, length: { minimum: 15 }
 end
