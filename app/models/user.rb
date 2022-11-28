@@ -1,0 +1,16 @@
+class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+  enum status: [ :student, :mentor ]
+  has_many :contents
+  has_many :experiences
+  has_many :educations
+  has_many :meetings
+  has_many :preferences
+  has_many :messages
+  has_many :conversations
+  belongs_to :institution, through: :educations
+  has_one_attached :photo
+end
