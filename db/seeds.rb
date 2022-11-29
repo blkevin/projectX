@@ -63,6 +63,38 @@ m4 = User.create!(first_name: "Eric", last_name: "Dupont-Moretti", age: 61, emai
 m5 = User.create!(first_name: "Jonathan", last_name: "Cohen", age: 42, email: "jonathan@gmail.com", password: "123456", description: "Homme le plus drole de France", status: :mentor)
 m6 = User.create!(first_name: "Kaaris", last_name: "Okou Gnakouri", age: 42, email: "kaaris@gmail.com", password: "123456", description: "tchoin thcoin tchoin", status: :mentor)
 
+# attaching pictures to students
+m1.photo.attach(
+  io: URI.open('https://avatars.githubusercontent.com/u/54004476?v=4'),
+  filename: 'paul.jpg',
+  content_type: 'image/jpg'
+)
+m2.photo.attach(
+  io: URI.open('https://fr.wikipedia.org/wiki/Carla_Bruni#/media/Fichier:Carla_Cannes_2021.jpg'),
+  filename: 'carla.jpg',
+  content_type: 'image/jpg'
+)
+m3.photo.attach(
+  io: URI.open('https://mobile.twitter.com/TBentzmann/photo.jpg'),
+  filename: 'theobald.jpg',
+  content_type: 'image/jpg'
+)
+m4.photo.attach(
+  io: URI.open('https://img.lemde.fr/2022/10/03/0/0/1920/1280/1328/0/45/0/c358f49_1664837882097-000-324d4x7.jpg'),
+  filename: 'dupont-moretti.jpg',
+  content_type: 'image/jpg'
+)
+m5.photo.attach(
+  io: URI.open('https://encrypted-tbn0.gstatic.com/images\?q\=tbn:ANd9GcRBj7gOowVXyV992ASsSALEu8DxoD1LznnGa9qsyYzT6VgT01FAsOQDbut6oyEurNThggE\&usqp\=CAU.jpg'),
+  filename: 'joko.jpg',
+  content_type: 'image/jpg'
+)
+m6.photo.attach(
+  io: URI.open('https://img-4.linternaute.com/PFL-vP6OOIW64lzhGpGOj_5rdQ0=/1500x/smart/4635c22a2fa74f97aa2df72b18392838/ccmcms-linternaute/39249072.jpg'),
+  filename: 'kaaris.jpg',
+  content_type: 'image/jpg'
+)
+
 puts "Deleting institutions"
 Institution.destroy_all
 
