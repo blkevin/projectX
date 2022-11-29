@@ -1,0 +1,58 @@
+#Information Banner
+<h3> <%= @mentor.first_name %> <%= @mentor.last_name %></h3>
+<p><%=@mentor.description%></p>
+<% if @mentor.photo.attached? %>
+  <%= cl_image_path @mentor.photo.key, crop: :fill %>
+<% else %>
+  'https://img.freepik.com/photos-gratuite/outils-sport_53876-138077.jpg?w=2000'
+<% end%>
+
+
+
+#Left - Carrière
+<h3>Carrière</h3>
+<%@experiences.each do |experience| %>
+  <%= experience.position %>
+  <%= experience.sector %>
+  <%= experience.industry %>
+  <%= experience.start_date %>
+  <%= experience.end_date %>
+  <%= experience.salary %>
+<%end%>
+
+
+#Left - Education
+<h3>Etudes</h3>
+<%@educations.each do |education| %>
+  <%= education.institions.name %>
+  <%= education.degree_level %>
+  <%= education.field %>
+  <%= education.start_date %>
+  <%= education.end_date %>
+<%end%>
+
+
+#Right - conversation
+<h3>Etudes</h3>
+<div class="">
+  <div class="">
+    <% @conversation.messages.each do |message| %>
+      <div id="message-<%= message.id %>">
+        <small>
+          <strong><%= message.user.first_name %></strong>
+          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </small>
+        <p><%= message.content %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+#Right - Meeting Booking
+<%=@meeting%>
+
+  <%= simple_form_for @meeting do |f| %>
+    <%= f.hidden_field :title, value: "some value" %>
+    <%= f.input :content %>
+    <%= f.submit hgoesg%>
+  <% end %>
