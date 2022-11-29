@@ -8,58 +8,23 @@
 
 require 'open-uri'
 
-# experiences
 puts "Deleting experiences"
 Experience.destroy_all
 
-puts "Creating experiences"
-# creating experiences for Paul Portier
-exp1 = Experience.create!(position: "Developpeur web", sector: "luxe", industry: "digital", start_date: "2016-01-01")
-exp2 = Experience.create!(position: "Barman", sector: "restauration", industry: "autre activité de services", start_date: "2014-01-01")
-# creating experiences for Carla Bruni
-exp3 = Experience.create!(position: "Acteur", sector: "cinema", industry: "artisanat", start_date: "1995-01-01")
-exp4 = Experience.create!(position: "Chanteur", sector: "musique", industry: "artisanat", start_date: "2000-01-01")
-# creating experiences for Théobald de Bentzmann
-exp5 = Experience.create!(position: "PDG", sector: "evenementiel", industry: "service B2B", start_date: "2017-01-01")
-exp6 = Experience.create!(position: "Analyste fianancier", sector: "finance", industry: "services financiers", start_date: "2013-01-01")
-# creating experiences for Eric Dupont-Moretti
-exp7 = Experience.create!(position: "Ministre de la Justice", sector: "publique", industry: "administration publique", start_date: "2020-01-01")
-exp8 = Experience.create!(position: "Avocat", sector: "juridique", industry: "activité juridique", start_date: "1984-01-01")
-# creating experiences for Jonathan Cohen
-exp9 = Experience.create!(position: "Acteur", sector: "cinema", industry: "artisanat", start_date: "1995-01-01")
-exp10 = Experience.create!(position: "Commercial", sector: "immobilier", industry: "activité immobilière", start_date: "2000-01-01")
-# creating experiences for Kaaris
-exp11 = Experience.create!(position: "Acteur", sector: "cinema", industry: "artisanat", start_date: "2016-01-01")
-exp12 = Experience.create!(position: "Chanteur", sector: "musique", industry: "artisanat", start_date: "2013-01-01")
-
-# institutions
-puts "Deleting institutions"
-Institution.destroy_all
-
-puts "Creating institutions"
-i1 = Institution.create!(name: "Le Wagon", description: "Accélérez votre carrière, formez-vous aux métiers de la tech")
-i2 = Institution.create!(name: "Conservatoire nationale supérieur d'art dramatique", description: "Le Conservatoire National Supérieur d’Art Dramatique – PSL (CNSAD-PSL) est un établissement d’enseignement supérieur placé sous la tutelle du ministère chargé de la culture")
-i3 = Institution.create!(name: "ESCP Business School", description: "Let's empower and lead the world in the right direction")
-i4 = Institution.create!(name: "Université Lille 2", description: "Inspirons demain")
-i5 = Institution.create!(name: "Université Paris-Panthéon-Assas", description: "Pour l'éducation, pour la nation")
-i6 = Institution.create!(name: "Les compagnons du devoir", description: "Association ouvrière des compagnons du devoir et du tour de France")
-
-# education
 puts "Deleting educations"
 Education.destroy_all
 
-puts "Creating educations"
-ed1 = Education.create!(start_date: "2016-10-20", degree_level: "Bootcamp", field: "Développement Web")
-ed2 = Education.create!(start_date: "1990-09-01", degree_level: "License", field: "Theatre & cinema")
-ed3 = Education.create!(start_date: "2000-09-01", degree_level: "Master", field: "Finance")
-ed4 = Education.create!(start_date: "1981-09-01", degree_level: "Master", field: "Droit")
-ed5 = Education.create!(start_date: "1979-09-01", degree_level: "Master", field: "Theatre")
-ed6 = Education.create!(start_date: "1999-09-01", degree_level: "License", field: "Histoire")
+puts "Deleting institutions"
+Institution.destroy_all
 
-# students
+puts "Deleting contents"
+Content.destroy_all
+
 puts "Deleting students"
-students = User.student
-students.destroy_all
+User.student.destroy_all
+
+puts "Deleting professionals"
+User.mentor.destroy_all
 
 puts "Creating students"
 s1 = User.create!(first_name: "Gabriel", last_name: "de Monts", age: 17, email: "gabriel@gmail.com", password: "123456", description: "Bachelier en quete de renseignements sur l'industrie du luxe", status: :student)
@@ -75,47 +40,47 @@ s10 = User.create!(first_name: "Baptiste", last_name: "Durand", age: 18, email: 
 
 # attaching pictures to students
 s1.photo.attach(
-  io: URI.open('https://avatars.githubusercontent.com/u/113995804\?v\=4.jpg'),
+  io: URI.open('https://avatars.githubusercontent.com/u/113995804.jpg'),
   filename: 'gabriel.jpg',
   content_type: 'image/jpg'
 )
 s2.photo.attach(
-  io: URI.open('https://avatars.githubusercontent.com/u/112618478\?v\=4.jpg'),
+  io: URI.open('https://avatars.githubusercontent.com/u/112618478.jpg'),
   filename: 'robin.jpg',
   content_type: 'image/jpg'
 )
 s3.photo.attach(
-  io: URI.open('https://avatars.githubusercontent.com/u/62299446\?v\=4.jpg'),
+  io: URI.open('https://avatars.githubusercontent.com/u/62299446.jpg'),
   filename: 'sous-chef.jpg',
   content_type: 'image/jpg'
 )
 s4.photo.attach(
-  io: URI.open('https://avatars.githubusercontent.com/u/115085959\?v\=4.jpg'),
+  io: URI.open('https://avatars.githubusercontent.com/u/115085959.jpg'),
   filename: 'mehdi.jpg',
   content_type: 'image/jpg'
 )
 s5.photo.attach(
-  io: URI.open('https://avatars.githubusercontent.com/u/115102708\?v\=4.jpg'),
+  io: URI.open('https://avatars.githubusercontent.com/u/115102708.jpg'),
   filename: 'chef.jpg',
   content_type: 'image/jpg'
 )
 s6.photo.attach(
-  io: URI.open('https://img.freepik.com/photos-gratuite/portrait-homme-blanc-isole_53876-40306.jpg\?w\=2000.jpg'),
+  io: URI.open('https://img.freepik.com/photos-gratuite/portrait-homme-blanc-isole_53876-40306.jpg'),
   filename: 'jean.jpg',
   content_type: 'image/jpg'
 )
 s7.photo.attach(
-  io: URI.open('https://img.freepik.com/photos-gratuite/beau-jeune-homme-t-shirt-blanc-poitrine-bras-croises-souriant-heureux_176420-21607.jpg\?w\=2000.jpg'),
+  io: URI.open('https://img.freepik.com/photos-gratuite/beau-jeune-homme-t-shirt-blanc-poitrine-bras-croises-souriant-heureux_176420-21607.jpg'),
   filename: 'nicolas.jpg',
   content_type: 'image/jpg'
 )
 s8.photo.attach(
-  io: URI.open('https://img.freepik.com/photos-gratuite/assez-souriant-joyeusement-femme-aux-cheveux-blonds-habille-desinvolture-regardant-satisfaction_176420-15187.jpg?w=2000.jpg'),
+  io: URI.open('https://img.freepik.com/photos-gratuite/assez-souriant-joyeusement-femme-aux-cheveux-blonds-habille-desinvolture-regardant-satisfaction_176420-15187.jpg'),
   filename: 'julie.jpg',
   content_type: 'image/jpg'
 )
 s9.photo.attach(
-  io: URI.open('https://media.gettyimages.com/id/1277534997/fr/photo/smiling-young-female-afro-owner-against-white-background.jpg?s=612x612&w=gi&k=20&c=RmxjLnIrKkKqFHzeJ0jiAFXBrd-Dk1VWlFnUS1yrs-M=.jpg'),
+  io: URI.open('https://images.pexels.com/photos/38554/girl-people-landscape-sun-38554.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
   filename: 'madeleine.jpg',
   content_type: 'image/jpg'
 )
@@ -126,10 +91,6 @@ s10.photo.attach(
 )
 
 # professionals
-puts "Deleting professionals"
-mentors = User.mentor
-mentors.destroy_all
-
 puts "Creating professionals"
 m1 = User.create!(first_name: "Paul", last_name: "Portier", age: 30, email: "paul@gmail.com", password: "123456", description: "Meilleur dev en région parisienne", status: :mentor)
 m2 = User.create!(first_name: "Carla", last_name: "Bruni", age: 58, email: "carla@gmail.com", password: "123456", description: "Actrice/chanteuse sans prétention", status: :mentor)
@@ -160,7 +121,7 @@ m4.photo.attach(
   content_type: 'image/jpg'
 )
 m5.photo.attach(
-  io: URI.open('https://encrypted-tbn0.gstatic.com/images\?q\=tbn:ANd9GcRBj7gOowVXyV992ASsSALEu8DxoD1LznnGa9qsyYzT6VgT01FAsOQDbut6oyEurNThggE\&usqp\=CAU.jpg'),
+  io: URI.open('https://sfractus-images.cleo.media/unsafe/388x0:1753x1365/641x0/images/Jonathan-Cohen-dans-La-Flamme-3439.jpg'),
   filename: 'joko.jpg',
   content_type: 'image/jpg'
 )
@@ -170,41 +131,40 @@ m6.photo.attach(
   content_type: 'image/jpg'
 )
 
-# content
-puts "Deleting contents"
-Content.destroy_all
+puts "Creating experiences"
+# creating experiences for Paul Portier
+exp1 = Experience.create!(user_id: m1.id, position: "Developpeur web", company: "Le Wagon", sector: "luxe", industry: "digital", start_date: "2016-01-01")
+exp2 = Experience.create!(user_id: m1.id, position: "Barman", company: "Café Pop", sector: "restauration", industry: "autre activité de services", start_date: "2014-01-01")
+# creating experiences for Carla Bruni
+exp3 = Experience.create!(user_id: m2.id, position: "Acteur", company: "Mediapro", sector: "cinema", industry: "artisanat", start_date: "1995-01-01")
+exp4 = Experience.create!(user_id: m2.id, position: "Chanteur", company: "Universal Music", sector: "musique", industry: "artisanat", start_date: "2000-01-01")
+# creating experiences for Théobald de Bentzmann
+exp5 = Experience.create!(user_id: m3.id, position: "PDG", company: "Alchimii", sector: "evenementiel", industry: "service B2B", start_date: "2017-01-01")
+exp6 = Experience.create!(user_id: m3.id, position: "Analyste fianancier", company: "Barclays", sector: "finance", industry: "services financiers", start_date: "2013-01-01")
+# creating experiences for Eric Dupont-Moretti
+exp7 = Experience.create!(user_id: m4.id, position: "Ministre de la Justice", company: "Gouvernement", sector: "publique", industry: "administration publique", start_date: "2020-01-01")
+exp8 = Experience.create!(user_id: m4.id, position: "Avocat", company: "Dupont-Moretti Avocat", sector: "juridique", industry: "profession libérale", start_date: "1984-01-01")
+# creating experiences for Jonathan Cohen
+exp9 = Experience.create!(user_id: m5.id, position: "Acteur", company: "Canal+", sector: "cinema", industry: "artisanat", start_date: "1995-01-01")
+exp10 = Experience.create!(user_id: m5.id, position: "Commercial", company: "La Foret", sector: "immobilier", industry: "activité immobilière", start_date: "2000-01-01")
+# creating experiences for Kaaris
+exp11 = Experience.create!(user_id: m6.id, position: "Acteur", company: "Labyrinthe films", sector: "cinema", industry: "artisanat", start_date: "2016-01-01")
+exp12 = Experience.create!(user_id: m6.id, position: "Chanteur", company: "Universal Music", sector: "musique", industry: "artisanat", start_date: "2013-01-01")
+
+puts "Creating institutions"
+i1 = Institution.create!(name: "Le Wagon", description: "Accélérez votre carrière, formez-vous aux métiers de la tech")
+i2 = Institution.create!(name: "Conservatoire nationale supérieur d'art dramatique", description: "Le Conservatoire National Supérieur d’Art Dramatique – PSL (CNSAD-PSL) est un établissement d’enseignement supérieur placé sous la tutelle du ministère chargé de la culture")
+i3 = Institution.create!(name: "ESCP Business School", description: "Let's empower and lead the world in the right direction")
+i4 = Institution.create!(name: "Université Lille 2", description: "Inspirons demain")
+i5 = Institution.create!(name: "Université Paris-Panthéon-Assas", description: "Pour l'éducation, pour la nation")
+i6 = Institution.create!(name: "Les compagnons du devoir", description: "Association ouvrière des compagnons du devoir et du tour de France")
+
+puts "Creating educations"
+ed1 = Education.create!(user_id: m1.id, institution_id: i1.id, start_date: "2016-10-20", degree_level: "Bootcamp", field: "Développement Web")
+ed2 = Education.create!(user_id: m2.id, institution_id: i2.id, start_date: "1990-09-01", degree_level: "License", field: "Theatre & cinema")
+ed3 = Education.create!(user_id: m3.id, institution_id: i3.id, start_date: "2000-09-01", degree_level: "Master", field: "Finance")
+ed4 = Education.create!(user_id: m4.id, institution_id: i4.id, start_date: "1981-09-01", degree_level: "Master", field: "Droit")
+ed5 = Education.create!(user_id: m5.id, institution_id: i2.id, start_date: "1979-09-01", degree_level: "Master", field: "Theatre")
+ed6 = Education.create!(user_id: m6.id, institution_id: i5.id, start_date: "1999-09-01", degree_level: "License", field: "Histoire")
 
 puts "Creating contents"
-
-# matching experiences with mentors
-exp1.user_id = m1.id
-exp2.user_id = m1.id
-exp3.user_id = m2.id
-exp4.user_id = m2.id
-exp5.user_id = m3.id
-exp6.user_id = m3.id
-exp7.user_id = m4.id
-exp8.user_id = m4.id
-exp9.user_id = m5.id
-exp10.user_id = m5.id
-exp11.user_id = m6.id
-exp12.user_id = m6.id
-
-# matching educations with institutions and mentors
-ed1.institution_id = i1.id
-ed1.user_id = m1.id
-
-ed2.institution_id = i2.id
-ed2.user_id = m2.id
-
-ed3.institution_id = i3.id
-ed3.user_id = m3.id
-
-ed4.institution_id = i4.id
-ed4.user_id = m4.id
-
-ed5.institution_id = i2.id
-ed5.user_id = m5.id
-
-ed6.institution_id = i5.id
-ed6.user_id = m6.id
