@@ -1,39 +1,36 @@
 class ExperiencesController < ApplicationController
-  before_action :set_experience
+  before_action :set_experience, only: [:update, :destroy]
 
   def new
     @experience = Experience.new
   end
 
   def create
-    raise
-    @experience = Experience.new() #TBD
-    @experience.user_id = @current_user.id
+    @experience = Experience.new(experience_params)
+    @experience.user_id = current_user.id
     if @experience.save
-      render # mentor creation form
+      redirect_to "/users/sign_up"
     else
       flash.alert = "Tous les champs doivent être complétés 🛠️"
     end
   end
 
   def update
-    @experience = Experience.find(params[:id])
-    @experience.update(xxx)
-    redirect_to #XXX
+    @experience.update(experience_params)
+    redirect_to dashboard_path
   end
 
   def destroy
-    @experience = Experience.find(params[:id])
     @experience.destroy
   end
 
 private
 
   def experience_params
-    params.require(:experience).permit(:start_date, :end_date, :position, :sector, :industry)
+    params.require(:experience).permit(:start_date, :end_date, :position, :sector, :industry, :company)
   end
 
   def set_experience
-    #xxx
+    @experience = Experience.find(params[:id])
   end
 end
