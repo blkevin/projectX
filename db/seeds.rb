@@ -8,6 +8,51 @@
 
 require 'open-uri'
 
+puts "Deleting experiences"
+Experience.destroy_all
+
+puts "Creating experiences"
+# creating experiences for Paul Portier
+exp1 = Experience.create!(position: "Developpeur web", sector: "luxe", industry: "digital", start_date: "2016-01-01")
+exp2 = Experience.create!(position: "Barman", sector: "restauration", industry: "autre activité de services", start_date: "2014-01-01")
+# creating experiences for Carla Bruni
+exp3 = Experience.create!(position: "Acteur", sector: "cinema", industry: "artisanat", start_date: "1995-01-01")
+exp4 = Experience.create!(position: "Chanteur", sector: "musique", industry: "artisanat", start_date: "2000-01-01")
+# creating experiences for Théobald de Bentzmann
+exp5 = Experience.create!(position: "PDG", sector: "evenementiel", industry: "service B2B", start_date: "2017-01-01")
+exp6 = Experience.create!(position: "Analyste fianancier", sector: "finance", industry: "services financiers", start_date: "2013-01-01")
+# creating experiences for Eric Dupont-Moretti
+exp7 = Experience.create!(position: "Ministre de la Justice", sector: "publique", industry: "administration publique", start_date: "2020-01-01")
+exp8 = Experience.create!(position: "Avocat", sector: "juridique", industry: "activité juridique", start_date: "1984-01-01")
+# creating experiences for Jonathan Cohen
+exp9 = Experience.create!(position: "Acteur", sector: "cinema", industry: "artisanat", start_date: "1995-01-01")
+exp10 = Experience.create!(position: "Commercial", sector: "immobilier", industry: "activité immobilière", start_date: "2000-01-01")
+# creating experiences for Kaaris
+exp11 = Experience.create!(position: "Acteur", sector: "cinema", industry: "artisanat", start_date: "2016-01-01")
+exp12 = Experience.create!(position: "Chanteur", sector: "musique", industry: "artisanat", start_date: "2013-01-01")
+
+puts "Deleting institutions"
+Institution.destroy_all
+
+puts "Creating institutions"
+i1 = Institution.create!(name: "Le Wagon", description: "Accélérez votre carrière, formez-vous aux métiers de la tech")
+i2 = Institution.create!(name: "Conservatoire nationale supérieur d'art dramatique", description: "Le Conservatoire National Supérieur d’Art Dramatique – PSL (CNSAD-PSL) est un établissement d’enseignement supérieur placé sous la tutelle du ministère chargé de la culture")
+i3 = Institution.create!(name: "ESCP Business School", description: "Let's empower and lead the world in the right direction")
+i4 = Institution.create!(name: "Université Lille 2", description: "Inspirons demain")
+i5 = Institution.create!(name: "Université Paris-Panthéon-Assas", description: "Pour l'éducation, pour la nation")
+i6 = Institution.create!(name: "Les compagnons du devoir", description: "Association ouvrière des compagnons du devoir et du tour de France")
+
+puts "Deleting educations"
+Education.destroy_all
+
+puts "Creating educations"
+ed1 = Education.create!(start_date: "2016-10-20", degree_level: "Bootcamp", field: "Développement Web")
+ed2 = Education.create!(start_date: "1990-09-01", degree_level: "License", field: "Theatre & cinema")
+ed3 = Education.create!(start_date: "2000-09-01", degree_level: "Master", field: "Finance")
+ed4 = Education.create!(start_date: "2000-09-01", degree_level: "Master", field: "Droit")
+ed5 = Education.create!(start_date: "1979-09-01", degree_level: "Master", field: "Theatre")
+ed6 = Education.create!(start_date: "1979-09-01", degree_level: "License", field: "Histoire")
+
 puts "Deleting students"
 students = User.student
 students.destroy_all
@@ -94,51 +139,6 @@ m6.photo.attach(
   filename: 'kaaris.jpg',
   content_type: 'image/jpg'
 )
-
-puts "Deleting institutions"
-Institution.destroy_all
-
-puts "Creating institutions"
-i1 = Institution.create!(name: "Le Wagon", description: "Accélérez votre carrière, formez-vous aux métiers de la tech")
-i2 = Institution.create!(name: "Conservatoire nationale supérieur d'art dramatique", description: "Le Conservatoire National Supérieur d’Art Dramatique – PSL (CNSAD-PSL) est un établissement d’enseignement supérieur placé sous la tutelle du ministère chargé de la culture")
-i3 = Institution.create!(name: "ESCP Business School", description: "Let's empower and lead the world in the right direction")
-i4 = Institution.create!(name: "Université Lille 2", description: "Inspirons demain")
-i5 = Institution.create!(name: "Université Paris-Panthéon-Assas", description: "Pour l'éducation, pour la nation")
-i6 = Institution.create!(name: "Les compagnons du devoir", description: "Association ouvrière des compagnons du devoir et du tour de France")
-
-puts "Deleting educations"
-Education.destroy_all
-
-puts "Creating educations"
-ed1 = Education.create!(start_date: "2016-10-20", degree_level: "Bootcamp", field: "Développement Web")
-ed2 = Education.create!(start_date: "1990-09-01", degree_level: "License", field: "Theatre & cinema")
-ed3 = Education.create!(start_date: "2000-09-01", degree_level: "Master", field: "Finance")
-ed4 = Education.create!(start_date: "2000-09-01", degree_level: "Master", field: "Droit")
-ed5 = Education.create!(start_date: "1979-09-01", degree_level: "Master", field: "Theatre")
-ed6 = Education.create!(start_date: "1979-09-01", degree_level: "License", field: "Histoire")
-
-puts "Deleting experiences"
-Experience.destroy_all
-
-puts "Creating experiences"
-# creating experiences for Paul Portier
-exp1 = Experience.create!(position: "Developpeur web", sector: "luxe", industry: "digital", start_date: "2016-01-01")
-exp2 = Experience.create!(position: "Barman", sector: "restauration", industry: "autre activité de services", start_date: "2014-01-01")
-# creating experiences for Carla Bruni
-exp3 = Experience.create!(position: "Acteur", sector: "cinema", industry: "artisanat", start_date: "1995-01-01")
-exp4 = Experience.create!(position: "Chanteur", sector: "musique", industry: "artisanat", start_date: "2000-01-01")
-# creating experiences for Théobald de Bentzmann
-exp5 = Experience.create!(position: "PDG", sector: "evenementiel", industry: "service B2B", start_date: "2017-01-01")
-exp6 = Experience.create!(position: "Analyste fianancier", sector: "finance", industry: "services financiers", start_date: "2013-01-01")
-# creating experiences for Eric Dupont-Moretti
-exp7 = Experience.create!(position: "Ministre de la Justice", sector: "publique", industry: "administration publique", start_date: "2020-01-01")
-exp8 = Experience.create!(position: "Avocat", sector: "juridique", industry: "activité juridique", start_date: "1984-01-01")
-# creating experiences for Jonathan Cohen
-exp9 = Experience.create!(position: "Acteur", sector: "cinema", industry: "artisanat", start_date: "1995-01-01")
-exp10 = Experience.create!(position: "Commercial", sector: "immobilier", industry: "activité immobilière", start_date: "2000-01-01")
-# creating experiences for Kaaris
-exp11 = Experience.create!(position: "Acteur", sector: "cinema", industry: "artisanat", start_date: "2016-01-01")
-exp12 = Experience.create!(position: "Chanteur", sector: "musique", industry: "artisanat", start_date: "2013-01-01")
 
 # matching experiences with mentors
 exp1.user_id = m1.id
