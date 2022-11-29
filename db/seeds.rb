@@ -52,9 +52,9 @@ puts "Creating educations"
 ed1 = Education.create!(start_date: "2016-10-20", degree_level: "Bootcamp", field: "Développement Web")
 ed2 = Education.create!(start_date: "1990-09-01", degree_level: "License", field: "Theatre & cinema")
 ed3 = Education.create!(start_date: "2000-09-01", degree_level: "Master", field: "Finance")
-ed4 = Education.create!(start_date: "2000-09-01", degree_level: "Master", field: "Droit")
+ed4 = Education.create!(start_date: "1981-09-01", degree_level: "Master", field: "Droit")
 ed5 = Education.create!(start_date: "1979-09-01", degree_level: "Master", field: "Theatre")
-ed6 = Education.create!(start_date: "1979-09-01", degree_level: "License", field: "Histoire")
+ed6 = Education.create!(start_date: "1999-09-01", degree_level: "License", field: "Histoire")
 
 # students
 puts "Deleting students"
@@ -97,6 +97,31 @@ s4.photo.attach(
 s5.photo.attach(
   io: URI.open('https://avatars.githubusercontent.com/u/115102708\?v\=4.jpg'),
   filename: 'chef.jpg',
+  content_type: 'image/jpg'
+)
+s6.photo.attach(
+  io: URI.open('https://img.freepik.com/photos-gratuite/portrait-homme-blanc-isole_53876-40306.jpg\?w\=2000.jpg'),
+  filename: 'jean.jpg',
+  content_type: 'image/jpg'
+)
+s7.photo.attach(
+  io: URI.open('https://img.freepik.com/photos-gratuite/beau-jeune-homme-t-shirt-blanc-poitrine-bras-croises-souriant-heureux_176420-21607.jpg\?w\=2000.jpg'),
+  filename: 'nicolas.jpg',
+  content_type: 'image/jpg'
+)
+s8.photo.attach(
+  io: URI.open('https://img.freepik.com/photos-gratuite/assez-souriant-joyeusement-femme-aux-cheveux-blonds-habille-desinvolture-regardant-satisfaction_176420-15187.jpg?w=2000.jpg'),
+  filename: 'julie.jpg',
+  content_type: 'image/jpg'
+)
+s9.photo.attach(
+  io: URI.open('https://media.gettyimages.com/id/1277534997/fr/photo/smiling-young-female-afro-owner-against-white-background.jpg?s=612x612&w=gi&k=20&c=RmxjLnIrKkKqFHzeJ0jiAFXBrd-Dk1VWlFnUS1yrs-M=.jpg'),
+  filename: 'madeleine.jpg',
+  content_type: 'image/jpg'
+)
+s10.photo.attach(
+  io: URI.open('https://thumbs.dreamstime.com/b/portrait-d-homme-arabe-95179443.jpg'),
+  filename: 'baptiste.jpg',
   content_type: 'image/jpg'
 )
 
