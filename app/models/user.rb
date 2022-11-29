@@ -14,9 +14,10 @@ class User < ApplicationRecord
   has_one_attached :photo
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :age, presence: true
   validates :description, presence: true
   validates :status, presence: true
-  validates :description, length: { minimum: 15 }
 
   scope :mentors, -> { where(status: :mentor) }
 end
+    
