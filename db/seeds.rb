@@ -45,7 +45,7 @@ s4.photo.attach(
   filename: 'mehdi.jpg',
   content_type: 'image/jpg'
 )
-s4.photo.attach(
+s5.photo.attach(
   io: URI.open('https://avatars.githubusercontent.com/u/115102708\?v\=4.jpg'),
   filename: 'chef.jpg',
   content_type: 'image/jpg'
