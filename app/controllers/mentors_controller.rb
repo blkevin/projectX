@@ -10,12 +10,12 @@ class MentorsController < ApplicationController
     @experiences = @mentor.experiences
     @educations = @mentor.educations
     @meeting = Meeting.new(mentor_id: @mentor.id)
-    @conversation = Conversation.find(mentor_id: @mentor.id)
+    @conversation = Conversation.find_by(mentor_id: @mentor.id)
   end
 
   private
 
   def set_mentor
-    @mentor = Mentor.find(params[:id])
+    @mentor = User.find(params[:id])
   end
 end

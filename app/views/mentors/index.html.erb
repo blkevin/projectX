@@ -1,3 +1,6 @@
+<%= @mentors.first %>
+
+
 <% @mentors.each do |mentor| %>
         <%= link_to mentor_path(mentor) do %>
           <div class="">
@@ -8,7 +11,7 @@
               <% end%>
               <h3> <%= mentor.first_name %> <%= mentor.last_name %></h3>
               <ul>
-                <li> Etudes: <%= mentor.educations.last.institions.name %></li>
+                <li> Etudes: <%= mentor.educations.last.institution.name %></li>
                 <li> Age: <%= mentor.age %></li>
                 <li> Poste actuel: <%= mentor.experiences.last.position %></li>
                 <li> Secteur: <%= mentor.experiences.last.sector %></li>
