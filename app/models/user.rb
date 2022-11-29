@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  enum status: [ :student, :mentor ]
+  enum status: %i[student mentor]
   has_many :contents
   has_many :experiences
   has_many :educations
@@ -17,4 +17,6 @@ class User < ApplicationRecord
   validates :description, presence: true
   validates :status, presence: true
   validates :description, length: { minimum: 15 }
+
+  scope :mentors, -> { where(status: :mentor) }
 end
