@@ -1,0 +1,22 @@
+<% @mentors.each do |mentor| %>
+        <%= link_to mentor_path(mentor) do %>
+          <div class="">
+              <% if mentor.photo.attached? %>
+                <%= cl_image_path mentor.photo.key, crop: :fill %>
+              <% else %>
+                'https://img.freepik.com/photos-gratuite/outils-sport_53876-138077.jpg?w=2000'
+              <% end%>
+              <h3> <%= mentor.first_name %> <%= mentor.last_name %></h3>
+              <ul>
+                <li> Etudes: <%= mentor.educations.last.institions.name %></li>
+                <li> Age: <%= mentor.age %></li>
+                <li> Poste actuel: <%= mentor.experiences.last.position %></li>
+                <li> Secteur: <%= mentor.experiences.last.sector %></li>
+                <li> Industrie: <%= mentor.experiences.last.industry %></li>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </ul>
