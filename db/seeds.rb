@@ -8,6 +8,7 @@
 
 require 'open-uri'
 
+# experiences
 puts "Deleting experiences"
 Experience.destroy_all
 
@@ -31,6 +32,7 @@ exp10 = Experience.create!(position: "Commercial", sector: "immobilier", industr
 exp11 = Experience.create!(position: "Acteur", sector: "cinema", industry: "artisanat", start_date: "2016-01-01")
 exp12 = Experience.create!(position: "Chanteur", sector: "musique", industry: "artisanat", start_date: "2013-01-01")
 
+# institutions
 puts "Deleting institutions"
 Institution.destroy_all
 
@@ -42,6 +44,7 @@ i4 = Institution.create!(name: "Université Lille 2", description: "Inspirons de
 i5 = Institution.create!(name: "Université Paris-Panthéon-Assas", description: "Pour l'éducation, pour la nation")
 i6 = Institution.create!(name: "Les compagnons du devoir", description: "Association ouvrière des compagnons du devoir et du tour de France")
 
+# education
 puts "Deleting educations"
 Education.destroy_all
 
@@ -53,6 +56,7 @@ ed4 = Education.create!(start_date: "2000-09-01", degree_level: "Master", field:
 ed5 = Education.create!(start_date: "1979-09-01", degree_level: "Master", field: "Theatre")
 ed6 = Education.create!(start_date: "1979-09-01", degree_level: "License", field: "Histoire")
 
+# students
 puts "Deleting students"
 students = User.student
 students.destroy_all
@@ -96,6 +100,7 @@ s5.photo.attach(
   content_type: 'image/jpg'
 )
 
+# professionals
 puts "Deleting professionals"
 mentors = User.mentor
 mentors.destroy_all
@@ -139,6 +144,12 @@ m6.photo.attach(
   filename: 'kaaris.jpg',
   content_type: 'image/jpg'
 )
+
+# content
+puts "Deleting contents"
+Content.destroy_all
+
+puts "Creating contents"
 
 # matching experiences with mentors
 exp1.user_id = m1.id
