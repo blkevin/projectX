@@ -13,10 +13,29 @@ class PagesController < ApplicationController
   private
 
   def user_conversations
-    current_user.conversations
+    @conversations = current_user.conversations
   end
 
   def user_meetings
-    current_user.meetings
+    @meetings = current_user.meetings
   end
+
+  def conversation_mentors
+    @conversation_mentors = []
+    current_user.conversations.each do |conversation|
+      mentor = Mentor.find(conversation.mentor_id)
+      @conversation_mentors << mentor
+    end
+    return @conversation_mentors
+  end
+
+  def conversation_students
+    @conversation_students = []
+    current_user.conversations.each do |conversation|
+      student = student.find(conversation.student_id)
+      @conversation_students << student
+    end
+    return @conversation_students
+  end
+
 end
