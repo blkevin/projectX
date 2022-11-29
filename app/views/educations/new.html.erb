@@ -1,0 +1,7 @@
+ <%= simple_form_for(@education) do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :degree_level %>
+    <%= f.input :field %>
+    <%= f.submit 'Create education', class: "btn-pink"%>
+  <% end %>
