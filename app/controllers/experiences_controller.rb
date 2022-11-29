@@ -6,6 +6,7 @@ class ExperiencesController < ApplicationController
   end
 
   def create
+    raise
     @experience = Experience.new() #TBD
     @experience.user_id = @current_user.id
     if @experience.save

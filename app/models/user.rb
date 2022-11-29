@@ -16,7 +16,6 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :description, presence: true
   validates :status, presence: true
-  validates :description, length: { minimum: 15 }
 
   scope :mentors, -> { where(status: :mentor) }
 end

@@ -4,6 +4,14 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :first_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "What is your first name?" }%>
+    <%= f.input :last_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "What is your last name?" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -15,6 +23,10 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :description,
+                required: true,
+                input_html: { autocomplete: "present yourself in a few words!" } %>
+    <%= f.collection_radio_buttons :status, [["student", 'I am a student'], ["mentor", 'I am a mentor']], :first, :last %>
   </div>
 
   <div class="form-actions">
