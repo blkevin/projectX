@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_140746) do
+=======
 ActiveRecord::Schema[7.0].define(version: 2022_11_29_144033) do
+>>>>>>> master
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -82,6 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_144033) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "company"
     t.index ["user_id"], name: "index_experiences_on_user_id"
   end
 
@@ -98,10 +103,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_144033) do
     t.bigint "mentor_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "start_date"
-    t.string "end_date"
-    t.string "start_time"
-    t.string "end_time"
+    t.string "starting"
+    t.string "ending"
     t.index ["mentor_id"], name: "index_meetings_on_mentor_id"
     t.index ["student_id"], name: "index_meetings_on_student_id"
   end
