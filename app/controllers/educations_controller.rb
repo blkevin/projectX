@@ -1,5 +1,6 @@
 class EducationsController < ApplicationController
   def new
+    @institutions = Institution.all
     @education = Education.new
   end
 
@@ -7,10 +8,8 @@ class EducationsController < ApplicationController
     @education = Education.new(education_params)
     @education.user_id = current_user.id
     if @education.save
-
       redirect_to edit_user_registration_path
     else
-      raise
       render :new, status: :unprocessable_entity
     end
   end
@@ -18,6 +17,6 @@ class EducationsController < ApplicationController
   private
 
   def education_params
-    params.require(:education).permit(:start_date, :end_date, :degree_level, :field)
+    params.require(:education).permit(:start_date, :end_date, :degree_level, :field, :institution_id)
   end
 end
