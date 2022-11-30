@@ -15,6 +15,7 @@ class MentorsController < ApplicationController
     @educations = @mentor.educations
     @meeting = Meeting.new
     @conversation = Conversation.where(mentor: @mentor).find_or_create_by(student: current_user)
+    @message = Message.new
   end
 
   private

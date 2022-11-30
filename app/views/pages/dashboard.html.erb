@@ -1,45 +1,52 @@
 <h1>Welcome <% @user %></h1>
 
 <h2>Here are your conversations</h2>
-  <% if @user.status = "student" %>
-    <ul>
-      <% @conversation_mentors.each do |mentor| %>
+  <ul>
+    <% if @user.status == "student" %>
+      <% @conversations.each do |conversation| %>
+        <%# Add photo afterwards %>
+        <div>
+          <li> Prénom = <%= User.find(conversation.mentor_id).first_name %> </li>
+          <li> Nom = <%= User.find(conversation.mentor_id).last_name %> </li>
+          <li> Age = <%= User.find(conversation.mentor_id).age %> </li>
+          <%# <li> Poste actuel = <%= User.find(conversation.mentor_id).experiences.first.position %> </li>
+          <%# <li> Entreprise actuelle = <%= User.find(conversation.mentor_id).experiences.first.company %> </li>
+        </div>
+      <% end %>
+    <% else %>
+      <% @conversations.each do |conversation| %>
       <%# Add photo afterwards %>
-      <li> Prénom = <%= mentor.first_name %> </li>
-      <li> Nom = <%= mentor.last_name %> </li>
-      <li> Age = <%= mentor.age %> </li>
-      <li> Poste actuel = <%= mentor.experiences.first.position %> </li>
-      <li> Entreprise actuelle = <%= mentor.experiences.first.company %> </li>
-    </ul>
-  <% end %>
-  <% if @user.status = "mentor" %>
-    <ul>
-      <% @conversation_students.each do |student| %>
-      <%# Add photo afterwards %>
-      <li> Prénom = <%= student.first_name %> </li>
-      <li> Nom = <%= student.last_name %> </li>
-      <li> Age = <%= student.age %> </li>
-    </ul>
-  <% end %>
+      <div>
+        <li> Prénom = <%= User.find(conversation.student_id).first_name %> </li>
+        <li> Nom = <%= User.find(conversation.student_id).last_name %> </li>
+        <li> Age = <%= User.find(conversation.student_id).age %> </li>
+      </div>
+      <% end %>
+    <% end %>
+  </ul>
 
 <h2>Here are your meetings</h2>
-  <% if @user.status = "student" %>
-    <ul>
+  <ul>
+    <% if @user.status == "student" %>
       <% @meetings.each do |meeting| %>
+      <div>
       <%# Add photo afterwards %>
-      <li> Prénom = <%= Mentor.find(meeting.mentor_id).first_name %> </li>
-      <li> Nom = <%= Mentor.find(meeting.mentor_id).last_name %> </li>
-      <li> Age = <%= Mentor.find(meeting.mentor_id).age %> </li>
-      <li> Le = <%= meeting.starting %> </li>
-    </ul>
-  <% end %>
-  <% if @user.status = "mentor" %>
-    <ul>
+        <li> Prénom = <%= User.find(meeting.mentor_id).first_name %> </li>
+        <li> Nom = <%= User.find(meeting.mentor_id).last_name %> </li>
+        <li> Age = <%= User.find(meeting.mentor_id).age %> ans </li>
+        <li> Le = <%= meeting.starting %> </li>
+        <% raise %>
+      </div>
+      <% end %>
+    <% else %>
       <% @meetings.each do |meeting| %>
+      <div>
       <%# Add photo afterwards %>
-      <li> Prénom = <%= Student.find(meeting.student_id).first_name %> </li>
-      <li> Nom = <%= Student.find(meeting.student_id).last_name %> </li>
-      <li> Age = <%= Student.find(meeting.student_id).age %> </li>
-      <li> Le = <%= meeting.starting %> </li>
-    </ul>
-  <% end %>
+        <li> Prénom = <%= User.find(meeting.student_id).first_name %> </li>
+        <li> Nom = <%= User.find(meeting.student_id).last_name %> </li>
+        <li> Age = <%= User.find(meeting.student_id).age %> </li>
+        <li> Le = <%= meeting.starting %> </li>
+      </div>
+      <% end %>
+    <% end %>
+  </ul>

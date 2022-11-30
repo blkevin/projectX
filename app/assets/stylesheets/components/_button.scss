@@ -1,0 +1,33 @@
+.btn-home {
+  margin-top: 20px;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: $light-purple;
+  color: $dark-purple;
+  font-size: 18px;
+  border-radius: 50px;
+  border: 1px solid $purple;
+  font-weight: bold;
+  margin-top: 40px;
+  transition: all 0.5s;
+}
+
+.btn-home:hover {
+  background-color: $purple;
+  color: $white;
+  transition: all 0.5s;
+  margin-top: 50px;
+}
+
+.btn-purple {
+  color: $white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background:$purple;
+  border: 1px solid $purple;
+}
+
+.btn-purple:hover {
+  background: linear-gradient($purple, $light-purple);
+  transition: 0.3s ease;
+}
