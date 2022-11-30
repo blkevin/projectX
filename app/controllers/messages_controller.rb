@@ -5,7 +5,12 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.conversation_id = @conversation.id
     @message.user_id = current_user.id
-    @message.save
+    @mentor = User.find(@message.conversation.mentor_id)
+    if @message.save
+      redirect_to mentor_path(@mentor)
+    else
+      render "chatrooms/show", status: :unprocessable_entity
+    end
   end
 
   private
