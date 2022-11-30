@@ -9,8 +9,9 @@ class MentorsController < ApplicationController
     @contents = @mentor.contents
     @experiences = @mentor.experiences
     @educations = @mentor.educations
-    @meeting = Meeting.new(mentor_id: @mentor.id)
-    @conversation = Conversation.find_by(mentor_id: @mentor.id)
+    @meeting = Meeting.new
+    @conversation = Conversation.where(mentor: @mentor).find_or_create_by(student: current_user)
+    @message = Message.new
   end
 
   private

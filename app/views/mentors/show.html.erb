@@ -1,15 +1,17 @@
 #Information Banner
+
 <h3> <%= @mentor.first_name %> <%= @mentor.last_name %></h3>
 <p><%=@mentor.description%></p>
 <% if @mentor.photo.attached? %>
   <%= cl_image_path @mentor.photo.key, crop: :fill %>
 <% else %>
-  'https://img.freepik.com/photos-gratuite/outils-sport_53876-138077.jpg?w=2000'
+  <p>No picture attached</p>
 <% end%>
 
 
 
 #Left - Carrière
+
 <h3>Carrière</h3>
 <%@experiences.each do |experience| %>
   <%= experience.position %>
@@ -22,9 +24,10 @@
 
 
 #Left - Education
+
 <h3>Etudes</h3>
 <%@educations.each do |education| %>
-  <%= education.institions.name %>
+  <%= education.institution.name %>
   <%= education.degree_level %>
   <%= education.field %>
   <%= education.start_date %>
@@ -33,7 +36,7 @@
 
 
 #Right - conversation
-<h3>Etudes</h3>
+
 <div class="">
   <div class="">
     <% @conversation.messages.each do |message| %>
@@ -48,11 +51,41 @@
   </div>
 </div>
 
-#Right - Meeting Booking
-<%=@meeting%>
+<%= simple_form_for [@conversation, @message],
+  html: {class: "d-flex"} do |f|
+%>
+  <%= f.input :content,
+    label: false,
+    placeholder: "Message",
+    wrapper_html: {class: "flex-grow-1"}
+  %>
+  <%= f.submit "Envoyer", class: "btn btn-primary mb-3" %>
+<% end %>
 
-  <%= simple_form_for @meeting do |f| %>
-    <%= f.hidden_field :title, value: "some value" %>
-    <%= f.input :content %>
-    <%= f.submit hgoesg%>
-  <% end %>
+#Right - Meeting Booking
+
+
+
+<%pattern = "%H:%M"  %>
+<div class="d-flex">
+  <% time_slots.each_with_index do |slot, i| %>
+    <% if i % 7 == 0 || i == 0 %>
+      <% unless i == 0 %>
+      </div>
+      <% end %>
+      <div class="d-flex flex-column" style="width: 20%;">
+    <% end %>
+      <%= simple_form_for @meeting do |f| %>
+        <%= f.hidden_field :starting, value: DateTime.parse(slot) %>
+        <%= f.hidden_field :ending, value: DateTime.parse(slot) + 1.hour %>
+        <%= f.hidden_field :mentor_id, value: @mentor.id %>
+        <% if Meeting.all.where(starting: DateTime.parse(slot)).empty?  %>
+          <%= f.submit DateTime.parse(slot).strftime(pattern), class: "btn btn-primary" %>
+        <% else %>
+          <%= f.submit DateTime.parse(slot).strftime(pattern), class: "btn btn-primary disabled" %>
+
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
