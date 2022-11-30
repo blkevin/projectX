@@ -6,11 +6,12 @@ class MeetingsController < ApplicationController
 
   def create
     @meeting = Meeting.new(meeting_params)
+    @mentor = User.find(@meeting.mentor_id)
     @meeting.student_id = current_user.id
-    @student = User.find(current_user.id)
+    @meeting.mentor_id = @mentor.id
     @meeting.save
+    redirect_to mentor_path(@meeting)
     flash.alert = "C'est réservé 🎉"
-    # render_to XXX
   end
 
   def edit
