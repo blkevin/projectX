@@ -1,5 +1,6 @@
 <ul>
   <% @contents.each do |content| %>
     <li><%= content.title %></li>
+    <li> <%= cl_video_tag(content.title) %></li>
   <% end %>
 </ul>

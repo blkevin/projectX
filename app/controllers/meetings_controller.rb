@@ -1,6 +1,4 @@
 class MeetingsController < ApplicationController
-  before_action :set_student, only: [:create]
-  before_action :set_mentor, only: [:create]
 
   def new
     @meeting = Meeting.new
@@ -9,8 +7,9 @@ class MeetingsController < ApplicationController
   def create
     @meeting = Meeting.new(meeting_params)
     @meeting.student_id = current_user.id
+    @student = User.find(current_user.id)
     @meeting.save
-    flash.alert = "Ton rendez-vous est bien réservé 🎉"
+    flash.alert = "C'est réservé 🎉"
     # render_to XXX
   end
 
@@ -20,11 +19,7 @@ class MeetingsController < ApplicationController
   private
 
   def set_student
-    @student = User.find(params[:student_id])
-  end
-
-  def set_mentor
-    @mentor = User.find(params[:mentor_id])
+    raise
   end
 
   def meeting_params

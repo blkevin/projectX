@@ -14,9 +14,11 @@ class ContentsController < ApplicationController
 
   def create
     @content = Content.new(content_params)
+    @content.user_id = current_user.id
     if @content.save
       redirect_to dashboard_path
     else
+      raise
       render :new, status: :unprocessable_entity
     end
   end
@@ -32,4 +34,5 @@ class ContentsController < ApplicationController
   def content_params
     params.require(:content).permit(:title)
   end
+
 end

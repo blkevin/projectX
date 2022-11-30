@@ -18,7 +18,7 @@ class PagesController < ApplicationController
     if current_user.status == "student"
       @conversations = current_user.conversations_as_student
     else
-      @conversations = current_user.conversation_as_mentor
+      @conversations = current_user.conversations_as_mentor
     end
     return @conversations
   end
@@ -27,7 +27,7 @@ class PagesController < ApplicationController
     if current_user.status == "student"
       @meetings = current_user.meetings_as_student
     else
-      @meetings = current_user.meeting_as_mentor
+      @meetings = current_user.meetings_as_mentor
     end
     return @meetings
   end

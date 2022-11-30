@@ -6,6 +6,7 @@ class EducationsController < ApplicationController
   def create
     @education = Education.new(education_params)
     if @education.save
+      raise
       redirect_to edit_user_registration_path
     else
       render :new, status: :unprocessable_entity
