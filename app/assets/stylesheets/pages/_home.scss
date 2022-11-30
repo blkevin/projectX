@@ -1,67 +1,24 @@
 // Specific CSS for your home-page
-.banner {
-  background-color: #4158D0;
-  background-image: linear-gradient(43deg, #BFBCFD 0%, #FAF3EE 46%, #FAC9A3 100%);
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-.btn-home {
-  margin-top: 20px;
-  padding: 10px 30px;
-  text-decoration: none;
-  background-color: #BFBCFD;
-  color: #302D31;
-  font-size: 18px;
-  border-radius: 50px;
-  border: 1px solid #302D31;
-  font-weight: bold;
-  margin-top: 40px;
-  transition: all 0.5s;
-}
-
-.btn-home:hover {
-  background-color: #9E96FF;
-  color: white;
-  transition: all 0.5s;
-  margin-top: 50px;
-}
 
 h1 {
-  color: #302D31;
+  color: $dark-purple;
   font-size: 70px;
   margin-bottom: 35px;
   font-weight: 800;
 }
 
 h2{
-  color: #302D31;
+  color: $dark-purple;
   font-size: 36px;
 }
 
-.container {
+.home-steps {
   display: flex;
   justify-content: center;
   align-items: start;
   margin-top: 50px;
 }
+
 
 .step-home {
   display: flex;
@@ -72,14 +29,33 @@ h2{
   text-align: center;
   width: 25em;
   height: auto;
-  color: #302D31;
+  color: $dark-purple;
   border: 1px solid lightgray ;
   border-radius: 50px;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   margin: 20px;
   i {
     font-size: 50px;
-    color: #FAC9A3;
+    color: $orange;
     margin-bottom: 30px;
   }
 }
+
+.section {
+  margin-top: 20px;
+}
+
+.scroll-horizontal{
+  display:block;
+  width: 100%;
+  overflow-x: scroll;
+  padding: 10px;
+  margin: 0;
+  white-space: nowrap;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+// .mentors-shortlist {
+//   flex-wrap: nowrap;
+// }
