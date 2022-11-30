@@ -10,7 +10,8 @@ class User < ApplicationRecord
   has_many :meetings
   has_many :preferences
   has_many :messages
-  has_many :conversations
+  has_many :conversations_as_mentor, class_name: "Conversation", foreign_key: :mentor_id
+  has_many :conversations_as_student, class_name: "Conversation", foreign_key: :student_id
   has_one_attached :photo
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -20,4 +21,3 @@ class User < ApplicationRecord
 
   scope :mentors, -> { where(status: :mentor) }
 end
-    

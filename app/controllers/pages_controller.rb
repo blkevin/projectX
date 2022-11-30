@@ -8,12 +8,18 @@ class PagesController < ApplicationController
     @user = current_user
     user_conversations
     user_meetings
+    conversation_mentors
+    conversation_students
   end
 
   private
 
   def user_conversations
-    @conversations = current_user.conversations
+    if current_user.status == "student"
+      @conversations = current_user.conversations_as_student
+    else
+      @conversations = current_user.conversation_as_mentor
+    end
   end
 
   def user_meetings
