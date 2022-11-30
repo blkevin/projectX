@@ -1,0 +1,48 @@
+.card-video-horizontal {
+  color: $dark-purple;
+  background-color: $light-orange;
+  border-radius: 30%;
+}
+
+.card-mentor-horizontal {
+  background: linear-gradient($light-orange, 90%, $white);
+  transition: background 0.3s ease;
+  color: $dark-purple;
+  border-radius: 10px;
+  padding: 10px 30px 10px 10px;
+  margin: 10px;
+  width: 30vw;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+.card-mentor-horizontal:hover {
+  background: linear-gradient($white, 10%, $light-orange);
+  transition: background 0.3s ease;
+}
+
+.card-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: $dark-purple;
+  margin: 0px 15px 0px 5px;
+  flex-shrink: 0;
+}
+
+.card-info {
+  width: 100%;
+}
+
+.card-sector-industry {
+  font-size: 12px;
+  border-top: 1px solid $dark-purple;
+}
+
+.card-position {
+  font-size: 14px;
+}
+
+.item {
+  display: inline-block;
+}
