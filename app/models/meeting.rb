@@ -1,8 +1,6 @@
 class Meeting < ApplicationRecord
-  belongs_to :student
-  belongs_to :mentor
-  validates :start_date, presence: true
-  validates :start_time, presence: true
-  validates :end_date, presence: true
-  validates :end_time, presence: true
+  belongs_to :student, class_name: "User", foreign_key: "student_id"
+  belongs_to :mentor, class_name: "User", foreign_key: "mentor_id"
+  validates :starting, presence: true
+  validates :ending, presence: true
 end
