@@ -20,6 +20,15 @@ Institution.destroy_all
 puts "Deleting contents"
 Content.destroy_all
 
+puts "Deleting messages"
+Message.destroy_all
+
+puts "Deleting meetings"
+Meeting.destroy_all
+
+puts "Deleting conversations"
+Conversation.destroy_all
+
 puts "Deleting students"
 User.student.destroy_all
 

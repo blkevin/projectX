@@ -18,7 +18,6 @@ class ContentsController < ApplicationController
     if @content.save
       redirect_to dashboard_path
     else
-      raise
       render :new, status: :unprocessable_entity
     end
   end

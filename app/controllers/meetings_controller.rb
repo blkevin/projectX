@@ -7,7 +7,6 @@ class MeetingsController < ApplicationController
   def create
     @meeting = Meeting.new(meeting_params)
     @meeting.student_id = current_user.id
-    @student = User.find(current_user.id)
     @meeting.save
     flash.alert = "C'est réservé 🎉"
     # render_to XXX
