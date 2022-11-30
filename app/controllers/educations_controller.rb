@@ -5,10 +5,12 @@ class EducationsController < ApplicationController
 
   def create
     @education = Education.new(education_params)
+    @education.user_id = current_user.id
     if @education.save
-      raise
+
       redirect_to edit_user_registration_path
     else
+      raise
       render :new, status: :unprocessable_entity
     end
   end

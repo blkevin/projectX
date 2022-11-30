@@ -32,7 +32,7 @@ class ContentsController < ApplicationController
   private
 
   def content_params
-    params.require(:content).permit(:title)
+    params.require(:content).permit(:title, :video)
   end
 
 end
