@@ -189,6 +189,21 @@ i4 = Institution.create!(name: "Université Lille 2", description: "Inspirons de
 i5 = Institution.create!(name: "Université Paris-Panthéon-Assas", description: "Pour l'éducation, pour la nation")
 i6 = Institution.create!(name: "Les compagnons du devoir", description: "Association ouvrière des compagnons du devoir et du tour de France")
 
+# attaching videos to institutions
+i1.video.attach(
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669820645/dnhlvy2wewmvvsopaxzt.mp4'),
+  filename: 'lewagon.mp4',
+  content_type: 'video/mp4'
+)
+i1.save!
+
+i2.video.attach(
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669820645/dnhlvy2wewmvvsopaxzt.mp4'),
+  filename: 'lewagon.mp4',
+  content_type: 'video/mp4'
+)
+i2.save!
+
 puts "Creating educations"
 ed1 = Education.create!(user_id: m1.id, institution_id: i1.id, start_date: "2016-10-20", degree_level: "Bootcamp", field: "Développement Web")
 ed2 = Education.create!(user_id: m2.id, institution_id: i2.id, start_date: "1990-09-01", degree_level: "License", field: "Theatre & cinema")
