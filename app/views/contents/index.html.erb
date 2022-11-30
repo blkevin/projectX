@@ -1,8 +1,8 @@
 <ul>
   <% @contents.each do |content| %>
-    <li><%= content.title %></li>
     <% if content.video.attached?  %>
-      <li> <%= cl_video_tag(content.video.key, :autoplay => true) %></li>
+      <li><%= cl_video_tag content.title %></li>
+      <li><%= cl_video_tag(content.video.key, autoplay: true, controls: true, crop: "pad", loop: false) %></li>
+      <li><%= content.title %></li>
     <% end %>
-  <% end %>
 </ul>
