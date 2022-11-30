@@ -3,20 +3,20 @@
 <h2>Here are your conversations</h2>
   <ul>
     <% if @user.status = "student" %>
-      <% @conversation_mentors.each do |mentor| %>
+      <% @conversations.each do |conversation| %>
         <%# Add photo afterwards %>
-        <li> Prénom = <%= mentor.first_name %> </li>
-        <li> Nom = <%= mentor.last_name %> </li>
-        <li> Age = <%= mentor.age %> </li>
-        <li> Poste actuel = <%= mentor.experiences.first.position %> </li>
-        <li> Entreprise actuelle = <%= mentor.experiences.first.company %> </li>
+        <li> Prénom = <%= Mentor.find(conversation.mentor_id).first_name %> </li>
+        <li> Nom = <%= Mentor.find(conversation.mentor_id).last_name %> </li>
+        <li> Age = <%= Mentor.find(conversation.mentor_id).age %> </li>
+        <li> Poste actuel = <%= Mentor.find(conversation.mentor_id).experiences.first.position %> </li>
+        <li> Entreprise actuelle = <%= Mentor.find(conversation.mentor_id).experiences.first.company %> </li>
       <% end %>
     <% else %>
-      <% @conversation_students.each do |student| %>
+      <% @conversations.each do |conversation| %>
       <%# Add photo afterwards %>
-        <li> Prénom = <%= student.first_name %> </li>
-        <li> Nom = <%= student.last_name %> </li>
-        <li> Age = <%= student.age %> </li>
+        <li> Prénom = <%= Student.find(conversation.student_id).first_name %> </li>
+        <li> Nom = <%= Student.find(conversation.student_id).last_name %> </li>
+        <li> Age = <%= Student.find(conversation.student_id).age %> </li>
       <% end %>
     <% end %>
   </ul>
