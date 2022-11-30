@@ -6,7 +6,7 @@
 
 .card-mentor-horizontal {
   background: linear-gradient($light-orange, 90%, $white);
-  transition: background 0.3s ease;
+  transition: 0.3s ease;
   color: $dark-purple;
   border-radius: 10px;
   padding: 10px 30px 10px 10px;
@@ -18,9 +18,22 @@
 }
 .card-mentor-horizontal:hover {
   background: linear-gradient($white, 10%, $light-orange);
-  transition: background 0.3s ease;
+  transition: 0.3s ease;
 }
 
+.card-mentor-vertical {
+  background: linear-gradient($light-orange, 90%, $white);
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  width: 20vw;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  a {
+  text-decoration: none !important;
+  color: $dark-purple;
+  }
+}
 .card-avatar {
   width: 80px;
   height: 80px;
@@ -36,10 +49,14 @@
 
 .card-sector-industry {
   font-size: 12px;
-  border-top: 1px solid $dark-purple;
 }
 
 .card-position {
+  font-size: 14px;
+  border-top: 1px solid $dark-purple;
+}
+
+.card-school, .card-age {
   font-size: 14px;
 }
 
