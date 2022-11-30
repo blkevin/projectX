@@ -11,11 +11,7 @@
   </head>
 
   <body>
-    <% if current_page?(controller: '/mentors', action: 'index') %>
-      <%= render "shared/navbarStudentIndex" %>
-    <% else %>
-      <%= render "shared/navbar" %>
-    <% end %>
+    <%= render "shared/navbar" %>
     <%= yield %>
     <%= render "shared/flashes" %>
   </body>
