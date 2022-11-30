@@ -1,4 +1,5 @@
 #Information Banner
+
 <h3> <%= @mentor.first_name %> <%= @mentor.last_name %></h3>
 <p><%=@mentor.description%></p>
 <% if @mentor.photo.attached? %>
@@ -10,6 +11,7 @@
 
 
 #Left - Carrière
+
 <h3>Carrière</h3>
 <%@experiences.each do |experience| %>
   <%= experience.position %>
@@ -22,6 +24,7 @@
 
 
 #Left - Education
+
 <h3>Etudes</h3>
 <%@educations.each do |education| %>
   <%= education.institution.name %>
@@ -33,7 +36,7 @@
 
 
 #Right - conversation
-<h3>Etudes</h3>
+
 <div class="">
   <div class="">
     <% @conversation.messages.each do |message| %>
@@ -48,11 +51,26 @@
   </div>
 </div>
 
-#Right - Meeting Booking
-<%=@meeting%>
+<%= simple_form_for [@conversation, @message],
+  html: {class: "d-flex"} do |f|
+%>
+  <%= f.input :content,
+    label: false,
+    placeholder: "Message",
+    wrapper_html: {class: "flex-grow-1"}
+  %>
+  <%= f.submit "Envoyer", class: "btn btn-primary mb-3" %>
+<% end %>
 
-  <%= simple_form_for @meeting do |f| %>
-    <%= f.hidden_field :title, value: "some value" %>
-    <%# <%= f.input :content %> %>
-    <%# <%= f.submit hgoesg%> %>
-  <% end %> %>
+#Right - Meeting Booking
+
+<% week_days = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven'] %>
+<% hours = ['9h/10h', '10h/11h', '11h/12h', '14h/15h', '15h/16h', '16h/17h'] %>
+<%#
+<%week_days.each do |day| %>
+  <%# <%hours.each do |hour|%> %>
+    <%= simple_form_for @meeting do |f| %>
+      <%= f.hidden_field :date, value: "day" %>
+      <%= f.hidden_field :heure, value: "hour" %>
+      <%# <%= f.submit "Lun 16h"%> %>
+    <% end %> %> %>
