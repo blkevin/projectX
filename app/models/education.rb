@@ -4,5 +4,5 @@ class Education < ApplicationRecord
   validates :start_date, presence: true
   validates :degree_level, presence: true
   validates :field, presence: true
-  validates :field, length: { minimum: 6 }
+  validates :field, length: { minimum: 5 }
 end

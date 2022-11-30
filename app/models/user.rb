@@ -20,3 +20,4 @@ class User < ApplicationRecord
 
   scope :mentors, -> { where(status: :mentor) }
 end
+    
