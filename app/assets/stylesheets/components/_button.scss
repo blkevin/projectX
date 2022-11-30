@@ -25,9 +25,13 @@
   border-radius: 10px;
   background:$purple;
   border: 1px solid $purple;
+  text-decoration: none;
+
 }
 
 .btn-purple:hover {
   background: linear-gradient($purple, $light-purple);
   transition: 0.3s ease;
+  text-decoration: none;
+  color: $white;
 }
