@@ -4,7 +4,7 @@
 <% if @mentor.photo.attached? %>
   <%= cl_image_path @mentor.photo.key, crop: :fill %>
 <% else %>
-  'https://img.freepik.com/photos-gratuite/outils-sport_53876-138077.jpg?w=2000'
+  <p>No picture attached</p>
 <% end%>
 
 
@@ -24,7 +24,7 @@
 #Left - Education
 <h3>Etudes</h3>
 <%@educations.each do |education| %>
-  <%= education.institions.name %>
+  <%= education.institution.name %>
   <%= education.degree_level %>
   <%= education.field %>
   <%= education.start_date %>
@@ -53,6 +53,6 @@
 
   <%= simple_form_for @meeting do |f| %>
     <%= f.hidden_field :title, value: "some value" %>
-    <%= f.input :content %>
-    <%= f.submit hgoesg%>
-  <% end %>
+    <%# <%= f.input :content %> %>
+    <%# <%= f.submit hgoesg%> %>
+  <% end %> %>
