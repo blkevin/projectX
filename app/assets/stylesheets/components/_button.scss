@@ -19,15 +19,15 @@
   margin-top: 50px;
 }
 
-.btn-gradient {
+.btn-purple {
   color: $white;
   padding: 5px 10px;
   border-radius: 10px;
   background:$purple;
-  transition: background 0.3s ease;
   border: 1px solid $purple;
 }
 
-.btn-gradient:hover {
-  background: $light-purple;
+.btn-purple:hover {
+  background: linear-gradient($purple, $light-purple);
+  transition: background 0.3s ease;
 }
