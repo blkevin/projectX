@@ -40,55 +40,74 @@ s10 = User.create!(first_name: "Baptiste", last_name: "Durand", age: 18, email: 
 
 # attaching pictures to students
 s1.photo.attach(
-  io: URI.open('https://avatars.githubusercontent.com/u/113995804.jpg'),
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803288/qn4qjgv7q2lquqa1cgx3.jpg'),
   filename: 'gabriel.jpg',
   content_type: 'image/jpg'
 )
+s1.save!
+
 s2.photo.attach(
-  io: URI.open('https://avatars.githubusercontent.com/u/112618478.jpg'),
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803357/ct7e9izj5jwelwkqoizi.jpg'),
   filename: 'robin.jpg',
   content_type: 'image/jpg'
 )
+s2.save!
+
 s3.photo.attach(
-  io: URI.open('https://avatars.githubusercontent.com/u/62299446.jpg'),
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803367/y7ir5np0tztniz27u2rm.jpg'),
   filename: 'sous-chef.jpg',
   content_type: 'image/jpg'
 )
+s3.save!
+
 s4.photo.attach(
-  io: URI.open('https://avatars.githubusercontent.com/u/115085959.jpg'),
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803333/exalou60pwikuldrw3ly.jpg'),
   filename: 'mehdi.jpg',
   content_type: 'image/jpg'
 )
+s4.save!
+
 s5.photo.attach(
-  io: URI.open('https://avatars.githubusercontent.com/u/115102708.jpg'),
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803259/wu3egmhzkft5vzn2mguf.jpg'),
   filename: 'chef.jpg',
   content_type: 'image/jpg'
 )
+s5.save!
+
 s6.photo.attach(
-  io: URI.open('https://img.freepik.com/photos-gratuite/portrait-homme-blanc-isole_53876-40306.jpg'),
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803297/jfk8mbnj9zb7zqrbyxa8.jpg'),
   filename: 'jean.jpg',
   content_type: 'image/jpg'
 )
+s6.save!
+
 s7.photo.attach(
-  io: URI.open('https://img.freepik.com/photos-gratuite/beau-jeune-homme-t-shirt-blanc-poitrine-bras-croises-souriant-heureux_176420-21607.jpg'),
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803341/lebnltmamr4a6xdlwbac.jpg'),
   filename: 'nicolas.jpg',
   content_type: 'image/jpg'
 )
+s7.save!
+
 s8.photo.attach(
-  io: URI.open('https://img.freepik.com/photos-gratuite/assez-souriant-joyeusement-femme-aux-cheveux-blonds-habille-desinvolture-regardant-satisfaction_176420-15187.jpg'),
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803312/ttucxb1ainldeqsxakhg.jpg'),
   filename: 'julie.jpg',
   content_type: 'image/jpg'
 )
+s8.save!
+
 s9.photo.attach(
-  io: URI.open('https://images.pexels.com/photos/38554/girl-people-landscape-sun-38554.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803322/j5dn4jjlzc9hwqau5sbn.jpg'),
   filename: 'madeleine.jpg',
   content_type: 'image/jpg'
 )
+s9.save!
+
 s10.photo.attach(
-  io: URI.open('https://thumbs.dreamstime.com/b/portrait-d-homme-arabe-95179443.jpg'),
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669807643/yhxcgyozwgqucooasmko.jpg'),
   filename: 'baptiste.jpg',
   content_type: 'image/jpg'
 )
+s10.save!
 
 # professionals
 puts "Creating professionals"
@@ -101,35 +120,46 @@ m6 = User.create!(first_name: "Kaaris", last_name: "Okou Gnakouri", age: 42, ema
 
 # attaching pictures to students
 m1.photo.attach(
-  io: URI.open('https://avatars.githubusercontent.com/u/54004476?v=4'),
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803349/fwyixkfd0upkyac2teql.jpg'),
   filename: 'paul.jpg',
   content_type: 'image/jpg'
 )
+m1.save!
+
 m2.photo.attach(
-  io: URI.open('https://fr.wikipedia.org/wiki/Carla_Bruni#/media/Fichier:Carla_Cannes_2021.jpg'),
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803542/calx7qycxgvjz5p1ormz.png'),
   filename: 'carla.jpg',
   content_type: 'image/jpg'
 )
+m2.save!
+
 m3.photo.attach(
-  io: URI.open('https://mobile.twitter.com/TBentzmann/photo.jpg'),
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803550/icpjb1bbc18dmb5uq8pg.jpg'),
   filename: 'theobald.jpg',
   content_type: 'image/jpg'
 )
+m3.save!
+
 m4.photo.attach(
-  io: URI.open('https://img.lemde.fr/2022/10/03/0/0/1920/1280/1328/0/45/0/c358f49_1664837882097-000-324d4x7.jpg'),
-  filename: 'dupont-moretti.jpg',
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803277/rf5towbj89ifckxe2toy.jpg'),
+  filename: 'eric.jpg',
   content_type: 'image/jpg'
 )
+m4.save!
+
 m5.photo.attach(
-  io: URI.open('https://sfractus-images.cleo.media/unsafe/388x0:1753x1365/641x0/images/Jonathan-Cohen-dans-La-Flamme-3439.jpg'),
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803305/xxi38wehlvwudiugi5jj.jpg'),
   filename: 'joko.jpg',
   content_type: 'image/jpg'
 )
+m5.save!
+
 m6.photo.attach(
-  io: URI.open('https://img-4.linternaute.com/PFL-vP6OOIW64lzhGpGOj_5rdQ0=/1500x/smart/4635c22a2fa74f97aa2df72b18392838/ccmcms-linternaute/39249072.jpg'),
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669806673/th2fgerzn7f8nbgbb6k1.jpg'),
   filename: 'kaaris.jpg',
   content_type: 'image/jpg'
 )
+m6.save!
 
 puts "Creating experiences"
 # creating experiences for Paul Portier
@@ -168,3 +198,52 @@ ed5 = Education.create!(user_id: m5.id, institution_id: i2.id, start_date: "1979
 ed6 = Education.create!(user_id: m6.id, institution_id: i5.id, start_date: "1999-09-01", degree_level: "License", field: "Histoire")
 
 puts "Creating contents"
+c1 = Content.create!(user_id: m1.id, title: "Paul - Developpeur web, ancien barman")
+c2 = Content.create!(user_id: m2.id, title: "Carla - Actrice & chanteuse")
+c3 = Content.create!(user_id: m3.id, title: "Théobald - Entrepreneur, ancien analyste financier")
+c4 = Content.create!(user_id: m4.id, title: "Eric - Ministre de la Justice, ancien avocat")
+c5 = Content.create!(user_id: m5.id, title: "Jonathan - Acteur de cinema, ancien commercial")
+c6 = Content.create!(user_id: m6.id, title: "Kaaris - Rappeur & acteur")
+
+# attaching videos to content
+c1.video.attach(
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669815582/e0ee1rdiklsvx4mt8pqv.mp4'),
+  filename: 'developpeur.mp4',
+  content_type: 'video/mp4'
+)
+c1.save!
+
+c2.video.attach(
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669817958/nyyknsxaztmobngiqpqw.mp4'),
+  filename: 'acteur.mp4',
+  content_type: 'video/mp4'
+)
+c2.save!
+
+c3.video.attach(
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669819798/mksf9uzxy4tbiezzdmln.mp4'),
+  filename: 'entrepreneur.mp4',
+  content_type: 'video/mp4'
+)
+c3.save!
+
+c4.video.attach(
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669819610/stzfth5l9e7p7idywdpz.webm'),
+  filename: 'avocat.mp4',
+  content_type: 'video/mp4'
+)
+c4.save!
+
+c5.video.attach(
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669820410/refmklbc0urrgojd5gcb.mp4'),
+  filename: 'jonathan.mp4',
+  content_type: 'video/mp4'
+)
+c5.save!
+
+c6.video.attach(
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669820645/dnhlvy2wewmvvsopaxzt.mp4'),
+  filename: 'jonathan.mp4',
+  content_type: 'video/mp4'
+)
+c6.save!

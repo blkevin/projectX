@@ -1,25 +1,19 @@
-<%= @mentors.first %>
-
-
 <% @mentors.each do |mentor| %>
-        <%= link_to mentor_path(mentor) do %>
-          <div class="">
-              <% if mentor.photo.attached? %>
-                <%= cl_image_path mentor.photo.key, crop: :fill %>
-              <% else %>
-                'https://img.freepik.com/photos-gratuite/outils-sport_53876-138077.jpg?w=2000'
-              <% end%>
-              <h3> <%= mentor.first_name %> <%= mentor.last_name %></h3>
-              <ul>
-                <li> Etudes: <%= mentor.educations.last.institution.name %></li>
-                <li> Age: <%= mentor.age %></li>
-                <li> Poste actuel: <%= mentor.experiences.last.position %></li>
-                <li> Secteur: <%= mentor.experiences.last.sector %></li>
-                <li> Industrie: <%= mentor.experiences.last.industry %></li>
-              </ul>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+  <%= link_to mentor_path(mentor) do %>
+    <div class="">
+      <% if mentor.photo.attached? %>
+        <%= cl_image_tag mentor.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face %>
+      <% else %>
+        'https://img.freepik.com/photos-gratuite/outils-sport_53876-138077.jpg?w=2000'
+      <% end%>
+      <h3> <%= mentor.first_name %> <%= mentor.last_name %></h3>
+      <ul>
+        <li> Etudes: <%= mentor.educations.first.institution.name %></li>
+        <li> Age: <%= mentor.age %></li>
+        <li> Poste actuel: <%= mentor.experiences.first.position %></li>
+        <li> Secteur: <%= mentor.experiences.first.sector %></li>
+        <li> Industrie: <%= mentor.experiences.first.industry %></li>
+      </ul>
     </div>
-  </ul>
+  <% end %>
+<% end %>
