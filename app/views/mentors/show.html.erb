@@ -64,19 +64,13 @@
 
 #Right - Meeting Booking
 
-<% week_days = ['Lun 9h/10h', , 'Mer', 'Jeu', 'Ven'] %>
-<% hours = ['9h/10h', '10h/11h', '11h/12h', '14h/15h', '15h/16h', '16h/17h'] %>
-
-
-
-<%week_days.each do |day| %>
-  <%hours.each do |hour| %>
-    <%=simple_form_for @meeting do |f| %>
-      <%= f.hidden_field :starting, value: day + " " + hour.split('/')[0] %>
-      <%= f.hidden_field :ending, value: day + " " + hour.split('/')[1] %>
-      <%= f.hidden_field :student_id, value: current_user.id %>
-      <%= f.hidden_field :mentor_id, value: @mentor.id %>
-      <%= f.submit day + " " + hour %>
-    <%end%>
+<%pattern = "%H:%M"  %>
+<% time_slots.each do |slot| %>
+  <%=simple_form_for @meeting do |f| %>
+    <% f.hidden_field :starting, value: DateTime.parse(slot) %>
+    <% f.hidden_field :ending, value: DateTime.parse(slot) + 1/24 %>
+    <% f.hidden_field :student_id, value: current_user.id %>
+    <% f.hidden_field :mentor_id, value: @mentor.id %>
+    <%=f.submit DateTime.parse(slot).strftime(pattern)%>
   <%end%>
-<%end %>
+<%end%>
