@@ -301,6 +301,25 @@ i6.video.attach(
 )
 i6.save!
 
+# attaching images to institutions
+filei1 = URI.open("https://etudestech.com/wp-content/uploads/2021/07/lewagon-logo-square-b6124eb974be375884558e4464efce48a9b5664f18422768156364363ecdd1fc.png")
+i1.photo.attach(io: filei1, filename: "i1.png", content_type: "image/png")
+
+filei2 = URI.open("https://cnsad.psl.eu/wp-content/uploads/2019/12/logo_CNSAD_PSL.svg")
+i2.photo.attach(io: filei2, filename: "i2.png", content_type: "image/png")
+
+filei3 = URI.open("https://upload.wikimedia.org/wikipedia/commons/f/fb/ESCP_Business_School_2020_Logo.jpg")
+i3.photo.attach(io: filei3, filename: "i3.png", content_type: "image/png")
+
+filei4 = URI.open("https://image.jimcdn.com/app/cms/image/transf/none/path/s591e1c24fa53fcbb/image/i8cbfef27ff5feadc/version/1478359958/image.png")
+i4.photo.attach(io: filei4, filename: "i3.png", content_type: "image/png")
+
+filei5 = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Logo_Panth%C3%A9on-Assas.svg/1200px-Logo_Panth%C3%A9on-Assas.svg.png")
+i5.photo.attach(io: filei5, filename: "i5.png", content_type: "image/png")
+
+filei6 = URI.open("https://www.compagnons-du-devoir.com/sites/all/themes/compagnons/assets/images/logo-compagnons.png")
+i6.photo.attach(io: filei6, filename: "i6.png", content_type: "image/png")
+
 puts "Creating educations"
 ed1 = Education.create!(user_id: m1.id, institution_id: i1.id, start_date: "2016-10-20", degree_level: "Bootcamp", field: "Développement Web")
 ed2 = Education.create!(user_id: m2.id, institution_id: i2.id, start_date: "1990-09-01", degree_level: "License", field: "Theatre & cinema")
@@ -324,7 +343,6 @@ c1.video.attach(
   content_type: 'video/mp4'
 )
 c1.save!
-
 
 c2.video.attach(
   io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669817958/nyyknsxaztmobngiqpqw.mp4'),

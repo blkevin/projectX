@@ -1,2 +1,3 @@
 <%= @institution.name %>
 <%= @institution.description %>
+<%= cl_image_tag @institution.photo.key, height: 300, width: 400, crop: :fill, class: "show-picture" %>
