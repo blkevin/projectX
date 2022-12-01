@@ -24,7 +24,7 @@ class ExperiencesController < ApplicationController
     @experience.destroy
   end
 
-private
+  private
 
   def experience_params
     params.require(:experience).permit(:start_date, :end_date, :position, :sector, :industry, :company)
