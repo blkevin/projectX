@@ -9,7 +9,12 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to mentor_path(@mentor)
     else
-      render "chatrooms/show", status: :unprocessable_entity
+      @contents = @mentor.contents
+      @experiences = @mentor.experiences
+      @educations = @mentor.educations
+      @meeting = Meeting.new
+      @conversation = Conversation.where(mentor: @mentor).find_or_create_by(student: current_user)
+      render "mentors/show", status: :unprocessable_entity
     end
   end
 

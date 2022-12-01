@@ -48,7 +48,7 @@
                     <ul>
                       <li> <h5><%= User.find(meeting.mentor_id).first_name %> <%= User.find(meeting.mentor_id).last_name %></h5></li>
                       <li> <strong><%= User.find(meeting.mentor_id).experiences.last.position %></strong> chez <%= User.find(meeting.mentor_id).experiences.last.company %></li>
-                      <li> Le <strong><%= meeting.starting.strftime("%c") %></strong> </li>
+                      <li> Le <strong><%= l(meeting.starting, format: '%-d %B %Y') %></strong> </li>
                     </ul>
                   </div>
                 </div>
@@ -61,7 +61,7 @@
               <%= cl_image_tag User.find(meeting.student_id).photo.key, height: 300, width: 400, crop: :fill, class: "card-avatar" %>
                 <li> <h5><%= User.find(meeting.student_id).first_name %> <%= User.find(meeting.student_id).last_name %></h5></li>
                 <li> <%= User.find(meeting.student_id).experiences.last.position %> chez <%= User.find(meeting.student_id).experiences.last.company %></li>
-                <li> Le <strong><%= meeting.starting.strftime("%c") %></strong> </li>
+                <li> Le <strong><%= l(meeting.starting, format: '%-d %B %Y') %></strong> </li>
               </div>
               <% end %>
             <% end %>
@@ -78,7 +78,7 @@
                 <ul>
                   <li> <h5><%= User.find(meeting.mentor_id).first_name %> <%= User.find(meeting.mentor_id).last_name %></h5></li>
                   <li> <strong><%= User.find(meeting.mentor_id).experiences.last.position %></strong> chez <%= User.find(meeting.mentor_id).experiences.last.company %></li>
-                  <li> Le <strong><%= meeting.starting.strftime("%c") %></strong> </li>
+                  <li> Le <strong><%= l(meeting.starting, format: '%-d %B %Y') %></strong> </li>
                 <ul>
               </div>
           </div>
@@ -90,7 +90,7 @@
               <li> Prénom = <%= User.find(meeting.student_id).first_name %> </li>
               <li> Nom = <%= User.find(meeting.student_id).last_name %> </li>
               <li> Age = <%= User.find(meeting.student_id).age %> </li>
-              <li> Le = <%= meeting.starting %> </li>
+              <li> Le <strong><%= l(meeting.starting, format: '%-d %B %Y') %></strong> </li>
             </div>
             <% end %>
           <% end %>
