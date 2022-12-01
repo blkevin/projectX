@@ -79,4 +79,9 @@ end
 gem "devise"
 
 gem "cloudinary"
+
+
+gem "pg_search"  #permet d'utiliser la recherche dans la search bar
+
 gem 'aws-sdk-s3', require: false
+
