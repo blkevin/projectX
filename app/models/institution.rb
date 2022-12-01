@@ -5,4 +5,5 @@ class Institution < ApplicationRecord
   validates :description, presence: true
   validates :name, uniqueness: true
   has_one_attached :video
+  has_one_attached :photo
 end
