@@ -104,3 +104,75 @@ video {
   width: 220px;
   white-space: normal;
  }
+
+.experience-card {
+  background: $light-orange;
+  transition: 0.3s ease;
+  color: $dark-purple;
+  border-radius: 10px;
+  padding: 10px 30px 10px 10px;
+  width: 45vw;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.meeting-card {
+  background: white;
+  color: $dark-purple;
+  border-radius: 10px;
+  padding: 10px 0px 0px 10px;
+  margin: 10px;
+  width: 90%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  height: 7em;
+  & ul {
+    list-style: none;
+  }
+  & .card-avatar {
+    margin: 0px 0px 10px 0px;
+    }
+  & h5 {
+    font-size: 20px;
+    margin-bottom: 0.2rem;
+  }
+}
+
+.chat-card {
+  background: white;
+  color: $dark-purple;
+  border-radius: 10px;
+  padding: 10px 0px 0px 10px;
+  margin: 10px;
+  width: 45%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  height: 4em;
+  font-size: 13px;
+  & ul {
+    list-style: none;
+  }
+  & .card-avatar {
+    width: 40px;
+    height: 40px;
+    margin: 10px 0px 0px 0px;
+    margin: 0px -15px 10px 0px;
+  }
+  & h5 {
+    margin-bottom: 0.2rem;
+  }
+}
+
+.card-infos {
+  font-size: 12px;
+}
+
+.upcoming-meetings {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.preview-messages {
+  margin-top: 20px;
+}

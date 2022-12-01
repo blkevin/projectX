@@ -9,7 +9,8 @@ class PagesController < ApplicationController
   def dashboard
     @user = current_user
     user_conversations
-    user_meetings
+    upcoming_user_meetings
+    past_user_meetings
     # conversation_mentors
     # conversation_students
   end
@@ -18,22 +19,31 @@ class PagesController < ApplicationController
 
   def user_conversations
     if current_user.status == "student"
-      @conversations = current_user.conversations_as_student
+      conversations = current_user.conversations_as_student
     else
-      @conversations = current_user.conversations_as_mentor
+      conversations = current_user.conversations_as_mentor
     end
-    return @conversations
+    @conversations = conversations.reject { |conversation| conversation.messages.empty? }
+    # @conversations = Conversation.joins(:messages).having("COUNT(messages.id) > 1")
   end
 
-  def user_meetings
+  def upcoming_user_meetings
     if current_user.status == "student"
-      @meetings = current_user.meetings_as_student
+      upcoming_meetings = current_user.meetings_as_student
     else
-      @meetings = current_user.meetings_as_mentor
+      upcoming_meetings = current_user.meetings_as_mentor
     end
-    return @meetings
+    @upcoming_meetings = upcoming_meetings.select { |meeting| meeting.starting > Date.today }
   end
 
+  def past_user_meetings
+    if current_user.status == "student"
+      past_meetings = current_user.meetings_as_student
+    else
+      past_meetings = current_user.meetings_as_mentor
+    end
+    @past_meetings = past_meetings.select { |meeting| meeting.starting < Date.today }
+  end
   # def conversation_mentors
   #   @conversation_mentors = []
   #   current_user.conversations.each do |conversation|
