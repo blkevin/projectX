@@ -4,5 +4,11 @@
 
 import { application } from "./application"
 
+import ConversationSubscriptionController from "./conversation_subscription_controller"
+application.register("conversation-subscription", ConversationSubscriptionController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import NavbarController from "./navbar_controller.js"
+application.register("navbar", NavbarController)

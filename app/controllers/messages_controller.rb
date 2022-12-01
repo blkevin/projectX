@@ -7,14 +7,13 @@ class MessagesController < ApplicationController
     @message.user_id = current_user.id
     @mentor = User.find(@message.conversation.mentor_id)
     if @message.save
-      redirect_to mentor_path(@mentor)
+      ConversationChannel.broadcast_to(
+        @conversation,
+        render_to_string(partial: "message", locals: {message: @message})
+      )
+      head :ok
     else
-      @contents = @mentor.contents
-      @experiences = @mentor.experiences
-      @educations = @mentor.educations
-      @meeting = Meeting.new
-      @conversation = Conversation.where(mentor: @mentor).find_or_create_by(student: current_user)
-      render "mentors/show", status: :unprocessable_entity
+      redirect_to mentor_path(@mentor), status: :unprocessable_entity
     end
   end
 
