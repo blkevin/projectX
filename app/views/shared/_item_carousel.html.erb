@@ -1,6 +1,6 @@
 <div class="item">
   <div class="card-mentor-horizontal">
-    <div class="card-avatar"><% cl_image_path mentor.photo.key %></div>
+    <%= cl_image_tag mentor.photo.key, class: "card-avatar" %>
     <div class="card-info">
       <div class="card-fullname"><%= mentor.first_name %> <%= mentor.last_name %></div>
       <div class="card-position"><%= mentor.experiences.last.position.capitalize %></div>
