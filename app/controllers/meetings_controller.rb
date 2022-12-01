@@ -20,7 +20,6 @@ class MeetingsController < ApplicationController
   private
 
   def set_student
-    raise
   end
 
   def meeting_params

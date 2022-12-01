@@ -1,52 +1,101 @@
-<h1>Welcome <% @user %></h1>
+<div class="container">
+  <h3>Hello <%= @user.first_name %> ! Bienvenue sur ton tableau de bord 🗺️</h3>
 
-<h2>Here are your conversations</h2>
-  <ul>
-    <% if @user.status == "student" %>
-      <% @conversations.each do |conversation| %>
-        <%# Add photo afterwards %>
-        <div>
-          <li> Prénom = <%= User.find(conversation.mentor_id).first_name %> </li>
-          <li> Nom = <%= User.find(conversation.mentor_id).last_name %> </li>
-          <li> Age = <%= User.find(conversation.mentor_id).age %> </li>
-          <%# <li> Poste actuel = <%= User.find(conversation.mentor_id).experiences.first.position %> </li>
-          <%# <li> Entreprise actuelle = <%= User.find(conversation.mentor_id).experiences.first.company %> </li>
+
+
+<%# Conversations %>
+  <div class="d-flex">
+    <div class="col-8 conversations">
+      <div class="preview-messages">
+        <h4>👋 Continue la conversation !</h4>
+            <% if @user.status == "student" %>
+              <% @conversations.each do |conversation| %>
+                <div class="chat-card">
+                  <%= cl_image_tag User.find(conversation.mentor_id).photo.key, crop: :fill, class: "card-avatar" %>
+                  <ul>
+                    <li> <strong><%= User.find(conversation.mentor_id).first_name %> <%= User.find(conversation.mentor_id).last_name %></strong></li>
+                    <li> <%= conversation.messages.last.content[0, 40]... %></li>
+                  </ul>
+                </div>
+              <% end %>
+            <% else %>
+              <% @conversations.each do |conversation| %>
+              <div class="chat-card">
+                <%= cl_image_tag User.find(conversation.student_id).photo.key, crop: :fill, class: "card-avatar" %>
+                <ul>
+                  <li><strong><%= User.find(conversation.student_id).first_name %> <%= User.find(conversation.student_id).last_name %></strong></li>
+                  <li> <%= conversation.messages.last.content[0, 40]... %></li>
+                </ul>
+              </div>
+              <% end %>
+            <% end %>
         </div>
-      <% end %>
-    <% else %>
-      <% @conversations.each do |conversation| %>
-      <%# Add photo afterwards %>
-      <div>
-        <li> Prénom = <%= User.find(conversation.student_id).first_name %> </li>
-        <li> Nom = <%= User.find(conversation.student_id).last_name %> </li>
-        <li> Age = <%= User.find(conversation.student_id).age %> </li>
-      </div>
-      <% end %>
-    <% end %>
-  </ul>
 
-<h2>Here are your meetings</h2>
-  <ul>
-    <% if @user.status == "student" %>
-      <% @meetings.each do |meeting| %>
-      <div>
-      <%# Add photo afterwards %>
-        <li> Prénom = <%= User.find(meeting.mentor_id).first_name %> </li>
-        <li> Nom = <%= User.find(meeting.mentor_id).last_name %> </li>
-        <li> Age = <%= User.find(meeting.mentor_id).age %> ans </li>
-        <li> Le = <%= meeting.starting %> </li>
-        <% raise %>
+  </div>
+
+<%# Meetings %>
+
+  <%# Upcoming Meetings %>
+    <div class="col-4 meetings">
+      <div class="upcoming-meetings">
+        <h4>🗓️ Tes futurs rendez-vous</h4>
+          <% if @user.status == "student" %>
+            <% @upcoming_meetings.each do |meeting| %>
+              <div class="meeting-card">
+                <div class="d-flex">
+                  <%= cl_image_tag User.find(meeting.mentor_id).photo.key, crop: :fill, class: "card-avatar" %>
+                  <div class="card-infos">
+                    <ul>
+                      <li> <h5><%= User.find(meeting.mentor_id).first_name %> <%= User.find(meeting.mentor_id).last_name %></h5></li>
+                      <li> <strong><%= User.find(meeting.mentor_id).experiences.last.position %></strong> chez <%= User.find(meeting.mentor_id).experiences.last.company %></li>
+                      <li> Le <strong><%= meeting.starting.strftime("%c") %></strong> </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+
+          <% else %>
+              <% @upcoming_meetings.each do |meeting| %>
+              <div class="meeting-card">
+              <%= cl_image_tag User.find(meeting.student_id).photo.key, height: 300, width: 400, crop: :fill, class: "card-avatar" %>
+                <li> <h5><%= User.find(meeting.student_id).first_name %> <%= User.find(meeting.student_id).last_name %></h5></li>
+                <li> <%= User.find(meeting.student_id).experiences.last.position %> chez <%= User.find(meeting.student_id).experiences.last.company %></li>
+                <li> Le <strong><%= meeting.starting.strftime("%c") %></strong> </li>
+              </div>
+              <% end %>
+            <% end %>
+          </ul>
       </div>
-      <% end %>
-    <% else %>
-      <% @meetings.each do |meeting| %>
-      <div>
-      <%# Add photo afterwards %>
-        <li> Prénom = <%= User.find(meeting.student_id).first_name %> </li>
-        <li> Nom = <%= User.find(meeting.student_id).last_name %> </li>
-        <li> Age = <%= User.find(meeting.student_id).age %> </li>
-        <li> Le = <%= meeting.starting %> </li>
+  <%# Past Meetings %>
+    <div class="past-meetings">
+      <h4>🗓️ Tes prédédents rendez-vous</h4>
+        <% if @user.status == "student" %>
+          <% @past_meetings.each do |meeting| %>
+          <div class="meeting-card">
+            <%= cl_image_tag User.find(meeting.mentor_id).photo.key, height: 100, width: 100, crop: :fill, class: "card-avatar" %>
+              <div class="card-infos">
+                <ul>
+                  <li> <h5><%= User.find(meeting.mentor_id).first_name %> <%= User.find(meeting.mentor_id).last_name %></h5></li>
+                  <li> <strong><%= User.find(meeting.mentor_id).experiences.last.position %></strong> chez <%= User.find(meeting.mentor_id).experiences.last.company %></li>
+                  <li> Le <strong><%= meeting.starting.strftime("%c") %></strong> </li>
+                <ul>
+              </div>
+          </div>
+            <% end %>
+          <% else %>
+            <% @past_meetings.each do |meeting| %>
+            <div>
+              <%= cl_image_tag User.find(meeting.student_id).photo.key, height: 300, width: 400, crop: :fill, class: "card-avatar" %>
+              <li> Prénom = <%= User.find(meeting.student_id).first_name %> </li>
+              <li> Nom = <%= User.find(meeting.student_id).last_name %> </li>
+              <li> Age = <%= User.find(meeting.student_id).age %> </li>
+              <li> Le = <%= meeting.starting %> </li>
+            </div>
+            <% end %>
+          <% end %>
+        </ul>
       </div>
-      <% end %>
-    <% end %>
-  </ul>
+    </div>
+  </div>
+</div>
