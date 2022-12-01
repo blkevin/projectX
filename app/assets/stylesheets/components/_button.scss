@@ -20,13 +20,15 @@
 }
 
 .btn-purple {
-  color: $white;
+  color: white;
+  display: flex;
   padding: 5px 10px;
   border-radius: 10px;
-  background:$purple;
-  border: 1px solid $purple;
+  height: 2.3rem;
+  background: #9E96FF;
+  align-items: center;
+  border: 1px solid #9E96FF;
   text-decoration: none;
-
 }
 
 .btn-purple:hover {

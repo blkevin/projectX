@@ -1,22 +1,18 @@
-.card-video-horizontal {
-  color: $dark-purple;
-  background-color: $light-orange;
-  border-radius: 30%;
-}
-
-.card-mentor-horizontal {
+.card-horizontal {
   background: linear-gradient($light-orange, 90%, $white);
   transition: 0.3s ease;
   color: $dark-purple;
   border-radius: 10px;
-  padding: 10px 30px 10px 10px;
+  padding: 0px 30px 0px 10px;
   margin: 10px;
   width: 30vw;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  height: 20vh;
 }
-.card-mentor-horizontal:hover {
+
+.card-horizontal:hover {
   background: linear-gradient($white, 10%, $light-orange);
   transition: 0.3s ease;
 }
@@ -34,9 +30,10 @@
   color: $dark-purple;
   }
 }
+
 .card-avatar {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   background-color: $dark-purple;
   margin: 0px 15px 0px 5px;
@@ -44,6 +41,7 @@
   object-fit: cover;
   object-position: top;
 }
+
 .card-mentor-vertical-avatar {
   margin: 10px auto;
   border-radius: 50%;
@@ -56,19 +54,53 @@
   width: 100%;
 }
 
-.card-sector-industry {
-  font-size: 12px;
+.card-position {
+  font-size: 16px;
+  border-top: 1px solid $dark-purple;
+  padding-top: 5px
 }
 
-.card-position {
+.card-tag {
   font-size: 14px;
-  border-top: 1px solid $dark-purple;
+  border: 1px solid #FAC9A3;
+  border-radius: 50px;
+  background-color: #FAC9A3;
+  color: #302D31;
+  padding: 0px 10px;
+  margin-right: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.tags {
+  display: flex;
+  margin-top: 5px;
 }
 
 .card-school, .card-age {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .item {
   display: inline-block;
 }
+
+video {
+  width: 160px;
+  height: 100px;
+  margin: 0px 15px 0px 5px;
+  flex-shrink: 0;
+}
+
+.card-fullname {
+  font-size: 20px;
+  width: 274px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 5px
+}
+ .card-title {
+  font-size: 20px;
+  width: 220px;
+  white-space: normal;
+ }
