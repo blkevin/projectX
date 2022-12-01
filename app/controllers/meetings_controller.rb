@@ -10,8 +10,8 @@ class MeetingsController < ApplicationController
     @meeting.student_id = current_user.id
     @meeting.mentor_id = @mentor.id
     @meeting.save
-    redirect_to mentor_path(@meeting)
-    flash.alert = "C'est réservé 🎉"
+    redirect_to mentor_path(@mentor)
+    flash.alert = "Demande envoyée 🎉"
   end
 
   def edit
