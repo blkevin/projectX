@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
+require 'aws-sdk-s3'
 require 'open-uri'
 
 puts "Deleting experiences"
@@ -35,17 +35,23 @@ User.student.destroy_all
 puts "Deleting professionals"
 User.mentor.destroy_all
 
+puts "Deleting tags"
+Tag.destroy_all
+
+puts "Deleting preferences"
+Preference.destroy_all
+
 puts "Creating students"
 s1 = User.create!(first_name: "Gabriel", last_name: "de Monts", age: 17, email: "gabriel@gmail.com", password: "123456", description: "Bachelier en quete de renseignements sur l'industrie du luxe", status: :student)
 s2 = User.create!(first_name: "Robin", last_name: "Rettien", age: 17, email: "robin@gmail.com", password: "123456", description: "Bachelier en quete d'une formation qui permettra de faire de l'argent très rapidement", status: :student)
 s3 = User.create!(first_name: "Shayneze", last_name: "Megady", age: 16, email: "shayneze@gmail.com", password: "123456", description: "Etudiante à la recherche de renseignements sur le métier d'avocat", status: :student)
 s4 = User.create!(first_name: "Mehdi", last_name: "Rachid", age: 18, email: "mehdi@gmail.com", password: "123456", description: "Intéréssé par le développement web", status: :student)
 s5 = User.create!(first_name: "Kevin", last_name: "Blakime", age: 17, email: "kevin@gmail.com", password: "123456", description: "Futur chef en quete de skills de cheffing", status: :student)
-s6 = User.create!(first_name: "Jean", last_name: "Dupont", age: 18, email: "jeanot@gmail.com", password: "123456", description: "Intéréssé par le travail du bois (menuiserie/charpente)", status: :student)
+s6 = User.create!(first_name: "Jean", last_name: "Dupont", age: 18, email: "jeanot@gmail.com", password: "123456", description: "Fan de photo", status: :student)
 s7 = User.create!(first_name: "Nicolas", last_name: "Bernard", age: 19, email: "nicolas@gmail.com", password: "123456", description: "J'aimerais tout quitter pour me lancer dans le rap", status: :student)
 s8 = User.create!(first_name: "Julie", last_name: "Martin", age: 16, email: "julie@gmail.com", password: "123456", description: "J'aimerais faire une carrière au service de l'Etat", status: :student)
-s9 = User.create!(first_name: "Madeleine", last_name: "Robert", age: 17, email: "madeleine@gmail.com", password: "123456", description: "Intéréssée par l'artisanat", status: :student)
-s10 = User.create!(first_name: "Baptiste", last_name: "Durand", age: 18, email: "baptiste@gmail.com", password: "123456", description: "Etudiant intéréssé par le cinema", status: :student)
+s9 = User.create!(first_name: "Madeleine", last_name: "Robert", age: 17, email: "madeleine@gmail.com", password: "123456", description: "Intéréssée par le marketing et la grande conso", status: :student)
+s10 = User.create!(first_name: "Baptiste", last_name: "Durand", age: 18, email: "baptiste@gmail.com", password: "123456", description: "Etudiant intéréssé par le batiment", status: :student)
 
 # attaching pictures to students
 s1.photo.attach(
@@ -173,12 +179,12 @@ m6.save!
 puts "Creating experiences"
 # creating experiences for Paul Portier
 exp1 = Experience.create!(user_id: m1.id, position: "Developpeur web", company: "Le Wagon", sector: "luxe", industry: "digital", start_date: "2016-01-01")
-exp2 = Experience.create!(user_id: m1.id, position: "Barman", company: "Café Pop", sector: "restauration", industry: "autre activité de services", start_date: "2014-01-01")
+exp2 = Experience.create!(user_id: m1.id, position: "Photographe", company: "Paul Portier Enterprise", sector: "photo", industry: "artisanat", start_date: "2014-01-01")
 # creating experiences for Carla Bruni
 exp3 = Experience.create!(user_id: m2.id, position: "Acteur", company: "Mediapro", sector: "cinema", industry: "artisanat", start_date: "1995-01-01")
 exp4 = Experience.create!(user_id: m2.id, position: "Chanteur", company: "Universal Music", sector: "musique", industry: "artisanat", start_date: "2000-01-01")
 # creating experiences for Théobald de Bentzmann
-exp5 = Experience.create!(user_id: m3.id, position: "PDG", company: "Alchimii", sector: "evenementiel", industry: "service B2B", start_date: "2017-01-01")
+exp5 = Experience.create!(user_id: m3.id, position: "PDG", company: "Alchimii", sector: "entrepreneur", industry: "evenementiel", start_date: "2017-01-01")
 exp6 = Experience.create!(user_id: m3.id, position: "Analyste fianancier", company: "Barclays", sector: "finance", industry: "services financiers", start_date: "2013-01-01")
 # creating experiences for Eric Dupont-Moretti
 exp7 = Experience.create!(user_id: m4.id, position: "Ministre de la Justice", company: "Gouvernement", sector: "publique", industry: "administration publique", start_date: "2020-01-01")
@@ -199,19 +205,101 @@ i5 = Institution.create!(name: "Université Paris-Panthéon-Assas", description:
 i6 = Institution.create!(name: "Les compagnons du devoir", description: "Association ouvrière des compagnons du devoir et du tour de France")
 
 # attaching videos to institutions
+url1 = Aws::S3::Object.new(
+        bucket_name: ENV['AWS_BUCKET'],
+        key: 'lewagonn.mp4',
+        client: Aws::S3::Client.new(
+          access_key_id: ENV['ACCESS_KEY_ID'],
+          secret_access_key: ENV['SECRET_ACCESS_KEY']
+        )
+      ).presigned_url(:get, expires_in: 3600)
+
 i1.video.attach(
-  io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669820645/dnhlvy2wewmvvsopaxzt.mp4'),
+  io: URI.open(url1),
   filename: 'lewagon.mp4',
   content_type: 'video/mp4'
 )
 i1.save!
 
+url2 = Aws::S3::Object.new(
+  bucket_name: ENV['AWS_BUCKET'],
+  key: 'cnad.mp4',
+  client: Aws::S3::Client.new(
+    access_key_id: ENV['ACCESS_KEY_ID'],
+    secret_access_key: ENV['SECRET_ACCESS_KEY']
+  )
+).presigned_url(:get, expires_in: 3600)
+
 i2.video.attach(
-  io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669820645/dnhlvy2wewmvvsopaxzt.mp4'),
-  filename: 'lewagon.mp4',
+  io: URI.open(url2),
+  filename: 'cnad.mp4',
   content_type: 'video/mp4'
 )
 i2.save!
+
+url3 = Aws::S3::Object.new(
+  bucket_name: ENV['AWS_BUCKET'],
+  key: 'escp.mp4',
+  client: Aws::S3::Client.new(
+    access_key_id: ENV['ACCESS_KEY_ID'],
+    secret_access_key: ENV['SECRET_ACCESS_KEY']
+  )
+).presigned_url(:get, expires_in: 3600)
+
+i3.video.attach(
+  io: URI.open(url3),
+  filename: 'escp.mp4',
+  content_type: 'video/mp4'
+)
+i3.save!
+
+url4 = Aws::S3::Object.new(
+  bucket_name: ENV['AWS_BUCKET'],
+  key: 'lille.mp4',
+  client: Aws::S3::Client.new(
+    access_key_id: ENV['ACCESS_KEY_ID'],
+    secret_access_key: ENV['SECRET_ACCESS_KEY']
+  )
+).presigned_url(:get, expires_in: 3600)
+
+i4.video.attach(
+  io: URI.open(url4),
+  filename: 'lille.mp4',
+  content_type: 'video/mp4'
+)
+i4.save!
+
+url5 = Aws::S3::Object.new(
+  bucket_name: ENV['AWS_BUCKET'],
+  key: 'assas.mp4',
+  client: Aws::S3::Client.new(
+    access_key_id: ENV['ACCESS_KEY_ID'],
+    secret_access_key: ENV['SECRET_ACCESS_KEY']
+  )
+).presigned_url(:get, expires_in: 3600)
+
+i5.video.attach(
+  io: URI.open(url5),
+  filename: 'lille.mp4',
+  content_type: 'video/mp4'
+)
+i5.save!
+
+url6 = Aws::S3::Object.new(
+  bucket_name: ENV['AWS_BUCKET'],
+  key: 'compagnons.mp4',
+  client: Aws::S3::Client.new(
+    access_key_id: ENV['ACCESS_KEY_ID'],
+    secret_access_key: ENV['SECRET_ACCESS_KEY']
+  )
+).presigned_url(:get, expires_in: 3600)
+
+i6.video.attach(
+  io: URI.open(url6),
+  filename: 'compagnons.mp4',
+  content_type: 'video/mp4'
+)
+i6.save!
 
 puts "Creating educations"
 ed1 = Education.create!(user_id: m1.id, institution_id: i1.id, start_date: "2016-10-20", degree_level: "Bootcamp", field: "Développement Web")
@@ -236,6 +324,7 @@ c1.video.attach(
   content_type: 'video/mp4'
 )
 c1.save!
+
 
 c2.video.attach(
   io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669817958/nyyknsxaztmobngiqpqw.mp4'),
@@ -271,3 +360,65 @@ c6.video.attach(
   content_type: 'video/mp4'
 )
 c6.save!
+
+puts "Creating tags"
+t1 = Tag.create!(name: "transport")
+t2 = Tag.create!(name: "restauration")
+t3 = Tag.create!(name: "publique")
+t4 = Tag.create!(name: "artisanat")
+t5 = Tag.create!(name: "musique")
+t6 = Tag.create!(name: "cinema")
+t7 = Tag.create!(name: "santé")
+t8 = Tag.create!(name: "pharma")
+t9 = Tag.create!(name: "juridique")
+t10 = Tag.create!(name: "immobilier")
+t11 = Tag.create!(name: "services")
+t12 = Tag.create!(name: "finance")
+t13 = Tag.create!(name: "gestion")
+t14 = Tag.create!(name: "entrepreneur")
+t15 = Tag.create!(name: "vente")
+t16 = Tag.create!(name: "commerce")
+t17 = Tag.create!(name: "hotellerie")
+t18 = Tag.create!(name: "construction")
+t19 = Tag.create!(name: "batiment")
+t20 = Tag.create!(name: "grande consommation")
+t21 = Tag.create!(name: "marketing")
+t22 = Tag.create!(name: "luxe")
+t23 = Tag.create!(name: "evenementiel")
+t24 = Tag.create!(name: "web")
+t25 = Tag.create!(name: "photo")
+
+puts "Creating preferences"
+p1 = Preference.create!(user_id: s1.id, tag_id: t22.id)
+p2 = Preference.create!(user_id: s1.id, tag_id: t17.id)
+p3 = Preference.create!(user_id: s1.id, tag_id: t23.id)
+p4 = Preference.create!(user_id: s2.id, tag_id: t16.id)
+p5 = Preference.create!(user_id: s2.id, tag_id: t12.id)
+p6 = Preference.create!(user_id: s3.id, tag_id: t9.id)
+p7 = Preference.create!(user_id: s3.id, tag_id: t3.id)
+p8 = Preference.create!(user_id: s4.id, tag_id: t24.id)
+p9 = Preference.create!(user_id: s4.id, tag_id: t14.id)
+p10 = Preference.create!(user_id: s5.id, tag_id: t23.id)
+p11 = Preference.create!(user_id: s5.id, tag_id: t14.id)
+p12 = Preference.create!(user_id: s5.id, tag_id: t12.id)
+p13 = Preference.create!(user_id: s6.id, tag_id: t4.id)
+p14 = Preference.create!(user_id: s7.id, tag_id: t5.id)
+p15 = Preference.create!(user_id: s7.id, tag_id: t4.id)
+p16 = Preference.create!(user_id: s8.id, tag_id: t3.id)
+p17 = Preference.create!(user_id: s9.id, tag_id: t21.id)
+p18 = Preference.create!(user_id: s9.id, tag_id: t20.id)
+p19 = Preference.create!(user_id: s10.id, tag_id: t18.id)
+p21 = Preference.create!(user_id: m1.id, tag_id: t24.id)
+p22 = Preference.create!(user_id: m1.id, tag_id: t25.id)
+p23 = Preference.create!(user_id: m3.id, tag_id: t14.id)
+p24 = Preference.create!(user_id: m3.id, tag_id: t12.id)
+p25 = Preference.create!(user_id: m3.id, tag_id: t23.id)
+p26 = Preference.create!(user_id: m2.id, tag_id: t6.id)
+p27 = Preference.create!(user_id: m2.id, tag_id: t5.id)
+p28 = Preference.create!(user_id: m2.id, tag_id: t4.id)
+p29 = Preference.create!(user_id: m4.id, tag_id: t3.id)
+p30 = Preference.create!(user_id: m4.id, tag_id: t9.id)
+p31 = Preference.create!(user_id: m5.id, tag_id: t16.id)
+p32 = Preference.create!(user_id: m5.id, tag_id: t6.id)
+p33 = Preference.create!(user_id: m6.id, tag_id: t5.id)
+p34 = Preference.create!(user_id: m6.id, tag_id: t6.id)
