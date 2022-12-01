@@ -41,8 +41,17 @@
   background-color: $dark-purple;
   margin: 0px 15px 0px 5px;
   flex-shrink: 0;
+  object-fit: cover;
+  object-position: top;
 }
-
+.card-mentor-vertical-avatar {
+  margin: 10px auto;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: top;
+}
 .card-info {
   width: 100%;
 }
