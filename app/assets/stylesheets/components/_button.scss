@@ -102,3 +102,20 @@
   transition: 0.3s ease;
   text-decoration: none;
 }
+
+
+.link-purple {
+  color: $dark-purple;
+  font-weight: bold;
+  font-family: $headers-font;
+}
+
+.link-purple:hover {
+  color: $purple;
+}
+
+.headers-section {
+  a {
+    text-decoration: none;
+  }
+}
