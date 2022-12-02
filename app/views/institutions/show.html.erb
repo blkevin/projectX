@@ -1,3 +1,46 @@
-<%= @institution.name %>
-<%= @institution.description %>
-<%= cl_image_tag @institution.photo.key, height: 300, width: 400, crop: :fill, class: "show-picture" %>
+<div class="container">
+  <div class="btn-back">
+    <%= link_to "Retour à #{@mentor.first_name}", mentor_path(@mentor) %>
+  </div>
+  <div class="">
+    <h2><%= @institution.name %></h2>
+      <p><%= @institution.description %></p>
+      <%= cl_image_tag @institution.photo.key, height: 300, width: 400, crop: :fill, class: "show-picture" %>
+      <%= video_tag(@institution.video.url, autoplay: false, controls: true, loop: false) %>
+  </div>
+</div>
+
+<div class="logo-grid">
+  <div class="logo-grid-row">
+    <div class="logo-grid-group">
+      <img width="130" height="50" alt="N26" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/n26-fa681a0816f2e0ab4f384072afacb1fc7f22baeffd02960dfd4338825947f65a.svg">
+      <img width="130" height="50" alt="Spendesk" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/spendesk-0cf7f270c95e687432f94e2562419401718fef74e0dbeec553271c566c0d7234.svg">
+      <img width="130" height="50" alt="Qonto" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/qonto-1e956baadeae409b788045a814acdca09c2292e7ac1a46e96a20a47de413759f.svg">
+      <img width="130" height="50" alt="Trainline" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/trainline-8120106347ee74efdd6c6e56f1bddf05bc3efaeef07f620c2a2327a21df266b6.svg">
+      <img width="130" height="50" alt="Microsoft" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/microsoft-51ed019b45017427ade212218d19bac115ac7c3bc07fcf09297fe0aaeb0bf953.svg">
+      <img width="130" height="50" alt="BCG" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/bcg-ceb962fac85656cad663727b94308ccae4dab7c2d17fd8c5810b47014526996d.svg">
+      <img width="130" height="50" alt="Getaround" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/getaround-9700b236dd9012c562c842cb4eeb75ca48e23ef1f50bf1508432100f3fb7782a.svg">
+      <img width="130" height="50" alt="Metaverse" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/metaverse-176ab8bcf7cf566e09d2873e365b99e28e953a37691866055e1cb2561e9765fb.svg">
+      <img width="130" height="50" alt="Backmarket" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/backmarket-43fa71aa31220107260e1d01623d3954658c65564d9668dd8ac3378e50bce805.svg">
+    </div>
+    <div aria-hidden="true" class="logo-grid-group">
+      <img width="130" height="50" alt="N26" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/n26-fa681a0816f2e0ab4f384072afacb1fc7f22baeffd02960dfd4338825947f65a.svg">
+      <img width="130" height="50" alt="Spendesk" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/spendesk-0cf7f270c95e687432f94e2562419401718fef74e0dbeec553271c566c0d7234.svg">
+      <img width="130" height="50" alt="Qonto" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/qonto-1e956baadeae409b788045a814acdca09c2292e7ac1a46e96a20a47de413759f.svg">
+      <img width="130" height="50" alt="Trainline" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/trainline-8120106347ee74efdd6c6e56f1bddf05bc3efaeef07f620c2a2327a21df266b6.svg">
+      <img width="130" height="50" alt="Microsoft" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/microsoft-51ed019b45017427ade212218d19bac115ac7c3bc07fcf09297fe0aaeb0bf953.svg">
+      <img width="130" height="50" alt="BCG" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/bcg-ceb962fac85656cad663727b94308ccae4dab7c2d17fd8c5810b47014526996d.svg">
+      <img width="130" height="50" alt="Getaround" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/getaround-9700b236dd9012c562c842cb4eeb75ca48e23ef1f50bf1508432100f3fb7782a.svg">
+      <img width="130" height="50" alt="Metaverse" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/metaverse-176ab8bcf7cf566e09d2873e365b99e28e953a37691866055e1cb2561e9765fb.svg">
+      <img width="130" height="50" alt="Backmarket" class="logo-grid-item" loading="lazy" src="/assets/v4/get_hired_logos/backmarket-43fa71aa31220107260e1d01623d3954658c65564d9668dd8ac3378e50bce805.svg">
+    </div>
+  </div>
+</div>
+
+<%# montrer écoles similaires --> besoin de institution.type %>
+<%# montrer les autres profiles ayant fait cette ecole: display user name & photo //
+<%# profiles similaire (memes tag que le mentor) "voir aussi dans tag" %>
+<%# montrer les entreprises des profiles ayant fait cette école --> no data %>
+
+
+<%# afficher des tag sur la home pour faciliter le search %>

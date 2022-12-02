@@ -29,6 +29,9 @@ Meeting.destroy_all
 puts "Deleting conversations"
 Conversation.destroy_all
 
+puts "Deleting preferences"
+Preference.destroy_all
+
 puts "Deleting students"
 User.student.destroy_all
 
@@ -37,9 +40,6 @@ User.mentor.destroy_all
 
 puts "Deleting tags"
 Tag.destroy_all
-
-puts "Deleting preferences"
-Preference.destroy_all
 
 puts "Creating students"
 s1 = User.create!(first_name: "Gabriel", last_name: "de Monts", age: 17, email: "gabriel@gmail.com", password: "123456", description: "Bachelier en quete de renseignements sur l'industrie du luxe", status: :student)
@@ -126,17 +126,23 @@ s10.save!
 
 # professionals
 puts "Creating professionals"
-m1 = User.create!(first_name: "Paul", last_name: "Portier", age: 30, email: "paul@gmail.com", password: "123456", description: "Meilleur dev en région parisienne", status: :mentor)
-m2 = User.create!(first_name: "Carla", last_name: "Bruni", age: 58, email: "carla@gmail.com", password: "123456", description: "Actrice/chanteuse sans prétention", status: :mentor)
-m3 = User.create!(first_name: "Théobald", last_name: "de Bentzmann", age: 32, email: "theobald@gmail.com", password: "123456", description: "Born leader - un chef c'est fait pour cheffer", status: :mentor)
-m4 = User.create!(first_name: "Eric", last_name: "Dupont-Moretti", age: 61, email: "erci@gmail.com", password: "123456", description: "Avocat et garde des Sceaux", status: :mentor)
-m5 = User.create!(first_name: "Jonathan", last_name: "Cohen", age: 42, email: "jonathan@gmail.com", password: "123456", description: "Homme le plus drole de France", status: :mentor)
-m6 = User.create!(first_name: "Kaaris", last_name: "Okou Gnakouri", age: 42, email: "kaaris@gmail.com", password: "123456", description: "tchoin thcoin tchoin", status: :mentor)
+m1 = User.new(first_name: "Sophie", last_name: "Portier", age: 30, email: "sophie@gmail.com", password: "123456", description: "Meilleur dev en région parisienne, ancienne photographe", status: :mentor)
+m2 = User.new(first_name: "Carla", last_name: "Bruni", age: 58, email: "carla@gmail.com", password: "123456", description: "Actrice/chanteuse sans prétention", status: :mentor)
+m3 = User.new(first_name: "Théobald", last_name: "de Bentzmann", age: 32, email: "theobald@gmail.com", password: "123456", description: "Born leader - un chef c'est fait pour cheffer", status: :mentor)
+m4 = User.new(first_name: "Eric", last_name: "Dupont-Moretti", age: 61, email: "erci@gmail.com", password: "123456", description: "Avocat et garde des Sceaux", status: :mentor)
+m5 = User.new(first_name: "Jonathan", last_name: "Cohen", age: 42, email: "jonathan@gmail.com", password: "123456", description: "Acteur, producteur & homme le plus drole de France", status: :mentor)
+m6 = User.new(first_name: "Kaaris", last_name: "Okou Gnakouri", age: 42, email: "kaaris@gmail.com", password: "123456", description: "Géni artistique: auteur, rappeur, composteur & acteur", status: :mentor)
+m7 = User.new(first_name: "Oceane", last_name: "Gunasena", age: 29, email: "oceane@gmail.com", password: "123456", description: "Chef de projet digital chez Colorz", status: :mentor)
+m8 = User.new(first_name: "Helene", last_name: "Michel", age: 26, email: "helene@gmail.com", password: "123456", description: "Data analyst chez Cenisis", status: :mentor)
+m9 = User.new(first_name: "Jean", last_name: "Jahier", age: 27, email: "jeanj@gmail.com", password: "123456", description: "Business developper chez Mirakl", status: :mentor)
+m10 = User.new(first_name: "Pascal", last_name: "Traore", age: 32, email: "pascal@gmail.com", password: "123456", description: "Chef de chantier chez Sferis, ancien policier", status: :mentor)
+m11 = User.new(first_name: "Christophe", last_name: "Tranier", age: 39, email: "christophe@gmail.com", password: "123456", description: "Senior product manager, ancien consultant chez PwC", status: :mentor)
+m12 = User.new(first_name: "Mihaela", last_name: "Riza", age: 31, email: "mihaela@gmail.com", password: "123456", description: "Senior account executive, ancienne account executive", status: :mentor)
 
 # attaching pictures to students
 m1.photo.attach(
-  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803349/fwyixkfd0upkyac2teql.jpg'),
-  filename: 'paul.jpg',
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669982051/ueowxt5l5hdgyllf6r75.webp'),
+  filename: 'sophie.jpg',
   content_type: 'image/jpg'
 )
 m1.save!
@@ -176,16 +182,58 @@ m6.photo.attach(
 )
 m6.save!
 
+m7.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669975053/xpjv7ckkpwasaxiy3du2.webp'),
+  filename: 'oceane.jpg',
+  content_type: 'image/webp'
+)
+m7.save!
+
+m8.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669976407/a20bggkthep6l8w3nky1.webp'),
+  filename: 'helene.jpg',
+  content_type: 'image/webp'
+)
+m8.save!
+
+m9.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669977102/lghrbgs1wxbwduptncqt.webp'),
+  filename: 'jeanj.jpg',
+  content_type: 'image/webp'
+)
+m9.save!
+
+m10.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669977907/pezukn5tcekodbma0qvq.webp'),
+  filename: 'pascal.jpg',
+  content_type: 'image/webp'
+)
+m10.save!
+
+m11.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669979805/pmytwbjmuhk3gfct4xqb.webp'),
+  filename: 'christophe.jpg',
+  content_type: 'image/webp'
+)
+m11.save!
+
+m12.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669979233/serqv8puyodpivlgcj4b.webp'),
+  filename: 'riza.jpg',
+  content_type: 'image/webp'
+)
+m12.save!
+
 puts "Creating experiences"
 # creating experiences for Paul Portier
-exp1 = Experience.create!(user_id: m1.id, position: "Developpeur web", company: "Le Wagon", sector: "luxe", industry: "digital", start_date: "2016-01-01")
-exp2 = Experience.create!(user_id: m1.id, position: "Photographe", company: "Paul Portier Enterprise", sector: "photo", industry: "artisanat", start_date: "2014-01-01")
+exp1 = Experience.create!(user_id: m1.id, position: "Lead software engineer", company: "Exotec", sector: "R&D", industry: "tech", start_date: "2018-01-01")
+exp2 = Experience.create!(user_id: m1.id, position: "Photographe", company: "Sophie & Co.", sector: "photo", industry: "artisanat", start_date: "2014-01-01")
 # creating experiences for Carla Bruni
 exp3 = Experience.create!(user_id: m2.id, position: "Acteur", company: "Mediapro", sector: "cinema", industry: "artisanat", start_date: "1995-01-01")
 exp4 = Experience.create!(user_id: m2.id, position: "Chanteur", company: "Universal Music", sector: "musique", industry: "artisanat", start_date: "2000-01-01")
 # creating experiences for Théobald de Bentzmann
 exp5 = Experience.create!(user_id: m3.id, position: "PDG", company: "Alchimii", sector: "entrepreneur", industry: "evenementiel", start_date: "2017-01-01")
-exp6 = Experience.create!(user_id: m3.id, position: "Analyste fianancier", company: "Barclays", sector: "finance", industry: "services financiers", start_date: "2013-01-01")
+exp6 = Experience.create!(user_id: m3.id, position: "Analyste financier", company: "Barclays", sector: "finance", industry: "services financiers", start_date: "2013-01-01")
 # creating experiences for Eric Dupont-Moretti
 exp7 = Experience.create!(user_id: m4.id, position: "Ministre de la Justice", company: "Gouvernement", sector: "publique", industry: "administration publique", start_date: "2020-01-01")
 exp8 = Experience.create!(user_id: m4.id, position: "Avocat", company: "Dupont-Moretti Avocat", sector: "juridique", industry: "profession libérale", start_date: "1984-01-01")
@@ -195,31 +243,48 @@ exp10 = Experience.create!(user_id: m5.id, position: "Commercial", company: "La 
 # creating experiences for Kaaris
 exp11 = Experience.create!(user_id: m6.id, position: "Acteur", company: "Labyrinthe films", sector: "cinema", industry: "artisanat", start_date: "2016-01-01")
 exp12 = Experience.create!(user_id: m6.id, position: "Chanteur", company: "Universal Music", sector: "musique", industry: "artisanat", start_date: "2013-01-01")
+# creating experiences for Oceane
+exp13 = Experience.create!(user_id: m7.id, position: "Chef de projet digital", company: "Colorz", sector: "communication", industry: "digital", start_date: "2018-01-01")
+exp14 = Experience.create!(user_id: m7.id, position: "Junior marketing manager", company: "Procter & Gamble", sector: "marketing", industry: "grande consommation", start_date: "2016-01-01")
+# creating experiences for Helene
+exp15 = Experience.create!(user_id: m8.id, position: "Senior data analyst", company: "Cenisis", sector: "data", industry: "data", start_date: "2020-01-01")
+exp16 = Experience.create!(user_id: m8.id, position: "Business analyst", company: "ManoMano", sector: "operations", industry: "ecommerce", start_date: "2019-01-01")
+# creating experiences for Jean
+exp17 = Experience.create!(user_id: m9.id, position: "Business developper", company: "Mirakl", sector: "vente", industry: "tech", start_date: "2020-01-01")
+exp18 = Experience.create!(user_id: m9.id, position: "Libraire", company: "Libraire centrale", sector: "livre", industry: "culture", start_date: "2018-01-01")
+# creating experiences for Pascal
+exp19 = Experience.create!(user_id: m10.id, position: "Chef de chantier", company: "Sferis", sector: "batiment", industry: "construction", start_date: "2017-01-01")
+exp20 = Experience.create!(user_id: m10.id, position: "Policier", company: "Mairie de Lille", sector: "publique", industry: "protection civile", start_date: "2015-01-01")
+# creating experiences for Jerome
+exp21 = Experience.create!(user_id: m11.id, position: "Senior product manager", company: "Gens de confiance", sector: "operations", industry: "tech", start_date: "2017-01-01")
+exp22 = Experience.create!(user_id: m11.id, position: "Consultant en stratégie", company: "PwC", sector: "conseil", industry: "services", start_date: "2013-01-01")
+# creating experiences for Riza
+exp23 = Experience.create!(user_id: m12.id, position: "Senior account executive", company: "Odaseva", sector: "commerce", industry: "data", start_date: "2019-01-01")
+exp24 = Experience.create!(user_id: m12.id, position: "Account executive", company: "Odaseva", sector: "commerce", industry: "data", start_date: "2016-01-01")
 
 puts "Creating institutions"
-i1 = Institution.create!(name: "Le Wagon", description: "Accélérez votre carrière, formez-vous aux métiers de la tech")
-i2 = Institution.create!(name: "Conservatoire nationale supérieur d'art dramatique", description: "Le Conservatoire National Supérieur d’Art Dramatique – PSL (CNSAD-PSL) est un établissement d’enseignement supérieur placé sous la tutelle du ministère chargé de la culture")
-i3 = Institution.create!(name: "ESCP Business School", description: "Let's empower and lead the world in the right direction")
-i4 = Institution.create!(name: "Université Lille 2", description: "Inspirons demain")
-i5 = Institution.create!(name: "Université Paris-Panthéon-Assas", description: "Pour l'éducation, pour la nation")
-i6 = Institution.create!(name: "Les compagnons du devoir", description: "Association ouvrière des compagnons du devoir et du tour de France")
+i1 = Institution.new(name: "Le Wagon", description: "Accélérez votre carrière, formez-vous aux métiers de la tech")
+i2 = Institution.new(name: "Conservatoire national supérieur d'art dramatique", description: "Le Conservatoire National Supérieur d’Art Dramatique – PSL (CNSAD-PSL) est un établissement d’enseignement supérieur placé sous la tutelle du ministère chargé de la culture")
+i3 = Institution.new(name: "ESCP Business School", description: "Let's empower and lead the world in the right direction")
+i4 = Institution.new(name: "Université Lille 2", description: "Inspirons demain")
+i5 = Institution.new(name: "Université Paris-Panthéon-Assas", description: "Pour l'éducation, pour la nation")
+i6 = Institution.new(name: "Les compagnons du devoir", description: "Association ouvrière des compagnons du devoir et du tour de France")
 
 # attaching videos to institutions
 url1 = Aws::S3::Object.new(
-        bucket_name: ENV['AWS_BUCKET'],
-        key: 'lewagonn.mp4',
-        client: Aws::S3::Client.new(
-          access_key_id: ENV['ACCESS_KEY_ID'],
-          secret_access_key: ENV['SECRET_ACCESS_KEY']
-        )
-      ).presigned_url(:get, expires_in: 3600)
+  bucket_name: ENV['AWS_BUCKET'],
+  key: 'lewagonn.mp4',
+  client: Aws::S3::Client.new(
+    access_key_id: ENV['ACCESS_KEY_ID'],
+    secret_access_key: ENV['SECRET_ACCESS_KEY']
+  )
+).presigned_url(:get, expires_in: 3600)
 
 i1.video.attach(
   io: URI.open(url1),
   filename: 'lewagon.mp4',
   content_type: 'video/mp4'
 )
-i1.save!
 
 url2 = Aws::S3::Object.new(
   bucket_name: ENV['AWS_BUCKET'],
@@ -235,7 +300,6 @@ i2.video.attach(
   filename: 'cnad.mp4',
   content_type: 'video/mp4'
 )
-i2.save!
 
 url3 = Aws::S3::Object.new(
   bucket_name: ENV['AWS_BUCKET'],
@@ -251,7 +315,6 @@ i3.video.attach(
   filename: 'escp.mp4',
   content_type: 'video/mp4'
 )
-i3.save!
 
 url4 = Aws::S3::Object.new(
   bucket_name: ENV['AWS_BUCKET'],
@@ -267,7 +330,6 @@ i4.video.attach(
   filename: 'lille.mp4',
   content_type: 'video/mp4'
 )
-i4.save!
 
 url5 = Aws::S3::Object.new(
   bucket_name: ENV['AWS_BUCKET'],
@@ -283,7 +345,6 @@ i5.video.attach(
   filename: 'lille.mp4',
   content_type: 'video/mp4'
 )
-i5.save!
 
 url6 = Aws::S3::Object.new(
   bucket_name: ENV['AWS_BUCKET'],
@@ -299,26 +360,31 @@ i6.video.attach(
   filename: 'compagnons.mp4',
   content_type: 'video/mp4'
 )
-i6.save!
 
 # attaching images to institutions
 filei1 = URI.open("https://etudestech.com/wp-content/uploads/2021/07/lewagon-logo-square-b6124eb974be375884558e4464efce48a9b5664f18422768156364363ecdd1fc.png")
 i1.photo.attach(io: filei1, filename: "i1.png", content_type: "image/png")
+i1.save!
 
 filei2 = URI.open("https://cnsad.psl.eu/wp-content/uploads/2019/12/logo_CNSAD_PSL.svg")
 i2.photo.attach(io: filei2, filename: "i2.png", content_type: "image/png")
+i2.save!
 
 filei3 = URI.open("https://upload.wikimedia.org/wikipedia/commons/f/fb/ESCP_Business_School_2020_Logo.jpg")
 i3.photo.attach(io: filei3, filename: "i3.png", content_type: "image/png")
+i3.save!
 
 filei4 = URI.open("https://image.jimcdn.com/app/cms/image/transf/none/path/s591e1c24fa53fcbb/image/i8cbfef27ff5feadc/version/1478359958/image.png")
 i4.photo.attach(io: filei4, filename: "i3.png", content_type: "image/png")
+i4.save!
 
 filei5 = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Logo_Panth%C3%A9on-Assas.svg/1200px-Logo_Panth%C3%A9on-Assas.svg.png")
 i5.photo.attach(io: filei5, filename: "i5.png", content_type: "image/png")
+i5.save!
 
 filei6 = URI.open("https://www.compagnons-du-devoir.com/sites/all/themes/compagnons/assets/images/logo-compagnons.png")
 i6.photo.attach(io: filei6, filename: "i6.png", content_type: "image/png")
+i6.save!
 
 puts "Creating educations"
 ed1 = Education.create!(user_id: m1.id, institution_id: i1.id, start_date: "2016-10-20", degree_level: "Bootcamp", field: "Développement Web")
@@ -327,26 +393,56 @@ ed3 = Education.create!(user_id: m3.id, institution_id: i3.id, start_date: "2000
 ed4 = Education.create!(user_id: m4.id, institution_id: i4.id, start_date: "1981-09-01", degree_level: "Master", field: "Droit")
 ed5 = Education.create!(user_id: m5.id, institution_id: i2.id, start_date: "1979-09-01", degree_level: "Master", field: "Theatre")
 ed6 = Education.create!(user_id: m6.id, institution_id: i5.id, start_date: "1999-09-01", degree_level: "License", field: "Histoire")
+ed7 = Education.create!(user_id: m7.id, institution_id: i3.id, start_date: "2010-09-01", degree_level: "Master", field: "Gestion")
+ed8 = Education.create!(user_id: m8.id, institution_id: i3.id, start_date: "2016-09-01", degree_level: "Master", field: "Gestion")
+ed9 = Education.create!(user_id: m9.id, institution_id: i5.id, start_date: "2016-09-01", degree_level: "Master", field: "Litterature")
+ed10 = Education.create!(user_id: m10.id, institution_id: i4.id, start_date: "2014-09-01", degree_level: "License", field: "Gestion")
+ed11 = Education.create!(user_id: m11.id, institution_id: i1.id, start_date: "2014-09-01", degree_level: "Bootcamp", field: "Developpement Web")
+ed12 = Education.create!(user_id: m12.id, institution_id: i3.id, start_date: "2012-09-01", degree_level: "Master", field: "Gestion")
 
 puts "Creating contents"
-c1 = Content.create!(user_id: m1.id, title: "Paul - Developpeur web, ancien barman")
-c2 = Content.create!(user_id: m2.id, title: "Carla - Actrice & chanteuse")
-c3 = Content.create!(user_id: m3.id, title: "Théobald - Entrepreneur, ancien analyste financier")
-c4 = Content.create!(user_id: m4.id, title: "Eric - Ministre de la Justice, ancien avocat")
-c5 = Content.create!(user_id: m5.id, title: "Jonathan - Acteur de cinema, ancien commercial")
-c6 = Content.create!(user_id: m6.id, title: "Kaaris - Rappeur & acteur")
+c1 = Content.new(user_id: m1.id, title: "Sophie - Lead software engineer")
+c2 = Content.new(user_id: m2.id, title: "Carla - Actrice & chanteuse")
+c3 = Content.new(user_id: m3.id, title: "Théobald - Entrepreneur, ancien analyste financier")
+c4 = Content.new(user_id: m4.id, title: "Eric - Ministre de la Justice, ancien avocat")
+c5 = Content.new(user_id: m5.id, title: "Jonathan - Acteur de cinema, ancien commercial")
+c6 = Content.new(user_id: m6.id, title: "Kaaris - Rappeur & acteur")
+c7 = Content.new(user_id: m7.id, title: "Oceane - Chef de projet digital chez Colorz")
+c8 = Content.new(user_id: m8.id, title: "Helene - Data analyst senior chez Cenisis")
+c9 = Content.new(user_id: m9.id, title: "Jean - Business developper chez Mirakl")
+c10 = Content.new(user_id: m10.id, title: "Pascal - Chef de chantier chez Sferis")
+c11 = Content.new(user_id: m11.id, title: "Christophe - Senior product manager")
+c12 = Content.new(user_id: m12.id, title: "Mihaela - Senior account executive")
 
 # attaching videos to content
+url_c1 = Aws::S3::Object.new(
+  bucket_name: ENV['AWS_BUCKET'],
+  key: 'sophie.mp4',
+  client: Aws::S3::Client.new(
+    access_key_id: ENV['ACCESS_KEY_ID'],
+    secret_access_key: ENV['SECRET_ACCESS_KEY']
+  )
+).presigned_url(:get, expires_in: 3600)
+
 c1.video.attach(
-  io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669815582/e0ee1rdiklsvx4mt8pqv.mp4'),
-  filename: 'developpeur.mp4',
+  io: URI.open(url_c1),
+  filename: 'sophie.mp4',
   content_type: 'video/mp4'
 )
 c1.save!
 
+url_c2 = Aws::S3::Object.new(
+  bucket_name: ENV['AWS_BUCKET'],
+  key: 'carla.mp4',
+  client: Aws::S3::Client.new(
+    access_key_id: ENV['ACCESS_KEY_ID'],
+    secret_access_key: ENV['SECRET_ACCESS_KEY']
+  )
+).presigned_url(:get, expires_in: 3600)
+
 c2.video.attach(
-  io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669817958/nyyknsxaztmobngiqpqw.mp4'),
-  filename: 'acteur.mp4',
+  io: URI.open(url_c2),
+  filename: 'carla.mp4',
   content_type: 'video/mp4'
 )
 c2.save!
@@ -378,6 +474,102 @@ c6.video.attach(
   content_type: 'video/mp4'
 )
 c6.save!
+
+url_c7 = Aws::S3::Object.new(
+  bucket_name: ENV['AWS_BUCKET'],
+  key: 'oceane.mp4',
+  client: Aws::S3::Client.new(
+    access_key_id: ENV['ACCESS_KEY_ID'],
+    secret_access_key: ENV['SECRET_ACCESS_KEY']
+  )
+).presigned_url(:get, expires_in: 3600)
+
+c7.video.attach(
+  io: URI.open(url_c7),
+  filename: 'oceane.mp4',
+  content_type: 'video/mp4'
+)
+c7.save!
+
+url_c8 = Aws::S3::Object.new(
+  bucket_name: ENV['AWS_BUCKET'],
+  key: 'helene.mp4',
+  client: Aws::S3::Client.new(
+    access_key_id: ENV['ACCESS_KEY_ID'],
+    secret_access_key: ENV['SECRET_ACCESS_KEY']
+  )
+).presigned_url(:get, expires_in: 3600)
+
+c8.video.attach(
+  io: URI.open(url_c8),
+  filename: 'helene.mp4',
+  content_type: 'video/mp4'
+)
+c8.save!
+
+url_c9 = Aws::S3::Object.new(
+  bucket_name: ENV['AWS_BUCKET'],
+  key: 'jeanj.mp4',
+  client: Aws::S3::Client.new(
+    access_key_id: ENV['ACCESS_KEY_ID'],
+    secret_access_key: ENV['SECRET_ACCESS_KEY']
+  )
+).presigned_url(:get, expires_in: 3600)
+
+c9.video.attach(
+  io: URI.open(url_c9),
+  filename: 'jeanj.mp4',
+  content_type: 'video/mp4'
+)
+c9.save!
+
+url_c10 = Aws::S3::Object.new(
+  bucket_name: ENV['AWS_BUCKET'],
+  key: 'pascal.mp4',
+  client: Aws::S3::Client.new(
+    access_key_id: ENV['ACCESS_KEY_ID'],
+    secret_access_key: ENV['SECRET_ACCESS_KEY']
+  )
+).presigned_url(:get, expires_in: 3600)
+
+c10.video.attach(
+  io: URI.open(url_c10),
+  filename: 'pascal.mp4',
+  content_type: 'video/mp4'
+)
+c10.save!
+
+url_c11 = Aws::S3::Object.new(
+  bucket_name: ENV['AWS_BUCKET'],
+  key: 'christophe.mp4',
+  client: Aws::S3::Client.new(
+    access_key_id: ENV['ACCESS_KEY_ID'],
+    secret_access_key: ENV['SECRET_ACCESS_KEY']
+  )
+).presigned_url(:get, expires_in: 3600)
+
+c11.video.attach(
+  io: URI.open(url_c11),
+  filename: 'christophe.mp4',
+  content_type: 'video/mp4'
+)
+c11.save!
+
+url_c12 = Aws::S3::Object.new(
+  bucket_name: ENV['AWS_BUCKET'],
+  key: 'riza.mp4',
+  client: Aws::S3::Client.new(
+    access_key_id: ENV['ACCESS_KEY_ID'],
+    secret_access_key: ENV['SECRET_ACCESS_KEY']
+  )
+).presigned_url(:get, expires_in: 3600)
+
+c12.video.attach(
+  io: URI.open(url_c12),
+  filename: 'riza.mp4',
+  content_type: 'video/mp4'
+)
+c12.save!
 
 puts "Creating tags"
 t1 = Tag.create!(name: "transport")
