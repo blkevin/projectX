@@ -3,29 +3,29 @@
     <h1>PERSPECTIV</h1>
     <h2>Welcome back <%= current_user.first_name %></h2>
   </div>
-
-</div>
   <div class="container">
     <div class="section">
       <div class="d-flex justify-content-between mb-3">
-        <h3>Les mentors à découvrir</h3>
+        <h3>Les mentors à découvrir</h3> 
         <%= link_to "Voir plus", mentors_path, class:"btn-purple"%>
       </div>
       <div class="scroll-horizontal">
-        <%= render "shared/item_carousel", mentor: @mentors[1] %>
-        <%= render "shared/item_carousel", mentor: @mentors[2] %>
-        <%= render "shared/item_carousel", mentor: @mentors[3] %>
-        <%= render "shared/item_carousel", mentor: @mentors[4] %>
+        <%= render "shared/item_scroll_mentor", mentor: @mentors[1] %>
+        <%= render "shared/item_scroll_mentor", mentor: @mentors[2] %>
+        <%= render "shared/item_scroll_mentor", mentor: @mentors[3] %>
+        <%= render "shared/item_scroll_mentor", mentor: @mentors[4] %>
       </div>
     </div>
-
     <div class="section">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between mb-3">
         <h3>Notre sélection de vidéos pour toi</h3>
         <%= link_to "Voir plus", mentors_path, class:"btn-purple"%>
       </div>
-      <div class="videos-shortlist">
-        <div class="card-video-horizontal"></div>
+      <div class="scroll-horizontal">
+        <%= render "shared/item_scroll_video", content: @contents[1] %>
+        <%= render "shared/item_scroll_video", content: @contents[2] %>
+        <%= render "shared/item_scroll_video", content: @contents[3] %>
+        <%= render "shared/item_scroll_video", content: @contents[4] %>
       </div>
     </div>
   </div>
@@ -57,5 +57,3 @@
     </div>
   </div>
 <% end %>
-
-<%# <%= video_tag Content.last.video.url, controls: true %>

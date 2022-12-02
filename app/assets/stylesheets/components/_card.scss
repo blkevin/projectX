@@ -1,22 +1,23 @@
-.card-video-horizontal {
-  color: $dark-purple;
-  background-color: $light-orange;
-  border-radius: 30%;
-}
-
-.card-mentor-horizontal {
+.card-horizontal {
   background: linear-gradient($light-orange, 90%, $white);
   transition: 0.3s ease;
   color: $dark-purple;
-  border-radius: 10px;
-  padding: 10px 30px 10px 10px;
+  padding: 0px 30px 0px 10px;
   margin: 10px;
   width: 30vw;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  height: 20vh;
+  backdrop-filter: blur(5px);
+  border-radius: 26px;
+  .card-position {
+    border-bottom: 1px solid $dark-purple;
+    padding-bottom: 10px ;
+  }
 }
-.card-mentor-horizontal:hover {
+
+.card-horizontal:hover {
   background: linear-gradient($white, 10%, $light-orange);
   transition: 0.3s ease;
 }
@@ -24,7 +25,7 @@
 .card-mentor-vertical {
   background: linear-gradient($light-orange, 90%, $white);
   margin: 20px;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
   border-radius: 10px;
   width: 20vw;
@@ -33,10 +34,21 @@
   text-decoration: none !important;
   color: $dark-purple;
   }
+  h4 {
+    margin: 0;
+  }
+  .tags {
+    justify-content: center;
+
+  }
+  .card-position, .card-school {
+    text-align: start;
+  }
 }
+
 .card-avatar {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   background-color: $dark-purple;
   margin: 0px 15px 0px 5px;
@@ -44,6 +56,7 @@
   object-fit: cover;
   object-position: top;
 }
+
 .card-mentor-vertical-avatar {
   margin: 10px auto;
   border-radius: 50%;
@@ -52,23 +65,150 @@
   object-fit: cover;
   object-position: top;
 }
+
 .card-info {
   width: 100%;
 }
 
-.card-sector-industry {
-  font-size: 12px;
-}
-
 .card-position {
-  font-size: 14px;
-  border-top: 1px solid $dark-purple;
+  font-size: 16px;
 }
 
-.card-school, .card-age {
+.card-tag {
   font-size: 14px;
+  border: 1px solid #FAC9A3;
+  border-radius: 50px;
+  background-color: #FAC9A3;
+  color: #302D31;
+  padding: 0px 10px;
+  margin-right: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.tags {
+  display: flex;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.card-school {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-bottom: 10px;
+}
+
+.card-age {
+  font-size: 13px;
+  font-style: italic;
 }
 
 .item {
   display: inline-block;
 }
+
+video {
+  width: 160px;
+  height: 100px;
+  margin: 0px 15px 0px 5px;
+  flex-shrink: 0;
+}
+
+.card-fullname {
+  font-size: 20px;
+  width: 274px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 5px
+}
+
+.card-title {
+font-size: 18px;
+width: 220px;
+white-space: normal;
+}
+
+.experience-card {
+  background: $light-orange;
+  transition: 0.3s ease;
+  color: $dark-purple;
+  border-radius: 10px;
+  padding: 10px 30px 10px 10px;
+  width: 45vw;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.meeting-card {
+  background: white;
+  color: $dark-purple;
+  border-radius: 10px;
+  padding: 10px 0px 0px 10px;
+  margin: 10px;
+  width: 90%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  height: 7em;
+  & ul {
+    list-style: none;
+  }
+  & .card-avatar {
+    margin: 0px 0px 10px 0px;
+    }
+  & h5 {
+    font-size: 20px;
+    margin-bottom: 0.2rem;
+  }
+}
+
+.chat-card {
+  background: white;
+  color: $dark-purple;
+  border-radius: 10px;
+  padding: 10px 0px 0px 10px;
+  margin: 10px;
+  width: 45%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  height: 4em;
+  font-size: 13px;
+  & ul {
+    list-style: none;
+  }
+  & .card-avatar {
+    width: 40px;
+    height: 40px;
+    margin: 10px 0px 0px 0px;
+    margin: 0px -15px 10px 0px;
+  }
+  & h5 {
+    margin-bottom: 0.2rem;
+  }
+}
+
+.card-infos {
+  font-size: 12px;
+}
+
+.upcoming-meetings {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.preview-messages {
+  margin-top: 20px;
+}
+
+.logo-school {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+ .school-info {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $dark-purple;
+ }
