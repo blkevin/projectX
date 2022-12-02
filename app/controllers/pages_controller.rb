@@ -10,8 +10,8 @@ class PagesController < ApplicationController
     user_conversations
     upcoming_user_meetings
     past_user_meetings
-    # conversation_mentors
-    # conversation_students
+    current_conversation
+    @message = Message.new
   end
 
   private
@@ -23,7 +23,6 @@ class PagesController < ApplicationController
       conversations = current_user.conversations_as_mentor
     end
     @conversations = conversations.reject { |conversation| conversation.messages.empty? }
-    # @conversations = Conversation.joins(:messages).having("COUNT(messages.id) > 1")
   end
 
   def upcoming_user_meetings
@@ -43,22 +42,9 @@ class PagesController < ApplicationController
     end
     @past_meetings = past_meetings.select { |meeting| meeting.starting < Date.today }
   end
-  # def conversation_mentors
-  #   @conversation_mentors = []
-  #   current_user.conversations.each do |conversation|
-  #     mentor = Mentor.find(conversation.mentor_id)
-  #     @conversation_mentors << mentor
-  #   end
-  #   return @conversation_mentors
-  # end
 
-  # def conversation_students
-  #   @conversation_students = []
-  #   current_user.conversations.each do |conversation|
-  #     student = student.find(conversation.student_id)
-  #     @conversation_students << student
-  #   end
-  #   return @conversation_students
-  # end
+  def current_conversation
+    @conversation = user_conversations.first
+  end
 
 end

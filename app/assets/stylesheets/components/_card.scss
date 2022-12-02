@@ -109,11 +109,10 @@
 .chat-card {
   background: white;
   color: $dark-purple;
-  border-radius: 10px;
   padding: 10px 0px 0px 10px;
   margin: 10px;
-  width: 45%;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  width: 100%;
+  box-shadow: 0 0 2.5px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   height: 4em;
@@ -141,6 +140,8 @@
   margin-bottom: 50px;
 }
 
-.preview-messages {
-  margin-top: 20px;
+.left-side {
+  & h4 {
+    margin-top: 0.7em;
+  }
 }

@@ -1,20 +1,23 @@
+<div class="banner-dashboard">
+  <h2>Hello <%= @user.first_name %> ! Bienvenue sur ton tableau de bord 🗺️</h2>
+</div>
 <div class="container">
-  <h3>Hello <%= @user.first_name %> ! Bienvenue sur ton tableau de bord 🗺️</h3>
-
 
 
 <%# Conversations %>
   <div class="d-flex">
-    <div class="col-8 conversations">
-      <div class="preview-messages">
-        <h4>👋 Continue la conversation !</h4>
+    <div class="col-8 left-side">
+      <h4>👋 Continue la conversation !</h4>
+    <%# Conversations Preview %>
+        <div class="d-flex conversations-card">
+          <div class="preview-messages">
             <% if @user.status == "student" %>
               <% @conversations.each do |conversation| %>
                 <div class="chat-card">
                   <%= cl_image_tag User.find(conversation.mentor_id).photo.key, crop: :fill, class: "card-avatar" %>
                   <ul>
                     <li> <strong><%= User.find(conversation.mentor_id).first_name %> <%= User.find(conversation.mentor_id).last_name %></strong></li>
-                    <li> <%= conversation.messages.last.content[0, 40]... %></li>
+                    <li> <%= conversation.messages.last.content[0, 33]... %></li>
                   </ul>
                 </div>
               <% end %>
@@ -24,14 +27,33 @@
                 <%= cl_image_tag User.find(conversation.student_id).photo.key, crop: :fill, class: "card-avatar" %>
                 <ul>
                   <li><strong><%= User.find(conversation.student_id).first_name %> <%= User.find(conversation.student_id).last_name %></strong></li>
-                  <li> <%= conversation.messages.last.content[0, 40]... %></li>
+                  <li> <%= conversation.messages.last.content[0, 33]... %></li>
                 </ul>
               </div>
               <% end %>
             <% end %>
         </div>
 
+    <%# Chat %>
+    <div class="dashboard-conversation mx-5" data-controller="conversation-subscription" data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
+      <div class="messages" data-conversation-subscription-target="messages">
+          <% @conversation.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+          <% end %>
+      </div>
+
+      <%= simple_form_for [@conversation, @message],
+        html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }, class: "d-flex"} do |f| %>
+        <%= f.input :content,
+          label: false,
+          placeholder: "Message",
+          wrapper_html: {class: "flex-grow-1"}
+        %>
+        <%= f.submit "Envoyer", class: "btn btn-primary mb-3" %>
+      <% end %>
+    </div>
   </div>
+</div>
 
 <%# Meetings %>
 
