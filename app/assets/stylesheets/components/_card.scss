@@ -15,6 +15,12 @@
     border-bottom: 1px solid $dark-purple;
     padding-bottom: 0.6em ;
   }
+  video {
+    width: 160px;
+    height: 100px;
+    margin: 0px 15px 0px 5px;
+    flex-shrink: 0;
+  }
 }
 
 .card-horizontal:hover {
@@ -107,12 +113,6 @@
   display: inline-block;
 }
 
-video {
-  width: 160px;
-  height: 100px;
-  margin: 0px 15px 0px 5px;
-  flex-shrink: 0;
-}
 
 .card-fullname {
   font-size: 20px;
