@@ -154,14 +154,24 @@ white-space: normal;
   & ul {
     list-style: none;
   }
-  & .card-avatar {
-    margin: 0px 0px 10px 0px;
-    }
   & h5 {
     font-size: 20px;
     margin-bottom: 0.2rem;
   }
 }
+
+.card-avatar-dashboard {
+  width: 80px;
+  height: 80px;
+  margin: 0px 0px 10px 0px;
+  border-radius: 50%;
+  background-color: $dark-purple;
+  margin: 0px 15px 0px 5px;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: top;
+  margin-right: 1em;
+  }
 
 .chat-card {
   background: white;
@@ -177,11 +187,11 @@ white-space: normal;
   & ul {
     list-style: none;
   }
-  & .card-avatar {
+  & .card-avatar-dashboard {
     width: 40px;
     height: 40px;
     margin: 10px 0px 0px 0px;
-    margin: 0px -15px 10px 0px;
+    margin: 0px 15px 10px 0px;
   }
   & h5 {
     margin-bottom: 0.2rem;
@@ -213,3 +223,7 @@ white-space: normal;
   justify-content: space-between;
   border-bottom: 1px solid $dark-purple;
  }
+
+a {
+text-decoration: none;
+}

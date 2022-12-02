@@ -50,18 +50,19 @@
   flex-grow: 1;
 
   .messages {
-    height: 100%;
     overflow: scroll;
-    padding: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid $gray-200;
   }
 
   #new_message {
-    border-top: 1px solid $gray-200;
-    padding: 1rem;
 
     .form-group {
       margin-bottom: 0;
     }
+  }
+  .text-submit-area {
+    margin-top: 1rem;
   }
 }
 

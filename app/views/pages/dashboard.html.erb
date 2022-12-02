@@ -14,7 +14,7 @@
             <% if @user.status == "student" %>
               <% @conversations.each do |conversation| %>
                 <div class="chat-card">
-                  <%= cl_image_tag User.find(conversation.mentor_id).photo.key, crop: :fill, class: "card-avatar" %>
+                  <%= cl_image_tag User.find(conversation.mentor_id).photo.key, crop: :fill, class: "card-avatar-dashboard" %>
                   <ul>
                     <li> <strong><%= User.find(conversation.mentor_id).first_name %> <%= User.find(conversation.mentor_id).last_name %></strong></li>
                     <li> <%= conversation.messages.last.content[0, 33]... %></li>
@@ -24,7 +24,7 @@
             <% else %>
               <% @conversations.each do |conversation| %>
               <div class="chat-card">
-                <%= cl_image_tag User.find(conversation.student_id).photo.key, crop: :fill, class: "card-avatar" %>
+                <%= cl_image_tag User.find(conversation.student_id).photo.key, crop: :fill, class: "card-avatar-dashboard" %>
                 <ul>
                   <li><strong><%= User.find(conversation.student_id).first_name %> <%= User.find(conversation.student_id).last_name %></strong></li>
                   <li> <%= conversation.messages.last.content[0, 33]... %></li>
@@ -36,21 +36,22 @@
 
     <%# Chat %>
     <div class="dashboard-conversation mx-5" data-controller="conversation-subscription" data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
-      <div class="messages" data-conversation-subscription-target="messages">
+      <div class="messages flex-grow-1" data-conversation-subscription-target="messages">
           <% @conversation.messages.each do |message| %>
             <%= render "messages/message", message: message %>
           <% end %>
       </div>
 
       <%= simple_form_for [@conversation, @message],
-        html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }, class: "d-flex"} do |f| %>
-        <%= f.input :content,
+        html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }, class: "d-flex text-submit-area"} do |f| %>
+        <%= f.input :content, as: :string,
           label: false,
           placeholder: "Message",
           wrapper_html: {class: "flex-grow-1"}
         %>
         <%= f.submit "Envoyer", class: "btn btn-primary mb-3" %>
       <% end %>
+
     </div>
   </div>
 </div>
@@ -63,24 +64,26 @@
         <h4>🗓️ Tes futurs rendez-vous</h4>
           <% if @user.status == "student" %>
             <% @upcoming_meetings.each do |meeting| %>
-              <div class="meeting-card">
-                <div class="d-flex">
-                  <%= cl_image_tag User.find(meeting.mentor_id).photo.key, crop: :fill, class: "card-avatar" %>
-                  <div class="card-infos">
-                    <ul>
-                      <li> <h5><%= User.find(meeting.mentor_id).first_name %> <%= User.find(meeting.mentor_id).last_name %></h5></li>
-                      <li> <strong><%= User.find(meeting.mentor_id).experiences.last.position %></strong> chez <%= User.find(meeting.mentor_id).experiences.last.company %></li>
-                      <li> Le <strong><%= l(meeting.starting, format: '%-d %B %Y') %></strong> </li>
-                    </ul>
+              <%= link_to mentor_path(User.find(meeting.mentor_id)) do %>
+                <div class="meeting-card">
+                  <div class="d-flex">
+                    <%= cl_image_tag User.find(meeting.mentor_id).photo.key, crop: :fill, class: "card-avatar-dashboard" %>
+                    <div class="card-infos">
+                      <ul>
+                        <li> <h5><%= User.find(meeting.mentor_id).first_name %> <%= User.find(meeting.mentor_id).last_name %></h5></li>
+                        <li> <strong><%= User.find(meeting.mentor_id).experiences.last.position %></strong> chez <%= User.find(meeting.mentor_id).experiences.last.company %></li>
+                        <li> Le <strong><%= l(meeting.starting, format: '%-d %B %Y') %></strong> </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
+              <% end %>
             <% end %>
 
           <% else %>
               <% @upcoming_meetings.each do |meeting| %>
               <div class="meeting-card">
-              <%= cl_image_tag User.find(meeting.student_id).photo.key, height: 300, width: 400, crop: :fill, class: "card-avatar" %>
+              <%= cl_image_tag User.find(meeting.student_id).photo.key, height: 300, width: 400, crop: :fill, class: "card-avatar-dashboard" %>
                 <li> <h5><%= User.find(meeting.student_id).first_name %> <%= User.find(meeting.student_id).last_name %></h5></li>
                 <li> <%= User.find(meeting.student_id).experiences.last.position %> chez <%= User.find(meeting.student_id).experiences.last.company %></li>
                 <li> Le <strong><%= l(meeting.starting, format: '%-d %B %Y') %></strong> </li>
@@ -94,28 +97,30 @@
       <h4>🗓️ Tes prédédents rendez-vous</h4>
         <% if @user.status == "student" %>
           <% @past_meetings.each do |meeting| %>
-          <div class="meeting-card">
-            <%= cl_image_tag User.find(meeting.mentor_id).photo.key, height: 100, width: 100, crop: :fill, class: "card-avatar" %>
-              <div class="card-infos">
-                <ul>
-                  <li> <h5><%= User.find(meeting.mentor_id).first_name %> <%= User.find(meeting.mentor_id).last_name %></h5></li>
-                  <li> <strong><%= User.find(meeting.mentor_id).experiences.last.position %></strong> chez <%= User.find(meeting.mentor_id).experiences.last.company %></li>
-                  <li> Le <strong><%= l(meeting.starting, format: '%-d %B %Y') %></strong> </li>
-                <ul>
+            <%= link_to mentor_path(User.find(meeting.mentor_id)) do %>
+              <div class="meeting-card">
+                <%= cl_image_tag User.find(meeting.mentor_id).photo.key, height: 100, width: 100, crop: :fill, class: "card-avatar-dashboard" %>
+                  <div class="card-infos">
+                    <ul>
+                      <li> <h5><%= User.find(meeting.mentor_id).first_name %> <%= User.find(meeting.mentor_id).last_name %></h5></li>
+                      <li> <strong><%= User.find(meeting.mentor_id).experiences.last.position %></strong> chez <%= User.find(meeting.mentor_id).experiences.last.company %></li>
+                      <li> Le <strong><%= l(meeting.starting, format: '%-d %B %Y') %></strong> </li>
+                    <ul>
+                  </div>
               </div>
-          </div>
             <% end %>
-          <% else %>
-            <% @past_meetings.each do |meeting| %>
+          <% end %>
+        <% else %>
+          <% @past_meetings.each do |meeting| %>
             <div>
-              <%= cl_image_tag User.find(meeting.student_id).photo.key, height: 300, width: 400, crop: :fill, class: "card-avatar" %>
+              <%= cl_image_tag User.find(meeting.student_id).photo.key, height: 300, width: 400, crop: :fill, class: "card-avatar-dashboard" %>
               <li> Prénom = <%= User.find(meeting.student_id).first_name %> </li>
               <li> Nom = <%= User.find(meeting.student_id).last_name %> </li>
               <li> Age = <%= User.find(meeting.student_id).age %> </li>
               <li> Le <strong><%= l(meeting.starting, format: '%-d %B %Y') %></strong> </li>
             </div>
             <% end %>
-          <% end %>
+        <% end %>
         </ul>
       </div>
     </div>
