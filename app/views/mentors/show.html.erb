@@ -18,7 +18,7 @@
   <div class="left-side-description mt-2">
     <h4 class="subtitle">💼 Carrière</h4>
     <%@experiences.each do |experience| %>
-      <div class="experience-card mb-2">
+      <div class="experience-card mb-5">
         <div class="sub-title-experience d-flex justify-content-between">
           <h5><%= experience.position %></h5>
           <div class="dates-mentor-experience">
@@ -38,9 +38,11 @@
       </div>
     <%end%>
 
+    <div class="rectangle mb-5"></div>
+
     <h4 class="mt-3 subtitle"> 📚 Etudes</h4>
     <%@educations.each do |education| %>
-      <div class="experience-card mb-2">
+      <div class="experience-card mb-5">
         <div class="sub-title-study d-flex justify-content-between">
           <h5><%= education.institution.name %></h5>
           <div class="dates-mentor-study">
