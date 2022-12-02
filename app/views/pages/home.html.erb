@@ -5,9 +5,9 @@
   </div>
   <div class="container">
     <div class="section">
-      <div class="d-flex justify-content-between mb-3">
-        <h3>Les mentors à découvrir</h3> 
-        <%= link_to "Voir plus", mentors_path, class:"btn-purple"%>
+      <div class="d-flex justify-content-between mb-3 headers-section">
+        <h3>Les mentors à découvrir</h3>
+        <%= link_to "Voir plus >", mentors_path, class:"link-purple"%>
       </div>
       <div class="scroll-horizontal">
         <%= render "shared/item_scroll_mentor", mentor: @mentors[1] %>
@@ -17,9 +17,9 @@
       </div>
     </div>
     <div class="section">
-      <div class="d-flex justify-content-between mb-3">
+      <div class="d-flex justify-content-between mb-3 headers-section">
         <h3>Notre sélection de vidéos pour toi</h3>
-        <%= link_to "Voir plus", mentors_path, class:"btn-purple"%>
+        <%= link_to "Voir plus >", mentors_path, class:"link-purple"%>
       </div>
       <div class="scroll-horizontal">
         <%= render "shared/item_scroll_video", content: @contents[1] %>
@@ -33,25 +33,25 @@
 <% else %>
   <div class="banner">
     <h1>PERSPECTIV</h1>
-    <h2>Find your way</h2>
-    <%= link_to 'Créer un compte', new_user_registration_path, class: "btn-home" %>
+    <h2>Trouve ta voie et éclaire ta perspective</h2>
+    <%= link_to 'Créer un compte', new_user_registration_path, class: "btn-purple" %>
   </div>
 
   <div class="container">
     <div class="home-steps">
       <div class="step-home">
         <i class="fa-solid fa-user-plus"></i>
-        <h4>Inscris-toi</h4>
+        <h5>Inscris-toi</h5>
         <p>Réponds à un quizz rapide pour cerner tes ambitions et préférences</p>
       </div>
       <div class="step-home">
         <i class="fa-solid fa-globe"></i>
-        <h4>Découvre les profils des mentors</h4>
+        <h5>Découvre les profils des mentors</h5>
         <p>Accède à un panel de profils ciblés selon les résultats de ton quizz</p>
       </div>
       <div class="step-home">
         <i class="fa-solid fa-comments"></i>
-        <h4>Discute et rencontre</h4>
+        <h5>Discute et rencontre</h5>
         <p>Discute avec les mentors via notre chat et réserve de courts entretiens avec eux</p>
       </div>
     </div>

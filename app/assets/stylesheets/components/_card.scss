@@ -170,6 +170,9 @@ white-space: normal;
   margin: 0.6em;
   width: 45%;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+
+
+
   display: flex;
   align-items: center;
   height: 4em;
@@ -197,8 +200,10 @@ white-space: normal;
   margin-bottom: 50px;
 }
 
-.preview-messages {
-  margin-top: 20px;
+.left-side {
+  & h4 {
+    margin-top: 0.7em;
+  }
 }
 
 .logo-school {
