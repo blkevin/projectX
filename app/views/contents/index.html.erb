@@ -1,8 +1,14 @@
-<ul>
-  <% @contents.each do |content| %>
-    <% if content.video.attached?  %>
-      <li><%= content.title %></li>
-      <li><%= video_tag(content.video.url, autoplay: false, controls: true, loop: false) %></li>
-    <% end %>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="all-videos">
+    <ul>
+      <% @contents.each do |content| %>
+        <div class="card-content">
+          <% if content.video.attached?  %>
+            <li><%= content.title %></li>
+            <li><%= video_tag(content.video.url, autoplay: false, controls: true, loop: false) %></li>
+          <% end %>
+        </div>
+        <% end %>
+    </ul>
+  </div>
+</div>
