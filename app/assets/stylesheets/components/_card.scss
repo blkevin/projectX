@@ -2,8 +2,8 @@
   background: linear-gradient($light-orange, 90%, $white);
   transition: 0.3s ease;
   color: $dark-purple;
-  padding: 0px 30px 0px 10px;
-  margin: 10px;
+  padding: 0 1.8em 0 0.6em;
+  margin: 0.6em;
   width: 30vw;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   display: flex;
@@ -13,7 +13,7 @@
   border-radius: 26px;
   .card-position {
     border-bottom: 1px solid $dark-purple;
-    padding-bottom: 10px ;
+    padding-bottom: 0.6em ;
   }
   video {
     width: 160px;
@@ -30,8 +30,8 @@
 
 .card-mentor-vertical {
   background: linear-gradient($light-orange, 90%, $white);
-  margin: 20px;
-  padding: 20px;
+  margin: 1.25em;
+  padding: 1.25em;
   text-align: center;
   border-radius: 10px;
   width: 20vw;
@@ -45,7 +45,6 @@
   }
   .tags {
     justify-content: center;
-
   }
   .card-position, .card-school {
     text-align: start;
@@ -53,21 +52,21 @@
 }
 
 .card-avatar {
-  width: 120px;
-  height: 120px;
+  width: 7.5em;
+  height: 7.5em;
   border-radius: 50%;
   background-color: $dark-purple;
-  margin: 0px 15px 0px 5px;
+  margin: 0 0.9em 0 0.3em;
   flex-shrink: 0;
   object-fit: cover;
   object-position: top;
 }
 
 .card-mentor-vertical-avatar {
-  margin: 10px auto;
+  margin: 0.8em auto;
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  width: 12.5em;
+  height: 12.5em;
   object-fit: cover;
   object-position: top;
 }
@@ -117,11 +116,11 @@
 
 .card-fullname {
   font-size: 20px;
-  width: 274px;
+  width: 12em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-bottom: 5px
+  margin-bottom: 0.3em
 }
 
 .card-title {
@@ -135,7 +134,7 @@ white-space: normal;
   transition: 0.3s ease;
   color: $dark-purple;
   border-radius: 10px;
-  padding: 10px 30px 10px 10px;
+  padding: 0.6em 1.8em 0.6em 0.6em;
   width: 45vw;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
@@ -144,8 +143,8 @@ white-space: normal;
   background: white;
   color: $dark-purple;
   border-radius: 10px;
-  padding: 10px 0px 0px 10px;
-  margin: 10px;
+  padding: 0.6em 0 0 0.6em;
+  margin: 0.6em;
   width: 90%;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   display: flex;
@@ -155,7 +154,7 @@ white-space: normal;
     list-style: none;
   }
   & .card-avatar {
-    margin: 0px 0px 10px 0px;
+    margin: 0 0 0.6em 0;
     }
   & h5 {
     font-size: 20px;
@@ -167,10 +166,13 @@ white-space: normal;
   background: white;
   color: $dark-purple;
   border-radius: 10px;
-  padding: 10px 0px 0px 10px;
-  margin: 10px;
+  padding: 0.6em 0 0 0.6em;
+  margin: 0.6em;
   width: 45%;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+
+
+
   display: flex;
   align-items: center;
   height: 4em;
@@ -179,8 +181,8 @@ white-space: normal;
     list-style: none;
   }
   & .card-avatar {
-    width: 40px;
-    height: 40px;
+    width: 2.5em;
+    height: 2.5em;
     margin: 10px 0px 0px 0px;
     margin: 0px -15px 10px 0px;
   }
@@ -198,8 +200,10 @@ white-space: normal;
   margin-bottom: 50px;
 }
 
-.preview-messages {
-  margin-top: 20px;
+.left-side {
+  & h4 {
+    margin-top: 0.7em;
+  }
 }
 
 .logo-school {
@@ -212,3 +216,5 @@ white-space: normal;
   justify-content: space-between;
   border-bottom: 1px solid $dark-purple;
  }
+
+
