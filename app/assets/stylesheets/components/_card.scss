@@ -2,7 +2,6 @@
   background: linear-gradient($light-orange, 90%, $white);
   transition: 0.3s ease;
   color: $dark-purple;
-  border-radius: 10px;
   padding: 0px 30px 0px 10px;
   margin: 10px;
   width: 30vw;
@@ -10,6 +9,12 @@
   display: flex;
   align-items: center;
   height: 20vh;
+  backdrop-filter: blur(5px);
+  border-radius: 26px;
+  .card-position {
+    border-bottom: 1px solid $dark-purple;
+    padding-bottom: 10px ;
+  }
 }
 
 .card-horizontal:hover {
@@ -20,7 +25,7 @@
 .card-mentor-vertical {
   background: linear-gradient($light-orange, 90%, $white);
   margin: 20px;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
   border-radius: 10px;
   width: 20vw;
@@ -28,6 +33,16 @@
   a {
   text-decoration: none !important;
   color: $dark-purple;
+  }
+  h4 {
+    margin: 0;
+  }
+  .tags {
+    justify-content: center;
+
+  }
+  .card-position, .card-school {
+    text-align: start;
   }
 }
 
@@ -50,14 +65,13 @@
   object-fit: cover;
   object-position: top;
 }
+
 .card-info {
   width: 100%;
 }
 
 .card-position {
   font-size: 16px;
-  border-top: 1px solid $dark-purple;
-  padding-top: 5px
 }
 
 .card-tag {
@@ -73,11 +87,21 @@
 
 .tags {
   display: flex;
-  margin-top: 5px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-.card-school, .card-age {
-  font-size: 16px;
+.card-school {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-bottom: 10px;
+}
+
+.card-age {
+  font-size: 13px;
+  font-style: italic;
 }
 
 .item {
@@ -99,11 +123,12 @@ video {
   text-overflow: ellipsis;
   margin-bottom: 5px
 }
- .card-title {
-  font-size: 20px;
-  width: 220px;
-  white-space: normal;
- }
+
+.card-title {
+font-size: 18px;
+width: 220px;
+white-space: normal;
+}
 
 .experience-card {
   background: $light-orange;
@@ -178,3 +203,13 @@ video {
   }
 }
 
+.logo-school {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+ .school-info {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $dark-purple;
+ }

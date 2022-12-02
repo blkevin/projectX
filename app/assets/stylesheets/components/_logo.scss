@@ -1,0 +1,36 @@
+.logo-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: auto;
+  max-width: 100vw;
+}
+
+.logo-grid-row {
+    display: flex;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    gap: 32px;
+}
+
+.logo-grid-group{
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: space-around;
+  gap: 32px;
+  min-width: 100%;
+  animation: scroll-x 60s linear infinite;
+}
+
+@keyframes scroll-x {
+  from {
+    transform:translateX(0)
+  }
+  to {
+    transform:translateX(calc(-100% - 32px))
+  }
+}
