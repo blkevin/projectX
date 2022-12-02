@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @mentors = User.mentor
+    @contents = Content.all
   end
 
   def dashboard
