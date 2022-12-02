@@ -58,3 +58,45 @@
   text-decoration: none;
   color: $white;
 }
+
+.btn-chat {
+  color: $dark-purple;
+  padding: 5px 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  background:$orange;
+  text-decoration: none;
+  border: 0px solid #ebebeb;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+
+}
+
+.btn-chat:hover {
+  background: $light-orange;
+  transition: 0.3s ease;
+  text-decoration: none;
+  color: $dark-purple;
+}
+
+.btn-book {
+  position: absolute;
+  right: 1px;
+  top: -50px;
+  color: $dark-purple;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-weight: 600;
+  background-color: $orange;
+  font-size: 16px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+
+}
+
+.btn-book:hover {
+  color: $dark-purple;
+  background-color: $light-orange;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
