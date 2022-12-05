@@ -1,4 +1,27 @@
 <div class="container">
+  <div class="filters">
+   <%# search avec texte %>
+    <div class="form-spacing">
+      <%= form_with url: mentors_path, method: :get, class: "form-home" do |f| %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-input",
+        placeholder: "Trouve ton Mentor"%>
+        <%= f.select(:position, options_for_select(Experience.all.pluck(:position).uniq.sort, selected: params[:position]), include_blank: "Poste") %>
+        <%= f.select(:sector, options_for_select(Experience.all.pluck(:sector).uniq.sort, selected: params[:sector]), include_blank: "Secteur") %>
+        <%= f.select(:industry, options_for_select(Experience.all.pluck(:industry).uniq.sort, selected: params[:industry]), include_blank: "Industrie") %>
+        <%= f.select(:field, options_for_select(Education.all.pluck(:field).uniq.sort, selected: params[:field]), include_blank: "Domaine d'études",) %>
+        <%= submit_tag "Search", class: "btn-navbar"%>
+      <% end %>
+      <%= link_to "Supprimer tous les filtres", mentors_path %>
+    </div>
+  </div>
+
+  <% if @mentors.empty? %>
+    <h3>Nous sommes désolés, aucun résultat ne correspond à ta recherche.</h3>
+    <%= link_to "Supprimer tous les filtres", mentors_path %>
+  <% end %>
+
   <div class="d-flex flex-wrap justify-content-evenly">
     <% @mentors.each do |mentor| %>
       <div class="card-mentor-vertical">

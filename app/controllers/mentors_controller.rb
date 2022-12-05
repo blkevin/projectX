@@ -2,11 +2,12 @@ class MentorsController < ApplicationController
   before_action :set_mentor, only: :show
 
   def index
-    if params[:query].present?
-      @mentors = User.mentor.search_mentor(params[:query])
-    else
-      @mentors = User.mentor.all
-    end
+    @mentors = User.mentor
+    @mentors = @mentors.search_mentor(params[:query]) if params[:query].present?
+    @mentors = @mentors.search_mentor(params[:position]) if params[:position].present?
+    @mentors = @mentors.search_mentor(params[:sector]) if params[:sector].present?
+    @mentors = @mentors.search_mentor(params[:industry]) if params[:industry].present?
+    @mentors = @mentors.search_mentor(params[:field]) if params[:field].present?
   end
 
   def show
