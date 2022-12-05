@@ -47,5 +47,4 @@ class PagesController < ApplicationController
   def current_conversation
     @conversation = user_conversations.first
   end
-
 end
