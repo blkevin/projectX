@@ -5,17 +5,17 @@
 <div class="container">
 
   <div class="d-flex">
-    <div class="col-6 offset-3 form-div" id="quizz-status">
+    <div class="col-8 offset-2 form-div" id="quizz-status">
       <%= f.collection_radio_buttons :status, [["student", "Lycéen ou étudiant, je cherche ma voie 🧑‍🎓"], ["mentor", "Professionnel, j'aimerais partager mon experience 💼"]], :first, :last %>
       <a href="#quizz-registration" class="scroll-button" data-controller="scroll-to">Passe à la suite 👇</a>
     </div>
   </div>
 
-  <%# Standard Registration %>
+<%# Standard Registration %>
   <div class="student-form">
 
   <div class="d-flex form-inputs">
-    <div class="col-6 offset-3 form-div" id="quizz-registration">
+    <div class="col-8 offset-2 form-div" id="quizz-registration" data-controller="onboarding">
       <h5>Avant toutes choses, on a besoin de quelques renseignements sur toi !</h5>
       <%= f.input :first_name,
                   :label => false,
@@ -46,45 +46,58 @@
                   :label => false,
                   placeholder: "Tu peux nous le reconfirmer ici ?",
                   required: true %>
-      <a href="#quizz-student-1st" class="scroll-button" data-controller="scroll-to">On passe à la suite 👇</a>
+      <a href="#quizz-student-1st" class="scroll-button" data-action="click->onboarding#firstName" data-controller="scroll-to">On passe à la suite 👇</a>
     </div>
 
-  <%# Student Quizz %>
-    <div class="col-6 offset-3 form-div" id="quizz-student-1st">
-      <h3> Hello [Prenom] ! On est ravis de te rencontrer ! Afin de t'aider au mieux dans ta démarche, on a quelques petites questions pour toi 😉</h3>
+<%# Student Quizz %>
+  <%# Question 1 %>
+  <div class="student-quizz" data-controller="onboarding">
+    <div class="col-8 offset-2 form-div" id="quizz-student-1st">
+      <h3> Hello <%= input_html: { data: { onboarding_target: 'firstName' } } %> ! On est ravis de te rencontrer ! Afin de t'aider au mieux dans ta démarche, on a quelques petites questions pour toi 😉</h3>
       <h5> Première question : tu dirais que tu es plutôt... </h5>
         <div class="d-flex choices">
-          <a href="#quizz-student-2nd" class="choice-button" data-controller="scroll-to">Métiers manuels 🛠️</a>
-          <a href="#quizz-student-2nd" class="choice-button" data-controller="scroll-to">Métiers intellectuels 💼</a>
+          <a href="#quizz-student-2nd-bis" class="choice-button" data-action="click->onboarding#q1FirstAnswer" data-onboarding-target="buttonA1" data-controller="scroll-to">Métiers manuels 🛠️</a>
+          <a href="#quizz-student-2nd" class="choice-button" data-action="click->onboarding#q1SecondAnswer" data-onboarding-target="buttonA2" data-controller="scroll-to">Métiers intellectuels 💼</a>
         </div>
-        <div class="d-flex scroll-buttons">
-          <a href="#quizz-age" class="scroll-button" data-controller="scroll-to">Retour à l'étape précédente</a>
-        </div>
+          <a href="#quizz-registration" class="scroll-button" data-controller="scroll-to">Retour à l'étape précédente</a>
       </div>
 
-      <div class="col-6 offset-3 form-div" id="quizz-student-2nd">
+  <%# Question 2 if answer at question 1 is "intellectual" %>
+      <div class="col-8 offset-2 form-div" data-onboarding-target="question2" id="quizz-student-2nd">
         <h3> Ok bien compris ! Est-ce que les métiers scientifiques / chiffrés t'intéressent ?</h3>
         <div class="d-flex choices">
-          <a href="#quizz-student-3st" class="choice-button" data-controller="scroll-to">Oui 👩‍⚕️👨‍⚕️</a>
-          <a href="#quizz-student-3st" class="choice-button" data-controller="scroll-to">Non 💼</a>
+          <a href="#quizz-student-3rd" class="choice-button" data-action="click->onboarding#q2FirstAnswer" data-onboarding-target="buttonB1" data-controller="scroll-to">Oui 👩‍⚕️ 👨‍⚕️</a>
+          <a href="#quizz-student-3rd" class="choice-button" data-action="click->onboarding#q2SecondAnswer" data-onboarding-target="buttonB2" data-controller="scroll-to">Non 💼</a>
         </div>
-        <div class="d-flex scroll-buttons">
-          <a href="#quizz-age" class="scroll-button" data-controller="scroll-to">Retour à l'étape précédente</a>
-        </div>
+          <a href="#quizz-student-1st" class="scroll-button" data-controller="scroll-to">Retour à l'étape précédente</a>
       </div>
 
-      <div class="col-6 offset-3 form-div" id="quizz-student-3st">
+  <%# Question 2 if answer at question 1 is "manual" %>
+      <div class="col-8 offset-2 form-div d-none" data-onboarding-target="question2bis" id="quizz-student-2nd-bis">
+        <h3> Ok bien compris ! Est-ce que tu préfères travailler à l'extérieur ou plutôt en intérieur ?</h3>
+        <div class="d-flex choices">
+          <a href="#quizz-student-3rd" class="choice-button" data-action="click->onboarding#q2BisFirstAnswer" data-onboarding-target="buttonB1bis" data-controller="scroll-to">Extérieur 🪵 🏗️</a>
+          <a href="#quizz-student-3rd" class="choice-button" data-action="click->onboarding#q2BisSecondAnswer" data-onboarding-target="buttonB2bis" data-controller="scroll-to">Interieur ⚙️ 🦾</a>
+        </div>
+          <a href="#quizz-student-1st" class="scroll-button" data-controller="scroll-to">Retour à l'étape précédente</a>
+      </div>
+
+  <%# Question 3 %>
+      <div class="col-8 offset-2 form-div" id="quizz-student-3rd">
         <h3> Très bien ! Dernière question : préfères-tu travailleur seul ou en groupe ?</h3>
         <div class="d-flex choices">
-          <a href="#final-step" class="choice-button" data-controller="scroll-to">Seul ✋</a>
-          <a href="#final-step" class="choice-button" data-controller="scroll-to">En groupe 👥</a>
+          <a href="#final-step" class="choice-button" data-action="click->onboarding#q3FirstAnswer" data-onboarding-target="buttonC1" data-controller="scroll-to">Seul 🏌️ ✋</a>
+          <a href="#final-step" class="choice-button" data-action="click->onboarding#q3SecondAnswer" data-onboarding-target="buttonC2" data-controller="scroll-to">En groupe 👥 🤝</a>
         </div>
+          <a href="#quizz-student-2nd" class="scroll-button" data-onboarding-target="buttonback3" data-controller="scroll-to">Retour à l'étape précédente</a>
       </div>
 
-      <div class="col-6 offset-3 form-div" id="final-step">
-        <h3> C'est tout bon ! Prêt ?</h3>
+      <div class="col-8 offset-2 form-div" id="final-step">
+        <h3> C'est tout bon ! On t'as préparé une première séléction de profils et de contenus qui pourraient t'intéresser ! Prêt ?</h3>
         <%= link_to 'Go 🚀', root_path() %>
+        <a href="#quizz-student-3rd" class="scroll-button" data-controller="scroll-to">Retour à l'étape précédente</a>
       </div>
+    </div>
 
   </div>
 
