@@ -10,10 +10,16 @@
         <%= link_to "Voir plus >", mentors_path, class:"link-purple"%>
       </div>
       <div class="scroll-horizontal">
+        <%= render "shared/item_scroll_mentor", mentor: @mentors[1] %>
         <%= render "shared/item_scroll_mentor", mentor: @mentors[2] %>
         <%= render "shared/item_scroll_mentor", mentor: @mentors[3] %>
         <%= render "shared/item_scroll_mentor", mentor: @mentors[4] %>
         <%= render "shared/item_scroll_mentor", mentor: @mentors[5] %>
+        <%= render "shared/item_scroll_mentor", mentor: @mentors[6] %>
+        <%= render "shared/item_scroll_mentor", mentor: @mentors[7] %>
+        <%= render "shared/item_scroll_mentor", mentor: @mentors[8] %>
+        <%= render "shared/item_scroll_mentor", mentor: @mentors[9] %>
+        <%= render "shared/item_scroll_mentor", mentor: @mentors[10] %>
       </div>
     </div>
     <div class="section">
@@ -22,10 +28,16 @@
         <%= link_to "Voir plus >", mentors_path, class:"link-purple"%>
       </div>
       <div class="scroll-horizontal">
+        <%= render "shared/item_scroll_video", content: @contents[1] %>
         <%= render "shared/item_scroll_video", content: @contents[2] %>
         <%= render "shared/item_scroll_video", content: @contents[3] %>
         <%= render "shared/item_scroll_video", content: @contents[4] %>
         <%= render "shared/item_scroll_video", content: @contents[5] %>
+        <%= render "shared/item_scroll_video", content: @contents[6] %>
+        <%= render "shared/item_scroll_video", content: @contents[7] %>
+        <%= render "shared/item_scroll_video", content: @contents[8] %>
+        <%= render "shared/item_scroll_video", content: @contents[9] %>
+        <%= render "shared/item_scroll_video", content: @contents[10] %>
       </div>
     </div>
   </div>
