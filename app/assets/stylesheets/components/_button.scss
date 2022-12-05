@@ -110,3 +110,22 @@
     text-decoration: none;
   }
 }
+
+.btn-purple-home {
+  color: white;
+  display: inline-block;
+  padding: 0.5em 1em;
+  border-radius: 10px;
+  background: $dark-purple;
+  border: 1px solid #9E96FF;
+  text-decoration: none;
+  margin-top: 40px;
+  font-size: 1.5em;
+}
+
+.btn-purple-home:hover {
+  background: $darker-purple;
+  border: none;
+  color: $white;
+  // box-shadow: 5px 5px 5px $darker-purple;
+}
