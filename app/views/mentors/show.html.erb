@@ -59,7 +59,7 @@
   </div>
 
 
-  <div class="right-side-chat conversation mx-5 my-5 position-relative" data-controller="conversation-subscription" data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
+  <div class="right-side-chat conversation mx-5 my-5 position-relative" data-controller="conversation-subscription" data-conversation-subscription-conversation-id-value="<%= @conversation.id %>" data-controller="schedule-meeting">
     <button type="button" class="btn btn-book" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Propose un créneau
     </button>
@@ -71,7 +71,7 @@
 
     <%= simple_form_for [@conversation, @message],
       html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }, class: "d-flex"} do |f| %>
-      <%= f.input :content,
+      <%= f.input :content, as: :string,
         label: false,
         placeholder: "Message",
         wrapper_html: {class: "flex-grow-1"}
