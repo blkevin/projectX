@@ -13,5 +13,3 @@ application.register("hello", HelloController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
-import ScheduleMeetingController from "./schedule_meeting_controller"
-application.register("schedule-meeting", ScheduleMeetingController)

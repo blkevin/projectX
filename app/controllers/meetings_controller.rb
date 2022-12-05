@@ -6,27 +6,84 @@ class MeetingsController < ApplicationController
 
   def create
     @meeting = Meeting.new(meeting_params)
-    @mentor = User.find(@meeting.mentor_id)
-    @meeting.student_id = current_user.id
-    @meeting.mentor_id = @mentor.id
+    @mentor = @meeting.mentor
+    @meeting.status = "pending"
+    @meeting.student = current_user
     @meeting.save
+    @conversation = Conversation.find_by(student: current_user, mentor: @mentor)
+    @message = Message.new(content: "Proposition de créneau d'échange envoyée à #{@mentor.first_name} le #{@meeting.starting.strftime('%e')}/#{@meeting.starting.strftime('%m')} à #{@meeting.starting.strftime('%l')}:#{@meeting.starting.strftime('%M')}, en attente de confirmation", meeting: @meeting)
+    @message.conversation = @conversation
+    @message.save
+    ConversationChannel.broadcast_to(
+      @conversation,
+      render_to_string(partial: "messages/schedule", locals: { message: @message })
+    )
     redirect_to mentor_path(@mentor)
-    flash.alert = "Demande envoyée 🎉"
+    flash.alert = "Demande envoyée !"
   end
 
   def edit
+    @meeting = Meeting.find(params[:id])
+  end
+
+  def update
+    @meeting = Meeting.find(params[:id])
+    @meeting.update(meeting_params)
+    redirect_to dashboard_path
+  end
+
+  def accept
+    @conversation = Conversation.find_by(student: @meeting.student, mentor: current_user)
+    @meeting = Meeting.find(params[:id])
+    @mentor = @meeting.mentor
+    @meeting.update(status: "accepted")
+    @message = Message.new(content: "Proposition de créneau avec #{@mentor.first_name} le #{@meeting.starting.strftime('%e')}/#{@meeting.starting.strftime('%m')} à #{@meeting.starting.strftime('%l')}:#{@meeting.starting.strftime('%M')} acceptée !")
+    @message.conversation = @conversation
+    @message.save
+    ConversationChannel.broadcast_to(
+      @conversation,
+      render_to_string(partial: "messages/schedule", locals: {message: @message})
+    )
+    head :ok
+    redirect_to dashboard_path
+  end
+
+  def refuse
+    @conversation = Conversation.find_by(student: @meeting.student, mentor: current_user)
+    @meeting = Meeting.find(params[:id])
+    @mentor = @meeting.mentor
+    @meeting.update(status: "refused")
+    @message = Message.new(content: "Proposition de créneau avec #{@mentor.first_name} le #{@meeting.starting.strftime('%e')}/#{@meeting.starting.strftime('%m')} à #{@meeting.starting.strftime('%l')}:#{@meeting.starting.strftime('%M')} refusée !")
+    @message.conversation = @conversation
+    @message.save
+    ConversationChannel.broadcast_to(
+      @conversation,
+      render_to_string(partial: "messages/schedule", locals: { message: @message })
+    )
+    head :ok
+    redirect_to dashboard_path
+  end
+
+  def cancel
+    @conversation = Conversation.find_by(student: @meeting.student, mentor: current_user)
+    @meeting = Meeting.find(params[:id])
+    @mentor = @meeting.mentor
+    @meeting.update(status: "cancelled")
+    @message = Message.new(content: "Créneau avec #{@mentor.first_name} le #{@meeting.starting.strftime('%e')}/#{@meeting.starting.strftime('%m')} à #{@meeting.starting.strftime('%l')}:#{@meeting.starting.strftime('%M')} annulé !")
+    @message.conversation = @conversation
+    @message.save
+    ConversationChannel.broadcast_to(
+      @conversation,
+      render_to_string(partial: "messages/schedule", locals: {message: @message})
+    )
+    head :ok
+    redirect_to dashboard_path
   end
 
   private
-
-  def set_student
-  end
 
   def meeting_params
     params.require(:meeting).permit(:starting, :ending, :mentor_id)
   end
 
-  def set_mentors
-    @mentors = User.mentors
-  end
 end

@@ -85,9 +85,11 @@
   .message-content {
     display: flex;
     p {
-      width: 60%;
+      width: auto;
       margin: 0;
       border: 1px rgb(200, 200, 200) solid;
+      background-color: $orange;
+      color: $white;
       padding: 8px 16px;
       border-radius: 5px;
     }

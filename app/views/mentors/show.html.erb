@@ -58,14 +58,17 @@
     <%end%>
   </div>
 
-
-  <div class="right-side-chat conversation mx-5 my-5 position-relative" data-controller="conversation-subscription" data-conversation-subscription-conversation-id-value="<%= @conversation.id %>" data-controller="schedule-meeting">
+  <div class="right-side-chat conversation mx-5 my-5 position-relative" data-controller="conversation-subscription" data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
     <button type="button" class="btn btn-book" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Propose un créneau
     </button>
     <div class="messages" data-conversation-subscription-target="messages">
         <% @conversation.messages.each do |message| %>
-          <%= render "messages/message", message: message %>
+          <% if message.user %>
+            <%= render "messages/message", message: message %>
+          <% else %>
+            <%= render "messages/schedule", message: message %>
+          <% end %>
         <% end %>
     </div>
 

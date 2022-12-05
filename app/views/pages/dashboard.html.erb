@@ -43,7 +43,25 @@
       <div class="dashboard-conversation mx-5" data-controller="conversation-subscription" data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
         <div class="messages flex-grow-1" data-conversation-subscription-target="messages">
             <% @conversation.messages.each do |message| %>
-              <%= render "messages/message", message: message %>
+              <% if message.user %>
+                <%= render "messages/message", message: message %>
+              <% else %>
+                <%= render "messages/schedule", message: message %>
+                <% if message.meeting.status == "pending" %>
+                  <p class="" style="">⏳ Confirm this request!</p>
+                  <%= link_to "✅", accept_meeting_path(message.meeting), class: "text-decoration-none me-2", data: { turbo_method: :patch } %>
+                  <%= link_to "❌", refuse_meeting_path(message.meeting), class: "text-decoration-none", data: { turbo_method: :patch } %>
+                <% elsif message.meeting.status == "accepted" %>
+                  <p class="left-aligned ps-0 mt-1" style="color: green">👍 Validated</p>
+                      <%= link_to cancel_meeting_path(message.meeting), data: { turbo_method: :patch } do %>
+                        <i class="fa-sharp fa-solid fa-trash"></i>
+                      <% end %>
+                <% elsif message.meeting.status == "canceled" %>
+                  <p class="left-aligned ps-0 mt-1" style="color: red">❌ Canceled</p>
+                <% else %>
+                  <p class="left-aligned ps-0 mt-1" style="color: red">😔 Refused</p>
+                <% end %>
+              <% end %>
             <% end %>
         </div>
         <%= simple_form_for [@conversation, @message],
