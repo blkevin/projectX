@@ -1,0 +1,23 @@
+.form-div {
+  position: relative;
+  height: 83vh;
+  scroll-margin-top: 60px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-inputs {
+  flex-direction: column;
+}
+// #100 vh moins navbar
+
+.scroll-buttons {
+  display: flex;
+}
+
+#quizz-registration {
+  h5 {
+    margin-bottom: 3rem;
+  }
+}

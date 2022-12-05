@@ -1,37 +1,105 @@
-<h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :first_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "What is your first name?" }%>
-    <%= f.input :last_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "What is your last name?" }%>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+<div class="container">
+
+  <div class="d-flex">
+    <div class="col-6 offset-3 form-div" id="quizz-status">
+      <%= f.collection_radio_buttons :status, [["student", "Lycéen ou étudiant, je cherche ma voie 🧑‍🎓"], ["mentor", "Professionnel, j'aimerais partager mon experience 💼"]], :first, :last %>
+      <a href="#quizz-registration" class="scroll-button" data-controller="scroll-to">Passe à la suite 👇</a>
+    </div>
+  </div>
+
+  <%# Standard Registration %>
+  <div class="student-form">
+
+  <div class="d-flex form-inputs">
+    <div class="col-6 offset-3 form-div" id="quizz-registration">
+      <h5>Avant toutes choses, on a besoin de quelques renseignements sur toi !</h5>
+      <%= f.input :first_name,
+                  :label => false,
+                  required: true,
+                  autofocus: true,
+                  placeholder: "Ton prénom" %>
+      <%= f.input :last_name,
+                  :label => false,
+                  placeholder: "Ton nom de famille",
+                  required: true,
+                  autofocus: true %>
+      <%= f.input :email,
+                  :label => false,
+                  placeholder: "Ton mail",
+                  required: true,
+                  autofocus: true %>
+      <%= f.input :age,
+                  :label => false,
+                  placeholder: "17 ans",
+                  required: true,
+                  autofocus: true %>
+      <%= f.input :password,
+                  :label => false,
+                  required: true,
+                  placeholder: "Ton meilleur mot de passe",
+                  hint: ("#{@minimum_password_length} caractères au minimum 😉" if @minimum_password_length) %>
+      <%= f.input :password_confirmation,
+                  :label => false,
+                  placeholder: "Tu peux nous le reconfirmer ici ?",
+                  required: true %>
+      <a href="#quizz-student-1st" class="scroll-button" data-controller="scroll-to">On passe à la suite 👇</a>
+    </div>
+
+  <%# Student Quizz %>
+    <div class="col-6 offset-3 form-div" id="quizz-student-1st">
+      <h3> Hello [Prenom] ! On est ravis de te rencontrer ! Afin de t'aider au mieux dans ta démarche, on a quelques petites questions pour toi 😉</h3>
+      <h5> Première question : tu dirais que tu es plutôt... </h5>
+        <div class="d-flex choices">
+          <a href="#quizz-student-2nd" class="choice-button" data-controller="scroll-to">Métiers manuels 🛠️</a>
+          <a href="#quizz-student-2nd" class="choice-button" data-controller="scroll-to">Métiers intellectuels 💼</a>
+        </div>
+        <div class="d-flex scroll-buttons">
+          <a href="#quizz-age" class="scroll-button" data-controller="scroll-to">Retour à l'étape précédente</a>
+        </div>
+      </div>
+
+      <div class="col-6 offset-3 form-div" id="quizz-student-2nd">
+        <h3> Ok bien compris ! Est-ce que les métiers scientifiques / chiffrés t'intéressent ?</h3>
+        <div class="d-flex choices">
+          <a href="#quizz-student-3st" class="choice-button" data-controller="scroll-to">Oui 👩‍⚕️👨‍⚕️</a>
+          <a href="#quizz-student-3st" class="choice-button" data-controller="scroll-to">Non 💼</a>
+        </div>
+        <div class="d-flex scroll-buttons">
+          <a href="#quizz-age" class="scroll-button" data-controller="scroll-to">Retour à l'étape précédente</a>
+        </div>
+      </div>
+
+      <div class="col-6 offset-3 form-div" id="quizz-student-3st">
+        <h3> Très bien ! Dernière question : préfères-tu travailleur seul ou en groupe ?</h3>
+        <div class="d-flex choices">
+          <a href="#final-step" class="choice-button" data-controller="scroll-to">Seul ✋</a>
+          <a href="#final-step" class="choice-button" data-controller="scroll-to">En groupe 👥</a>
+        </div>
+      </div>
+
+      <div class="col-6 offset-3 form-div" id="final-step">
+        <h3> C'est tout bon ! Prêt ?</h3>
+        <%= link_to 'Go 🚀', root_path() %>
+      </div>
+
+  </div>
+
+
+<%# Mentor Form %>
     <%= f.input :description,
                 required: true,
                 input_html: { autocomplete: "present yourself in a few words!" } %>
-    <%= f.collection_radio_buttons :status, [["student", 'I am a student'], ["mentor", 'I am a mentor']], :first, :last %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
   </div>
 <% end %>
+
+</div>
 
 <%= render "devise/shared/links" %>

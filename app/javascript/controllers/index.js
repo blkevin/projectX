@@ -10,5 +10,8 @@ application.register("conversation-subscription", ConversationSubscriptionContro
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import NavbarController from "./navbar_controller.js"
+import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
+
+import OnboardingController from "./onboarding_controller"
+application.register("onboarding", OnboardingController)
