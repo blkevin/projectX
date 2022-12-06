@@ -141,27 +141,26 @@ white-space: normal;
 
 .meeting-card {
   background: white;
-  color: $dark-purple;
-  border-radius: 10px;
-  padding: 0.6em 0 0 0.6em;
-  margin: 0.6em;
-  width: 90%;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  color: #302D31;
+  border-radius: 5px;
+  padding: 0.6em;
+  margin: 0.6em 0 0 0.6em;
+  width: 94%;
   display: flex;
   align-items: center;
-  height: 7em;
+  height: 6em;
   & ul {
     list-style: none;
   }
   & h5 {
-    font-size: 20px;
+    font-size: 16px;
     margin-bottom: 0.2rem;
   }
 }
 
 .card-avatar-dashboard {
-  width: 80px;
-  height: 80px;
+  width: 4em;
+  height: 4em;
   margin: 0px 0px 10px 0px;
   border-radius: 50%;
   background-color: $dark-purple;
@@ -175,17 +174,13 @@ white-space: normal;
 .chat-card {
   background: white;
   color: $dark-purple;
-  border-radius: 10px;
   padding: 0.6em 0 0 0.6em;
   margin: 0.6em;
-  width: 100%;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-
-
-
+  width: 96%;
+  border-bottom: $dark-purple solid 1px;
   display: flex;
   align-items: center;
-  height: 4em;
+  height: 5em;
   font-size: 13px;
   & ul {
     list-style: none;
@@ -195,6 +190,7 @@ white-space: normal;
     height: 40px;
     margin: 10px 0px 0px 0px;
     margin: 0px 15px 10px 0px;
+
   }
   & h5 {
     margin-bottom: 0.2rem;
@@ -203,6 +199,7 @@ white-space: normal;
 
 .card-infos {
   font-size: 12px;
+  margin-top: 1.5em;
 }
 
 .upcoming-meetings {

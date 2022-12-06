@@ -11,7 +11,7 @@ class MeetingsController < ApplicationController
     @meeting.student = current_user
     @meeting.save
     @conversation = Conversation.find_by(student: current_user, mentor: @mentor)
-    @message = Message.new(content: "Proposition de créneau d'échange envoyée à #{@mentor.first_name} le #{@meeting.starting.strftime('%e')}/#{@meeting.starting.strftime('%m')} à #{@meeting.starting.strftime('%l')}:#{@meeting.starting.strftime('%M')}, en attente de confirmation", meeting: @meeting)
+    @message = Message.new(content: "🟡 Proposition de créneau d'échange envoyée à #{@mentor.first_name} le #{@meeting.starting.strftime('%e')}/#{@meeting.starting.strftime('%m')} à #{@meeting.starting.strftime('%l')}:#{@meeting.starting.strftime('%M')}, en attente de confirmation", meeting: @meeting)
     @message.conversation = @conversation
     @message.save
     ConversationChannel.broadcast_to(
@@ -37,7 +37,7 @@ class MeetingsController < ApplicationController
     @conversation = Conversation.find_by(student: @meeting.student, mentor: current_user)
     @mentor = @meeting.mentor
     @meeting.update(status: "accepted")
-    @message = Message.new(content: "Proposition de créneau avec #{@mentor.first_name} le #{@meeting.starting.strftime('%e')}/#{@meeting.starting.strftime('%m')} à #{@meeting.starting.strftime('%l')}:#{@meeting.starting.strftime('%M')} acceptée !", meeting: @meeting)
+    @message = Message.new(content: "🟢 Proposition de créneau avec #{@mentor.first_name} le #{@meeting.starting.strftime('%e')}/#{@meeting.starting.strftime('%m')} à #{@meeting.starting.strftime('%l')}:#{@meeting.starting.strftime('%M')} acceptée !", meeting: @meeting)
     @message.conversation = @conversation
     @message.save
     ConversationChannel.broadcast_to(
@@ -52,7 +52,7 @@ class MeetingsController < ApplicationController
     @conversation = Conversation.find_by(student: @meeting.student, mentor: current_user)
     @mentor = @meeting.mentor
     @meeting.update(status: "refused")
-    @message = Message.new(content: "Proposition de créneau avec #{@mentor.first_name} le #{@meeting.starting.strftime('%e')}/#{@meeting.starting.strftime('%m')} à #{@meeting.starting.strftime('%l')}:#{@meeting.starting.strftime('%M')} refusée !", meeting: @meeting)
+    @message = Message.new(content: "🔴 Proposition de créneau avec #{@mentor.first_name} le #{@meeting.starting.strftime('%e')}/#{@meeting.starting.strftime('%m')} à #{@meeting.starting.strftime('%l')}:#{@meeting.starting.strftime('%M')} refusée !", meeting: @meeting)
     @message.conversation = @conversation
     @message.save
     ConversationChannel.broadcast_to(
@@ -67,7 +67,7 @@ class MeetingsController < ApplicationController
     @conversation = Conversation.find_by(student: @meeting.student, mentor: current_user)
     @mentor = @meeting.mentor
     @meeting.update(status: "cancelled")
-    @message = Message.new(content: "Créneau avec #{@mentor.first_name} le #{@meeting.starting.strftime('%e')}/#{@meeting.starting.strftime('%m')} à #{@meeting.starting.strftime('%l')}:#{@meeting.starting.strftime('%M')} annulé !", meeting: @meeting)
+    @message = Message.new(content: "🔴 Créneau avec #{@mentor.first_name} le #{@meeting.starting.strftime('%e')}/#{@meeting.starting.strftime('%m')} à #{@meeting.starting.strftime('%l')}:#{@meeting.starting.strftime('%M')} annulé !", meeting: @meeting)
     @message.conversation = @conversation
     @message.save
     ConversationChannel.broadcast_to(

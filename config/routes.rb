@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   end
   resources :preferences, only: %i[ new create ]
   resources :conversations, only: %i[ create ] do
-    resources :messages, only: :create
+    resources :messages, only: %i[ new create edit update ]
   end
 end
