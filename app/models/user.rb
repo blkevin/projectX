@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :meetings_as_mentor, class_name: "Meeting", foreign_key: :mentor_id
   has_many :meetings_as_student, class_name: "Meeting", foreign_key: :student_id
   has_many :preferences
+  has_many :tags, through: :preferences
   has_many :messages
   has_many :institutions, through: :educations
   has_many :conversations_as_mentor, class_name: "Conversation", foreign_key: :mentor_id
@@ -19,7 +20,6 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :age, presence: true
-  validates :description, presence: true
   validates :status, presence: true
 
   pg_search_scope :search_mentor,
@@ -32,4 +32,9 @@ class User < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+  def complete?
+    return if mentor?
+
+    tags.any?
+  end
 end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   root to: "pages#home"
   get "/dashboard", to: "pages#dashboard"
 
@@ -13,4 +15,6 @@ Rails.application.routes.draw do
   resources :conversations, only: %i[ create ] do
     resources :messages, only: :create
   end
+
+  get 'student_infos', to: 'pages#student_infos', as: :student_infos
 end
