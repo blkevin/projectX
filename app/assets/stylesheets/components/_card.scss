@@ -1,20 +1,16 @@
 .card-horizontal {
-  background: linear-gradient($light-orange, 90%, $white);
-  transition: 0.3s ease;
+  background: $white;
+  // transition: 0.3s ease;
   color: $dark-purple;
   padding: 0 1.8em 0 0.6em;
   margin: 0.6em;
   width: 30vw;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  box-shadow: 0 0 0.2em rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   height: 20vh;
   backdrop-filter: blur(5px);
-  border-radius: 26px;
-  .card-position {
-    border-bottom: 1px solid $dark-purple;
-    padding-bottom: 0.6em ;
-  }
+  border-radius: 10px;
   video {
     width: 160px;
     height: 100px;
@@ -24,8 +20,9 @@
 }
 
 .card-horizontal:hover {
-  background: linear-gradient($white, 10%, $light-orange);
+//   background: linear-gradient($white, 10%, $light-orange);
   transition: 0.3s ease;
+  box-shadow: 0 0 0.6em rgba(0,0,0,0.2);
 }
 
 .card-mentor-vertical {
@@ -54,9 +51,9 @@
 .card-avatar {
   width: 7.5em;
   height: 7.5em;
-  border-radius: 50%;
+  border-radius: 10px;
   background-color: $dark-purple;
-  margin: 0 0.9em 0 0.3em;
+  margin: 0 0.9em 0 0.8em;
   flex-shrink: 0;
   object-fit: cover;
   object-position: top;
@@ -81,18 +78,19 @@
 
 .card-tag {
   font-size: 14px;
-  border: 1px solid #FAC9A3;
-  border-radius: 50px;
-  background-color: #FAC9A3;
-  color: #302D31;
-  padding: 0px 10px;
-  margin-right: 5px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  border: 1px solid $orange;
+  border-radius: 0.6em;
+  background-color: $orange;
+  color: #ae6c30;
+  padding: 0.3em 0.6em;
+  margin-right: 0.3em;
+  margin-bottom: 0.3em;
+  box-shadow: 0 0 0.3em rgba(0,0,0,0.1);
 }
 
 .tags {
   display: flex;
-  margin-top: 10px;
+  margin-top: 1.4em;
   flex-wrap: wrap;
   align-items: center;
 }
@@ -101,7 +99,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-bottom: 10px;
+  padding-bottom: 0.6em;
 }
 
 .card-age {
@@ -116,7 +114,7 @@
 
 .card-fullname {
   font-size: 20px;
-  width: 12em;
+  width: 15em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
