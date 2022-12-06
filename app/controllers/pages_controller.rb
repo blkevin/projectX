@@ -15,6 +15,10 @@ class PagesController < ApplicationController
     @message = Message.new
   end
 
+  def student_infos
+
+  end
+
   private
 
   def user_conversations
