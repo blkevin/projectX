@@ -18,3 +18,6 @@ application.register("onboarding", OnboardingController)
 
 import SwiperController from "./swiper_controller"
 application.register("swiper", SwiperController)
+
+import SearchMentorsController from "./search_mentors_controller"
+application.register("search-mentors", SearchMentorsController)
