@@ -19,18 +19,17 @@
   box-shadow: 0 0 0.6em rgba(0,0,0,0.2);
 }
 
-.card-mentor-vertical {
-  background: linear-gradient($light-orange, 90%, $white);
+a .card-mentor-vertical {
+  background: $white-purple;
   margin: 0.9em;
   padding: 1.25em;
   text-align: center;
   border-radius: 10px;
   width: 20vw;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  a {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   text-decoration: none !important;
   color: $dark-purple;
-  }
+  transition: all 1.2s;
   h4 {
     margin: 0;
   }
@@ -40,7 +39,19 @@
   .card-position, .card-school {
     text-align: start;
   }
+  .card-position {
+    font-weight: bold;
+  }
+  &:hover {
+    box-shadow: -5px -5px 30px 5px $white-purple, 5px 5px 30px 5px $blue-nice;
+    .card-avatar {
+      width: 8.5em;
+      height: 8.5em;
+    }
+  }
 }
+
+
 
 .card-avatar {
   width: 7.5em;
@@ -60,6 +71,7 @@
   height: 12.5em;
   object-fit: cover;
   object-position: top;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   @media (max-width: 1190px){
     width: 10em;
     height: 10em;
@@ -76,14 +88,13 @@
 
 .card-tag {
   font-size: 14px;
-  border: 1px solid $orange;
   border-radius: 0.6em;
-  background-color: $orange;
-  color: #ae6c30;
+  background-color: $dark-purple;
+  color: $white-purple;
   padding: 0.3em 0.6em;
   margin-right: 0.3em;
   margin-bottom: 0.3em;
-  box-shadow: 0 0 0.3em rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px 2px $purple;
 }
 
 .tags {
@@ -217,7 +228,6 @@ white-space: normal;
  .school-info {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid $dark-purple;
  }
 
 a {

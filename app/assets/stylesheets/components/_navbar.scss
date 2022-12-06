@@ -9,25 +9,27 @@
   position: sticky;
   top: 0;
   z-index: 5000;
-  background-color: white;
+  background-color: $dark-purple;
 }
 .navbar-home {
   background-color: rgba(0, 0, 0, .0);
 }
 
 .nav-link {
-  color: #3C454B;
+  color: $purple;
+  transition: all 0.5s;
 }
 .nav-link:hover {
-  color: $purple;
+  color: $white-purple;
   font-weight: bold;
 }
 
 .image-logo {
-  width: 77px;
-  top: 11px;
-  left: 8px;
+  width: 45px;
+  top: 5px;
+  left: 12px;
   position: absolute;
+  fill: $purple;
 }
 
 .form-input {
