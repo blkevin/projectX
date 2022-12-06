@@ -62,6 +62,9 @@
     <button type="button" class="btn btn-book" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Propose un créneau
     </button>
+    <div class="top-message-name-show">
+      <p class="text-center py-1"><%= @mentor.first_name %> <%= @mentor.last_name %> - 🟢 en ligne</p>
+    </div>
     <div class="messages" data-conversation-subscription-target="messages">
         <% @conversation.messages.each do |message| %>
           <% if message.user %>
