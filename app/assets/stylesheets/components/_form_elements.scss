@@ -1,0 +1,46 @@
+.form-div {
+  position: relative;
+  height: 83vh;
+  scroll-margin-top: 60px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-inputs {
+  flex-direction: column;
+}
+// #100 vh moins navbar
+
+.scroll-buttons {
+  display: flex;
+}
+
+#quizz-registration {
+  h5 {
+    margin-bottom: 3rem;
+  }
+}
+
+.choice-button {
+  color: white;
+  display: flex;
+  padding: 1em;
+  border-radius: 10px;
+  height: 2.3rem;
+  background: #9E96FF;
+  align-items: center;
+  border: 1px solid #9E96FF;
+  text-decoration: none;
+  margin: 2rem 5rem;
+  font-size: 1em;
+}
+
+.choice-button-selected {
+  background-color: orange;
+}
+
+.choice-button-unselected {
+  background-color: rgb(176, 172, 172);
+  border: solid rgb(176, 172, 172);
+}

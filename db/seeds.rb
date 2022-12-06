@@ -138,6 +138,8 @@ m9 = User.new(first_name: "Jean", last_name: "Jahier", age: 27, email: "jeanj@gm
 m10 = User.new(first_name: "Pascal", last_name: "Traore", age: 32, email: "pascal@gmail.com", password: "123456", description: "Chef de chantier chez Sferis, ancien policier", status: :mentor)
 m11 = User.new(first_name: "Christophe", last_name: "Tranier", age: 39, email: "christophe@gmail.com", password: "123456", description: "Senior product manager, ancien consultant chez PwC", status: :mentor)
 m12 = User.new(first_name: "Mihaela", last_name: "Riza", age: 31, email: "mihaela@gmail.com", password: "123456", description: "Senior account executive, ancienne account executive", status: :mentor)
+m13 = User.new(first_name: "Camille", last_name: "Miko", age: 31, email: "camille@gmail.com", password: "123456", description: "Actuaire chez Crédit Agricole Assurances", status: :mentor)
+m14 = User.new(first_name: "Fatima", last_name: "Diallo", age: 27, email: "fatima@gmail.com", password: "123456", description: "Data analyst chez Kapten, ancienne consultante data chez KPMG", status: :mentor)
 
 # attaching pictures to students
 m1.photo.attach(
@@ -224,6 +226,20 @@ m12.photo.attach(
 )
 m12.save!
 
+m13.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1670239959/eo9an7o3lb1fdb5itt82.jpg'),
+  filename: 'camille.jpg',
+  content_type: 'image/jpg'
+)
+m13.save!
+
+m14.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1670241276/pbc1zig4xf0aqcemju5g.webp'),
+  filename: 'fatima.jpg',
+  content_type: 'image/webp'
+)
+m14.save!
+
 puts "Creating experiences"
 # creating experiences for Paul Portier
 exp1 = Experience.create!(user_id: m1.id, position: "Lead software engineer", company: "Exotec", sector: "R&D", industry: "tech", start_date: "2018-01-01")
@@ -261,6 +277,12 @@ exp22 = Experience.create!(user_id: m11.id, position: "Consultant en stratégie"
 # creating experiences for Riza
 exp23 = Experience.create!(user_id: m12.id, position: "Senior account executive", company: "Odaseva", sector: "commerce", industry: "data", start_date: "2019-01-01")
 exp24 = Experience.create!(user_id: m12.id, position: "Account executive", company: "Odaseva", sector: "commerce", industry: "data", start_date: "2016-01-01")
+# creating experiences for Camille
+exp25 = Experience.create!(user_id: m13.id, position: "Actuaire", company: "Crédit Agricole Assurances", sector: "assurance", industry: "banque", start_date: "2019-01-01")
+exp26 = Experience.create!(user_id: m13.id, position: "Actuaire", company: "Axa Assurances", sector: "assurance", industry: "banque", start_date: "2016-01-01")
+# creating experiences for Fatima
+exp27 = Experience.create!(user_id: m14.id, position: "Data Analyst", company: "Kapten", sector: "data", industry: "tech", start_date: "2020-01-01")
+exp28 = Experience.create!(user_id: m14.id, position: "Consultante Data", company: "KPMG", sector: "data", industry: "conseil", start_date: "2018-01-01")
 
 puts "Creating institutions"
 i1 = Institution.new(name: "Le Wagon", description: "Accélérez votre carrière, formez-vous aux métiers de la tech")
@@ -399,6 +421,8 @@ ed9 = Education.create!(user_id: m9.id, institution_id: i5.id, start_date: "2016
 ed10 = Education.create!(user_id: m10.id, institution_id: i4.id, start_date: "2014-09-01", degree_level: "License", field: "Gestion")
 ed11 = Education.create!(user_id: m11.id, institution_id: i1.id, start_date: "2014-09-01", degree_level: "Bootcamp", field: "Developpement Web")
 ed12 = Education.create!(user_id: m12.id, institution_id: i3.id, start_date: "2012-09-01", degree_level: "Master", field: "Gestion")
+ed13 = Education.create!(user_id: m13.id, institution_id: i3.id, start_date: "2014-09-01", degree_level: "Master", field: "Finance")
+ed14 = Education.create!(user_id: m14.id, institution_id: i3.id, start_date: "2014-09-01", degree_level: "Master", field: "Data")
 
 puts "Creating contents"
 c1 = Content.new(user_id: m1.id, title: "Sophie - Lead software engineer")
@@ -411,13 +435,15 @@ c7 = Content.new(user_id: m7.id, title: "Oceane - Chef de projet digital chez Co
 c8 = Content.new(user_id: m8.id, title: "Helene - Data analyst senior chez Cenisis")
 c9 = Content.new(user_id: m9.id, title: "Jean - Business developper chez Mirakl")
 c10 = Content.new(user_id: m10.id, title: "Pascal - Chef de chantier chez Sferis")
-c11 = Content.new(user_id: m11.id, title: "Christophe - Senior product manager")
-c12 = Content.new(user_id: m12.id, title: "Mihaela - Senior account executive")
+c11 = Content.new(user_id: m11.id, title: "Christophe - Senior product manager ches Gens de Confiance")
+c12 = Content.new(user_id: m12.id, title: "Mihaela - Senior account executive chez Odaseva")
+c13 = Content.new(user_id: m13.id, title: "Camille - Actuaire chez Crédit Agricole Assurances")
+c14 = Content.new(user_id: m14.id, title: "Fatima - Data analyste chez Kapten")
 
 # attaching videos to content
 url_c1 = Aws::S3::Object.new(
   bucket_name: ENV['AWS_BUCKET'],
-  key: 'sophie.mp4',
+  key: 'sophie-lead.mp4',
   client: Aws::S3::Client.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
@@ -426,14 +452,14 @@ url_c1 = Aws::S3::Object.new(
 
 c1.video.attach(
   io: URI.open(url_c1),
-  filename: 'sophie.mp4',
+  filename: 'sophie-lead.mp4',
   content_type: 'video/mp4'
 )
 c1.save!
 
 url_c2 = Aws::S3::Object.new(
   bucket_name: ENV['AWS_BUCKET'],
-  key: 'carla.mp4',
+  key: 'carlitaaa.mp4',
   client: Aws::S3::Client.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
@@ -477,7 +503,7 @@ c6.save!
 
 url_c7 = Aws::S3::Object.new(
   bucket_name: ENV['AWS_BUCKET'],
-  key: 'oceane.mp4',
+  key: 'oceane-chef.mp4',
   client: Aws::S3::Client.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
@@ -486,14 +512,14 @@ url_c7 = Aws::S3::Object.new(
 
 c7.video.attach(
   io: URI.open(url_c7),
-  filename: 'oceane.mp4',
+  filename: 'oceane-chef.mp4',
   content_type: 'video/mp4'
 )
 c7.save!
 
 url_c8 = Aws::S3::Object.new(
   bucket_name: ENV['AWS_BUCKET'],
-  key: 'helene.mp4',
+  key: 'helene-data.mp4',
   client: Aws::S3::Client.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
@@ -502,14 +528,14 @@ url_c8 = Aws::S3::Object.new(
 
 c8.video.attach(
   io: URI.open(url_c8),
-  filename: 'helene.mp4',
+  filename: 'helene-data.mp4',
   content_type: 'video/mp4'
 )
 c8.save!
 
 url_c9 = Aws::S3::Object.new(
   bucket_name: ENV['AWS_BUCKET'],
-  key: 'jeanj.mp4',
+  key: 'jean-business.mp4',
   client: Aws::S3::Client.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
@@ -518,14 +544,14 @@ url_c9 = Aws::S3::Object.new(
 
 c9.video.attach(
   io: URI.open(url_c9),
-  filename: 'jeanj.mp4',
+  filename: 'jean-business.mp4',
   content_type: 'video/mp4'
 )
 c9.save!
 
 url_c10 = Aws::S3::Object.new(
   bucket_name: ENV['AWS_BUCKET'],
-  key: 'pascal.mp4',
+  key: 'pascal-chef.mp4',
   client: Aws::S3::Client.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
@@ -534,14 +560,14 @@ url_c10 = Aws::S3::Object.new(
 
 c10.video.attach(
   io: URI.open(url_c10),
-  filename: 'pascal.mp4',
+  filename: 'pascal-chef.mp4',
   content_type: 'video/mp4'
 )
 c10.save!
 
 url_c11 = Aws::S3::Object.new(
   bucket_name: ENV['AWS_BUCKET'],
-  key: 'christophe.mp4',
+  key: 'christophe-senior.mp4',
   client: Aws::S3::Client.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
@@ -550,14 +576,14 @@ url_c11 = Aws::S3::Object.new(
 
 c11.video.attach(
   io: URI.open(url_c11),
-  filename: 'christophe.mp4',
+  filename: 'christophe-seniorpm.mp4',
   content_type: 'video/mp4'
 )
 c11.save!
 
 url_c12 = Aws::S3::Object.new(
   bucket_name: ENV['AWS_BUCKET'],
-  key: 'riza.mp4',
+  key: 'mihaela-senior.mp4',
   client: Aws::S3::Client.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
@@ -566,10 +592,42 @@ url_c12 = Aws::S3::Object.new(
 
 c12.video.attach(
   io: URI.open(url_c12),
-  filename: 'riza.mp4',
+  filename: 'mihaela-senior.mp4',
   content_type: 'video/mp4'
 )
 c12.save!
+
+url_c13 = Aws::S3::Object.new(
+  bucket_name: ENV['AWS_BUCKET'],
+  key: "camille-actuaire.mp4",
+  client: Aws::S3::Client.new(
+    access_key_id: ENV['ACCESS_KEY_ID'],
+    secret_access_key: ENV['SECRET_ACCESS_KEY']
+  )
+).presigned_url(:get, expires_in: 3600)
+
+c13.video.attach(
+  io: URI.open(url_c13),
+  filename: "camille-actuaire.mp4",
+  content_type: 'video/mp4'
+)
+c13.save!
+
+url_c14 = Aws::S3::Object.new(
+  bucket_name: ENV['AWS_BUCKET'],
+  key: "fatima-data.mp4",
+  client: Aws::S3::Client.new(
+    access_key_id: ENV['ACCESS_KEY_ID'],
+    secret_access_key: ENV['SECRET_ACCESS_KEY']
+  )
+).presigned_url(:get, expires_in: 3600)
+
+c14.video.attach(
+  io: URI.open(url_c14),
+  filename: "fatima-data.mp4",
+  content_type: 'video/mp4'
+)
+c14.save!
 
 puts "Creating tags"
 t1 = Tag.create!(name: "transport")

@@ -25,8 +25,9 @@ class User < ApplicationRecord
   pg_search_scope :search_mentor,
                   against: %i[first_name last_name description],
                   associated_against: {
-                    experiences: [ :sector, :industry ],
-                    institutions: [:name]
+                    experiences: [:sector, :industry, :position],
+                    institutions: [:name],
+                    educations: [:field],
                   },
                   using: {
                     tsearch: { prefix: true }

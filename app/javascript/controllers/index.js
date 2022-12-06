@@ -13,3 +13,9 @@ application.register("hello", HelloController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
+
+import OnboardingController from "./onboarding_controller"
+application.register("onboarding", OnboardingController)
+
+import SearchMentorsController from "./search_mentors_controller"
+application.register("search-mentors", SearchMentorsController)

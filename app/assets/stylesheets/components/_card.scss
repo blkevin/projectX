@@ -30,7 +30,7 @@
 
 .card-mentor-vertical {
   background: linear-gradient($light-orange, 90%, $white);
-  margin: 1.25em;
+  margin: 0.9em;
   padding: 1.25em;
   text-align: center;
   border-radius: 10px;
@@ -69,6 +69,10 @@
   height: 12.5em;
   object-fit: cover;
   object-position: top;
+  @media (max-width: 1190px){
+    width: 10em;
+    height: 10em;
+  }
 }
 
 .card-info {
@@ -116,7 +120,6 @@
 
 .card-fullname {
   font-size: 20px;
-  width: 12em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
