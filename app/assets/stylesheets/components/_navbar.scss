@@ -6,10 +6,10 @@
 .navbar {
   justify-content: space-between;
   padding: 10px;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: 5000;
-  background-color: white;
 }
 
 .navbar-home {
@@ -59,15 +59,24 @@
 }
 
 .navbar-lewagon-white {
-  background-color: white;
   background-color: $dark-purple;
+  color: white;
+  .btn-purple-home{
+    color: white;
+  }
 }
 
-// .navbar-gabriel {
+// .nav-home{
+//   display: flex;
+//   justify-content: space-between;
+//   margin
+// }
+
+// .navbar {
 //   justify-content: space-between;
 //   padding: 10px;
-//   position: fixed;
-//   width: 100%;
+//   position: sticky;
+//   color:white;
 //   top: 0;
 //   z-index: 5000;
 // }

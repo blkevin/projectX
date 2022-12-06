@@ -43,20 +43,45 @@
   </div>
 
 <% else %>
-  <div>
-    <div class="home-banner">
-      <div class="home-banner-text">
+  <div class="container-home">
+
+    <div class="home-banner-left" id="first">
+      <div class="home-banner-text" id="left">
         <h1>PERSPECTIV</h1>
-        <h5>Trouve ta voie, éclaire ta perspective</h2>
-        <%= link_to 'Créer un compte', new_user_registration_path, class: "btn-purple-home" %>
+        <h5>Trouve ta voie, éclaire ta perspective</h5>
+        <%= link_to 'Définis ton futur', new_user_registration_path, class: "btn-call-to-action" %>
       </div>
-      <div class="banner">
+      <div class="home-banner-spline">
         <iframe src='https://my.spline.design/miniroomartcopy-4db798195503a8e953ea923dec73af01/' frameborder='0' width='100%' height='100%'></iframe>
       </div>
     </div>
+
+    <div class="home-banner-right">
+      <div class="home-banner-spline">
+        <%= image_tag "girl_zoomed1.png", width:'100%', height:'100%' %>
+      </div>
+      <div class="home-banner-text" id="right">
+        <h2>Découvre nos mentors</h2>
+        <h5>Accède aux mentors qui te correspondent</h5>
+      </div>
+    </div>
+
+    <div class="home-banner-left">
+      <div class="home-banner-text" id="left">
+        <h2>Rencontre nos mentors</h2>
+        <h5>Réserve un entretien et obtiens des conseils</h5>
+        <%= link_to 'Définis ton futur', new_user_registration_path, class: "btn-call-to-action" %>
+      </div>
+      <div class="home-banner-spline">
+        <%= image_tag "mentor_student.png", width:'100%', height:'100%' %>
+      </div>
+    </div>
+
   </div>
 
-  <div class="container">
+<% end %>
+
+  <%# <div class="container">
     <div class="home-steps">
       <div class="step-home">
         <i class="fa-solid fa-user-plus"></i>
@@ -70,9 +95,8 @@
       </div>
       <div class="step-home">
         <i class="fa-solid fa-comments"></i>
-        <h5>Discute et rencontre</h5>
-        <p>Discute avec les mentors via notre chat et réserve de courts entretiens avec eux</p>
+        <h5>Rencontre un mentor</h5>
+        <p>Réserve uun entretiens avec un mentor et obtiens des conseils</p>
       </div>
     </div>
-  </div>
-<% end %>
+  </div> %>
