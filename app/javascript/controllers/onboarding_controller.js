@@ -9,6 +9,17 @@ export default class extends Controller {
 
   }
 
+// Auto top scroll
+  topScroll(event) {
+    window.scrollTo(0, 0);
+  }
+
+// Prevent scroll
+  preventScroll(event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
 // Dynamic first name retrieval
   firstStep(event) {
     const name = this.firstNameInputTarget.value;
@@ -73,7 +84,6 @@ export default class extends Controller {
   preferencesDef() {
     if (this.firstQuestion == 'manual' && this.secondQuestion == 'indoor' && this.thirdQuestion == 'alone') {
       this.studentTags = ["#création", "#manutention", "#artisanat", "#opérations", "#industrie", "#transport-logistique", "#Hôtellerie-Restauration", "#entretien", "#art"];
-      console.log(this.studentTags);
     } else if (this.firstQuestion == 'manual' && this.secondQuestion == 'indoor' && this.thirdQuestion == 'group') {
       this.studentTags = ["#création", "#manutention", "#artisanat", "#opérations", "#industrie", "#transport-logistique", "#entretien", "#art"];
     } else if (this.firstQuestion == 'manual' && this.secondQuestion == 'outdoor' && this.thirdQuestion == 'alone') {
@@ -93,13 +103,23 @@ export default class extends Controller {
   }
 
   studentTags(event) {
+    // const div = document.createElement('div')
     const tags = this.preferencesDef();
-    console.log(tags);
-    this.tagsPlaceHolderTarget.insertAdjacentHTML("beforeend", '<form action="#" method="get" class="">');
+    // div.insertAdjacentHTML("beforeend", '<form action="#" method="POST" class="">');
+    // tags.forEach((tag) => {
+    //   div.insertAdjacentHTML("beforeend", `<input class="tags-btn" type='checkbox' name='name' id=${tag} required> <label for=${tag}>${tag}</label>`);
+    // });
+    // div.insertAdjacentHTML("beforeend", '<input type="submit" value="Subscribe!">');
+    // console.log(div);
+    // this.tagsPlaceHolderTarget.innerHTML = div.outerHTML;
+    // console.log(div.outerHTML);
+    const displayedTags = ['<form action="/preferences" method="POST" class="">'];
     tags.forEach((tag) => {
-      this.tagsPlaceHolderTarget.insertAdjacentHTML("beforeend", `<input class="tags-btn" type='checkbox' name='name' id=${tag} required> <label for=${tag}>${tag}</label>`);
-    });
-    this.tagsPlaceHolderTarget.insertAdjacentHTML("beforeend", '<input type="submit" value="Subscribe!">');
+      displayedTags.push(`<input class="tags-btn" type="checkbox" name="name" id="${tag}" required> <label for="${tag}"">${tag}</label>`);
+    })
+    displayedTags.push('<input type="submit" value="On y va !"> </form>');
+    console.log(displayedTags.join(" "));
+    this.tagsPlaceHolderTarget.innerHTML = displayedTags.join(" ");
     this.tagsRevealBtnTarget.classList.add("d-none");
     event.preventDefault();
   }
