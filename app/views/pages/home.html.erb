@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <div class="banner" id="banner-logged">
     <h1>PERSPECTIV</h1>
-    <h2>Welcome back <%= current_user.first_name %></h2>
+    <h2> 👋 <%= current_user.first_name %></h2>
   </div>
   <div class="container">
     <div class="section">
@@ -27,17 +27,42 @@
         <h3>Notre sélection de vidéos pour toi</h3>
         <%= link_to "Voir plus >", mentors_path, class:"link-purple"%>
       </div>
+      <!-- Slider main container -->
+      <div class="swiper" data-controller="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <% @contents.each do |content| %>
+            <div class="swiper-slide">
+              <%= render "shared/item_scroll_video", content: content %>
+            </div>
+          <% end %>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+
       <div class="scroll-horizontal">
-        <%= render "shared/item_scroll_video", content: @contents[1] %>
-        <%= render "shared/item_scroll_video", content: @contents[2] %>
-        <%= render "shared/item_scroll_video", content: @contents[3] %>
-        <%= render "shared/item_scroll_video", content: @contents[4] %>
-        <%= render "shared/item_scroll_video", content: @contents[5] %>
-        <%= render "shared/item_scroll_video", content: @contents[6] %>
-        <%= render "shared/item_scroll_video", content: @contents[7] %>
-        <%= render "shared/item_scroll_video", content: @contents[8] %>
-        <%= render "shared/item_scroll_video", content: @contents[9] %>
-        <%= render "shared/item_scroll_video", content: @contents[10] %>
+        <% @contents.each do |content| %>
+          <div class="modal fade modal-video" id="content-modal-<%= content.id %>" tabindex="-1" aria-labelledby="content-modal-<%= content.id %>Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="content-modal-<%= content.id %>Label">Modal title</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <%= video_tag(content.video.url, autoplay: false, controls: true, loop: false) %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
       </div>
     </div>
   </div>
