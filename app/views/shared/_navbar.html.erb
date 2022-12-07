@@ -1,16 +1,16 @@
 <% if current_page?(controller: '/pages', action: 'home') %>
-<div class="navbar navbar-home navbar-expand-sm navbar-light" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
+  <div class="navbar navbar-home navbar-expand-sm navbar-light" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
 <% else %>
-<div class="navbar navbar-expand-sm navbar-light">
+  <div class="navbar navbar-expand-sm navbar-light">
 <% end %>
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "logo.png", class: "image-logo"%>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
@@ -57,10 +57,10 @@
                 <% end %>
             <% else %>
               <li class="nav-item">
-                <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+                <%= link_to "Login", new_user_session_path, class: "nav-link btn-purple-home" %>
               </li>
               <li class="nav-item">
-                <%= link_to "Sign-up", "#", class: "nav-link" %>
+                <%= link_to "Sign-up", "#", class: "nav-link btn-purple-home" %>
               </li>
             <% end %>
           <%# </div>
