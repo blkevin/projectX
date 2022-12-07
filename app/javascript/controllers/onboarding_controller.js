@@ -89,7 +89,7 @@ export default class extends Controller {
 
   preferencesDef() {
     if (this.firstQuestion == 'manual' && this.secondQuestion == 'indoor' && this.thirdQuestion == 'alone') {
-      this.studentTags = ["création", "manutention", "artisanat", "opérations", "industrie", "transport-logistique", "Hôtellerie-Restauration", "entretien", "art"];
+      this.studentTags = ["création", "manutention", "artisanat", "opérations", "industrie", "transport-logistique", "hôtellerie-restauration", "entretien", "art"];
     } else if (this.firstQuestion == 'manual' && this.secondQuestion == 'indoor' && this.thirdQuestion == 'group') {
       this.studentTags = ["création", "manutention", "artisanat", "opérations", "industrie", "transport-logistique", "entretien", "art"];
     } else if (this.firstQuestion == 'manual' && this.secondQuestion == 'outdoor' && this.thirdQuestion == 'alone') {
@@ -110,6 +110,7 @@ export default class extends Controller {
 
   studentTags(event) {
     // const div = document.createElement('div')
+
     const tags = this.preferencesDef();
     // div.insertAdjacentHTML("beforeend", '<form action="#" method="POST" class="">');
     // tags.forEach((tag) => {
@@ -125,7 +126,7 @@ export default class extends Controller {
       displayedTags.push(`<input class="tags-btn" type="checkbox" value="${tag}" name="preference[tag_id][]" id="${tag}" required> <label for="${tag}">${tag}</label>`);
     })
     displayedTags.push(`<input type="hidden" name="authenticity_token" value="${token}">`);
-    displayedTags.push('<input type="submit" value="On y va !" data-action="click->onboarding#submitForm"> </form>');
+    displayedTags.push('<input type="submit" class="btn-valid" value="Ok" data-action="click->onboarding#submitForm"> </form>');
     console.log(displayedTags.join(" "));
     this.tagsPlaceHolderTarget.innerHTML = displayedTags.join(" ");
     this.tagsRevealBtnTarget.classList.add("d-none");

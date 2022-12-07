@@ -1,5 +1,4 @@
 <div class="page">
-
   <div class="container registration" data-controller="onboarding" data-action="load->onboarding#topScroll"  data-action="wheel->onboarding#preventScroll">
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
       <%= f.error_notification %>
@@ -14,7 +13,7 @@
       <div class="student-form">
 
         <div class="d-flex form-inputs">
-          <div class="col-8 offset-2 form-div" id="quizz-registration">
+          <div class="col-8 offset-2 form-div mx-auto" id="quizz-registration">
             <h5>Avant toutes choses, on a besoin de quelques renseignements sur toi !</h5>
             <%= f.input :first_name,
                         :label => false,
@@ -41,8 +40,8 @@
                         :label => false,
                         placeholder: "Tu peux nous le reconfirmer ici ?",
                         required: true %>
-            <div class="form-actions">
-              <%= f.button :submit, "Go 🚀" %>
+            <div class="form-actions btn-go">
+              <%= f.button :submit, "Go 🚀", input_html: { class: "btn-go" } %>
             </div>
           </div>
         </div>
