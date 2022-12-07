@@ -10,6 +10,7 @@ export default class extends Controller {
       centeredSlides: false,
       slidesPerView: 3,
       spaceBetween: 50,
+      loop: true,
       coverflowEffect: {
         rotate: 0,
         stretch: 0,
@@ -24,4 +25,17 @@ export default class extends Controller {
     })
   }
 
+  displayControls(event) {
+    console.log(event)
+    if (
+      this.element.parentElement.classList.contains("swiper-slide-next")
+    ) {
+      this.element.firstElementChild.setAttribute('controls', 'controls')
+    }
+  }
+
+  removeControls(event) {
+    this.element.firstElementChild.removeAttribute('controls')
+
+  }
 }

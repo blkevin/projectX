@@ -227,10 +227,13 @@ text-decoration: none;
 .card-video {
   position: relative;
   height: 100%;
+  .video[poster]{
+    object-fit: contain;
+  }
   .card-title {
     color: $white;
     position: absolute;
-    bottom: 10%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: $headers-font !important;
