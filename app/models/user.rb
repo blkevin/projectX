@@ -19,7 +19,7 @@ class User < ApplicationRecord
   has_one_attached :photo
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :age, presence: true
+  # validates :age, presence: true
   validates :status, presence: true
 
   pg_search_scope :search_mentor,

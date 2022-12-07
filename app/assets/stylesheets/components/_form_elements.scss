@@ -85,7 +85,7 @@
   transform: scale(0);
 }
 
-.collection_radio_buttons {
+#user_status_mentor + label {
   cursor: pointer;
   display: inline-block;
   border-radius: 0.5rem;
@@ -96,14 +96,49 @@
   margin-right: 2rem;
   margin-bottom: 0.4rem;
   font-weight: bold;
-  width: 65%;
+  width: 70%;
 }
 
-.collection_radio_buttons:checked {
+#user_status_student + label {
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 0.5rem;
+  padding: 1rem 2.5rem;
+  background-color: white;
+  color: $dark-purple;
+  opacity: 0.8;
+  margin-right: 2rem;
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+  width: 70%;
+}
+
+#user_status_student:hover + label {
+  background-color: $dark-purple;
+  opacity: 0.7;
+  color: white;
+  #user_status_mentor + label {
+    background-color: white;
+    opacity: 0.7;
+    color: $dark-purple;
+  }
+}
+
+#user_status_mentor:hover + label {
+  background-color: $dark-purple;
+  opacity: 0.7;
+  color: white;
+}
+
+#user_status_student:checked + label {
   background-color: $dark-purple;
   color: white;
 }
 
+#user_status_mentor:checked + label {
+  background-color: $dark-purple;
+  color: white;
+}
 
 .tags-form {
   display: inline-block;
@@ -112,7 +147,6 @@
 .scroll-button {
   color: grey;
   margin-left: 34rem;
-
 }
 
 .tags-reveal {
@@ -139,4 +173,8 @@
   background-color: #4158D0;
   background: linear-gradient(324deg, $blue-nice, $orange-bg, $purple);
 	animation: gradient 15s ease infinite;
+}
+
+.col-form-label {
+  display: none;
 }

@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="onboarding"
 export default class extends Controller {
-  static targets = ["firstNameInput", "firstQuestion", "secondQuestion", "thirdQuestion", "firstNamePlaceHolder", "buttonA1", "buttonA2", "question2", "question2bis", "buttonback3", "buttonB1", "buttonB2", "buttonB1bis", "buttonB2bis", "buttonC1", "buttonC2", "buttonNextStep", "studentTags", "tagsPlaceHolder", "tagsRevealBtn", "form"]
+  static targets = ["firstNameInput", "firstQuestion", "secondQuestion", "thirdQuestion", "firstNamePlaceHolder", "buttonA1", "buttonA2", "question2", "question2bis", "buttonback3", "buttonB1", "buttonB2", "buttonB1bis", "buttonB2bis", "buttonC1", "buttonC2", "buttonNextStep", "studentTags", "tagsPlaceHolder", "tagsRevealBtn", "form", "next"]
 
 // Path choice
   pathChoice(event) {
@@ -13,6 +13,12 @@ export default class extends Controller {
   topScroll(event) {
     window.scrollTop;
   }
+
+
+  next(event) {
+    this.nextTarget.click();
+  }
+
 
 // Prevent scroll
   preventScroll(event) {
