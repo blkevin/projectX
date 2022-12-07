@@ -25,7 +25,7 @@ a .card-mentor-vertical {
   padding: 1em;
   text-align: center;
   border-radius: 10px;
-  width: 20vw;
+  width: 19.5vw;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   text-decoration: none !important;
   color: $dark-purple;
@@ -41,9 +41,17 @@ a .card-mentor-vertical {
   }
   .card-position {
     font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
   }
   &:hover {
     box-shadow: -5px -5px 30px 5px $white-purple, 5px 5px 30px 5px $blue-nice;
+  }
+  .card-tag {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 45%;
   }
 }
 
@@ -119,7 +127,7 @@ a .card-mentor-vertical {
 
 .card-fullname {
   font-size: 20px;
-  width: 15em;
+  width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
