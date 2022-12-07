@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
-  # before_action :redirect_if_incomplete_user, unless: :devise_controller?
+  before_action :redirect_if_incomplete_user, unless: :devise_controller?
 
   protected
 
@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
   def redirect_if_incomplete_user
     return if user_signed_in? && current_user.complete?
     return if params[:controller] == 'pages' && params[:action] == 'student_infos'
+    return if params[:controller] == 'preferences' && params[:action] == 'create'
 
     redirect_to student_infos_path
   end

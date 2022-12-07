@@ -33,8 +33,10 @@ class User < ApplicationRecord
                     tsearch: { prefix: true }
                   }
   def complete?
-    return if mentor?
-
-    tags.any?
+    if mentor?
+      return true
+    else
+      return tags.any?
+    end
   end
 end

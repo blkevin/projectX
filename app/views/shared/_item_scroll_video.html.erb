@@ -1,5 +1,5 @@
-<div class="card-video">
-  <%= video_tag("#{content.video.url}", autoplay: false, controls: true, loop: false, poster: image_path('thumbnail.png')) %>
+<div class="card-video" data-controller="swiper" data-action="mouseover->swiper#displayControls mouseout->swiper#removeControls">
+  <%= video_tag("#{content.video.url}", autoplay: false, controls: false, loop: false, poster: image_path('thumbnail2.png')) %>
   <div class="card-title">
     <%= content.title %>
   </div>

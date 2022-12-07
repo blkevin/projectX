@@ -2,11 +2,22 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="onboarding"
 export default class extends Controller {
-  static targets = ["firstNameInput", "firstQuestion", "secondQuestion", "thirdQuestion", "firstNamePlaceHolder", "buttonA1", "buttonA2", "question2", "question2bis", "buttonback3", "buttonB1", "buttonB2", "buttonB1bis", "buttonB2bis", "buttonC1", "buttonC2", "buttonNextStep", "studentTags", "tagsPlaceHolder", "tagsRevealBtn"]
+  static targets = ["firstNameInput", "firstQuestion", "secondQuestion", "thirdQuestion", "firstNamePlaceHolder", "buttonA1", "buttonA2", "question2", "question2bis", "buttonback3", "buttonB1", "buttonB2", "buttonB1bis", "buttonB2bis", "buttonC1", "buttonC2", "buttonNextStep", "studentTags", "tagsPlaceHolder", "tagsRevealBtn", "form"]
 
 // Path choice
   pathChoice(event) {
 
+  }
+
+// Auto top scroll
+  topScroll(event) {
+    window.scrollTo(0, 0);
+  }
+
+// Prevent scroll
+  preventScroll(event) {
+    event.preventDefault();
+    event.stopPropagation();
   }
 
 // Dynamic first name retrieval
@@ -73,7 +84,6 @@ export default class extends Controller {
   preferencesDef() {
     if (this.firstQuestion == 'manual' && this.secondQuestion == 'indoor' && this.thirdQuestion == 'alone') {
       this.studentTags = ["#création", "#manutention", "#artisanat", "#opérations", "#industrie", "#transport-logistique", "#Hôtellerie-Restauration", "#entretien", "#art"];
-      console.log(this.studentTags);
     } else if (this.firstQuestion == 'manual' && this.secondQuestion == 'indoor' && this.thirdQuestion == 'group') {
       this.studentTags = ["#création", "#manutention", "#artisanat", "#opérations", "#industrie", "#transport-logistique", "#entretien", "#art"];
     } else if (this.firstQuestion == 'manual' && this.secondQuestion == 'outdoor' && this.thirdQuestion == 'alone') {
@@ -93,14 +103,32 @@ export default class extends Controller {
   }
 
   studentTags(event) {
+    // const div = document.createElement('div')
     const tags = this.preferencesDef();
-    console.log(tags);
-    this.tagsPlaceHolderTarget.insertAdjacentHTML("beforeend", '<form action="#" method="get" class="">');
+    // div.insertAdjacentHTML("beforeend", '<form action="#" method="POST" class="">');
+    // tags.forEach((tag) => {
+    //   div.insertAdjacentHTML("beforeend", `<input class="tags-btn" type='checkbox' name='name' id=${tag} required> <label for=${tag}>${tag}</label>`);
+    // });
+    // div.insertAdjacentHTML("beforeend", '<input type="submit" value="Subscribe!">');
+    // console.log(div);
+    // this.tagsPlaceHolderTarget.innerHTML = div.outerHTML;
+    // console.log(div.outerHTML);
+    const token = document.querySelector('[name="csrf-token"]').content;
+    const displayedTags = ['<form action="/preferences" method="POST" data-onboarding-target="form">'];
     tags.forEach((tag) => {
-      this.tagsPlaceHolderTarget.insertAdjacentHTML("beforeend", `<input class="tags-btn" type='checkbox' name='name' id=${tag} required> <label for=${tag}>${tag}</label>`);
-    });
-    this.tagsPlaceHolderTarget.insertAdjacentHTML("beforeend", '<input type="submit" value="Subscribe!">');
+      displayedTags.push(`<input class="tags-btn" type="checkbox" value="${tag}" name="preference[tag_id][]" id="${tag}" required> <label for="${tag}">${tag}</label>`);
+    })
+    displayedTags.push(`<input type="hidden" name="authenticity_token" value="${token}">`);
+    displayedTags.push('<input type="submit" value="On y va !" data-action="click->onboarding#submitForm"> </form>');
+    console.log(displayedTags.join(" "));
+    this.tagsPlaceHolderTarget.innerHTML = displayedTags.join(" ");
     this.tagsRevealBtnTarget.classList.add("d-none");
     event.preventDefault();
   }
+
+  submitForm() {
+    this.formTarget.submit()
+  }
 }
+
+/* <input type="checkbox" value="2" name="preference[tag_id][]" id="preference_tag_id_2"></input> */

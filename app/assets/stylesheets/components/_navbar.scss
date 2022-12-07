@@ -6,13 +6,10 @@
 .navbar {
   justify-content: space-between;
   padding: 10px;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: 5000;
-  background-color: $white;
-}
-.navbar-home {
-  background-color: rgba(0, 0, 0, .0);
 }
 
 .nav-link {
@@ -25,11 +22,7 @@
 }
 
 .image-logo {
-  width: 45px;
-  top: 5px;
-  left: 12px;
-  position: absolute;
-  fill: $purple;
+  width: 110px;
 }
 
 .form-input {
@@ -54,5 +47,35 @@
 }
 
 .navbar-lewagon-white {
+  background-color: $dark-purple;
+  color: white;
+  .btn-purple-home{
+    color: white;
+  }
+  .btn-purple-home:hover{
+    color: white;
+  }
+}
+
+.navbar-normal {
+  justify-content: space-between;
+  padding: 10px;
+  position:sticky;
   background-color: white;
+  color: white;
+  top: 0;
+  z-index: 5000;
+  .nav-item {
+    padding: 0 0.5em;
+  }
+}
+
+.navbar-elements {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navbar-avatar {
+  margin-left: 0.5em;
 }
