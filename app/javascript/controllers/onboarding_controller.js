@@ -91,9 +91,9 @@ export default class extends Controller {
     } else if (this.firstQuestion == 'manual' && this.secondQuestion == 'outdoor' && this.thirdQuestion == 'group') {
       this.studentTags = ["création", "manutention", "btp", "environnement", "opérations", "industrie", "transport-logistique", "entretien", "art"];
     } else if (this.firstQuestion == 'intellectual' && this.secondQuestion == 'scientific' && this.thirdQuestion == 'alone') {
-      this.studentTags = ["aeronautique", "finance", "ingénierie", "technologie", "médical", "informatique", "informatique", "comptabilité", "banque", "assurance"];
+      this.studentTags = ["aéronautique", "finance", "ingénierie", "technologie", "médical", "informatique", "comptabilité", "banque", "assurance"];
     } else if (this.firstQuestion == 'intellectual' && this.secondQuestion == 'scientific' && this.thirdQuestion == 'group') {
-      this.studentTags = ["aeronautique", "finance", "ingénierie", "technologie", "médical", "informatique", "informatique", "comptabilité", "banque", "assurance"];
+      this.studentTags = ["aéronautique", "finance", "ingénierie", "technologie", "médical", "informatique", "comptabilité", "banque", "assurance"];
     } else if (this.firstQuestion == 'intellectual' && this.secondQuestion == 'non-scientific' && this.thirdQuestion == 'alone') {
       this.studentTags = ["audiovisuel", "commerce", "communication", "culture", "edition", "enseignement", "administration", "immobilier", "journalisme", "marketing", "mode-textile", "tourisme", "psychologie"];
     } else {
