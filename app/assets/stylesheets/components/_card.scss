@@ -1,14 +1,10 @@
 .card-horizontal {
   background: $white;
-  // transition: 0.3s ease;
   color: $dark-purple;
-  padding: 0 1.8em 0 0.6em;
-  margin: 0.6em;
-  width: 30vw;
+  padding: 0.6em;
   box-shadow: 0 0 0.2em rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  height: 20vh;
   backdrop-filter: blur(5px);
   border-radius: 10px;
 }
@@ -55,14 +51,11 @@ a .card-mentor-vertical {
   }
 }
 
-
-
 .card-avatar {
   width: 7.5em;
   height: 7.5em;
   border-radius: 10px;
   background-color: $dark-purple;
-  margin: 0 0.9em 0 0.8em;
   flex-shrink: 0;
   object-fit: cover;
   object-position: top;
@@ -83,7 +76,7 @@ a .card-mentor-vertical {
 }
 
 .card-info {
-  width: 100%;
+  margin: 0 1em;
 }
 
 .card-position {
@@ -104,7 +97,6 @@ a .card-mentor-vertical {
 .tags {
   display: flex;
   margin-top: 0.8em;
-  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -120,14 +112,8 @@ a .card-mentor-vertical {
   font-style: italic;
 }
 
-.item {
-  display: inline-block;
-}
-
-
 .card-fullname {
   font-size: 20px;
-  width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -251,7 +237,7 @@ text-decoration: none;
     font-family: $headers-font !important;
     width: 100% !important;
     text-align: center;
-    text-shadow: 0.06em 0.06em 0.2em rgba(0,0,0,0.5)
+    text-shadow: 0 0 1em rgba(0,0,0,1);
   }
   video {
     width: 100%;
