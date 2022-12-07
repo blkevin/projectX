@@ -16,6 +16,6 @@
       <%= yield %>
     </div>
     <%= render "shared/flashes" %>
-    <%= render "shared/footer" if action_name == "home" %>
+    <%= render "shared/footer" if action_name == "home" || action_name == "index" %>
   </body>
 </html>
