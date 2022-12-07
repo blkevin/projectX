@@ -80,6 +80,31 @@
   color: white;
 }
 
+#user_status_mentor, #user_status_student {
+  position: absolute;
+  transform: scale(0);
+}
+
+.collection_radio_buttons {
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 0.5rem;
+  padding: 1rem 2.5rem;
+  background-color: white;
+  color: $dark-purple;
+  opacity: 0.8;
+  margin-right: 2rem;
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+  width: 65%;
+}
+
+.collection_radio_buttons:checked {
+  background-color: $dark-purple;
+  color: white;
+}
+
+
 .tags-form {
   display: inline-block;
 }
@@ -102,4 +127,16 @@
   border-radius: 10px;
   color: white;
   font-weight: weight;
+}
+
+.student-quizz {
+  background-color: #4158D0;
+  background: linear-gradient(324deg, $blue-nice, $orange-bg, $purple);
+	animation: gradient 15s ease infinite;
+}
+
+.page {
+  background-color: #4158D0;
+  background: linear-gradient(324deg, $blue-nice, $orange-bg, $purple);
+	animation: gradient 15s ease infinite;
 }

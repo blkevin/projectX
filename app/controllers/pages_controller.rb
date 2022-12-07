@@ -5,11 +5,11 @@ class PagesController < ApplicationController
     # @mentors = User.mentor
     # @contents = Content.all
     if user_signed_in?
-      # @student_tags = current_user.tags # si c'est un student
-      # sql_query_mentors = 'experiences.sector IN (:tags) OR experiences.industry IN (:tags)'
+      @student_tags = current_user.tags.pluck(:name) # si c'est un student
+      sql_query_mentors = 'experiences.sector IN (:tags) OR experiences.industry IN (:tags)'
       # sql_query_mentors = 'experiences.sector IN (:tags) OR experiences.industry IN (:tags) OR experiences.position IN (:tags) OR educations.field IN (:tags)'
-      # @custom_mentors = User.mentor.joins(:experiences).where(sql_query_mentors, tags: @student_tags)
-      @custom_mentors = [User.find_by(last_name: "Portier"), User.find_by(last_name: "Michel"), User.find_by(last_name: "Miko"), User.find_by(last_name: "Jahier")]
+      @custom_mentors = User.mentor.joins(:experiences).where(sql_query_mentors, tags: @student_tags)
+      # @custom_mentors = [User.find_by(last_name: "Portier"), User.find_by(last_name: "Michel"), User.find_by(last_name: "Miko"), User.find_by(last_name: "Jahier")]
       @custom_contents = Content.where(user: @custom_mentors)
       # @custom_institutions = Institution.includes(:educations, :users).where(educations: { user: @custom_mentors }).uniq
     end
