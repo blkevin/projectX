@@ -144,3 +144,31 @@
   font-weight: bold;
   color: $dark-purple;
 }
+
+.btn-devise {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-devise a {
+  background-color: $dark-purple;
+  color: white;
+  border: solid 1px;
+  text-decoration: none;
+  font-size: 1em;
+  border-radius: 10px;
+}
+
+.btn-confirm-devise {
+  background-color: $dark-purple;
+  color: white;
+  border: solid 1px;
+  text-decoration: none;
+  font-size: 1em;
+  border-radius: 10px;
+}
+
+.btn-confirm-devise:hover {
+  background-color: $darker-purple;
+  color: white;
+}
