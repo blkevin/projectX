@@ -1,5 +1,5 @@
 
-<div class="container" data-controller="onboarding">
+<div class="container" data-controller="onboarding" data-action="load->onboarding#topScroll"  data-action="wheel->onboarding#preventScroll">
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
     <%= f.error_notification %>
 
@@ -50,12 +50,8 @@
           <div class="form-actions">
             <%= f.button :submit, "Go 🚀" %>
           </div>
-          <a href="#quizz-student-1st" class="scroll-button" data-action="click->onboarding#firstStep" data-controller="scroll-to">On passe à la suite 👇</a>
         </div>
       </div>
     </div>
   <% end %>
-
-
-
 </div>
