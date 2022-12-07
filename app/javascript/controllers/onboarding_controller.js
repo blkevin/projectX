@@ -1,0 +1,106 @@
+import { Controller } from "@hotwired/stimulus"
+
+// Connects to data-controller="onboarding"
+export default class extends Controller {
+  static targets = ["firstNameInput", "firstQuestion", "secondQuestion", "thirdQuestion", "firstNamePlaceHolder", "buttonA1", "buttonA2", "question2", "question2bis", "buttonback3", "buttonB1", "buttonB2", "buttonB1bis", "buttonB2bis", "buttonC1", "buttonC2", "buttonNextStep", "studentTags", "tagsPlaceHolder", "tagsRevealBtn"]
+
+// Path choice
+  pathChoice(event) {
+
+  }
+
+// Dynamic first name retrieval
+  firstStep(event) {
+    const name = this.firstNameInputTarget.value;
+    console.log(name, this.firstNamePlaceHolderTargets);
+    this.firstNamePlaceHolderTargets.forEach((element) => {
+      element.innerHTML = name;
+    });
+  }
+
+// Student quizz
+  q1FirstAnswer(event) {
+    this.firstQuestion = "manual";
+    this.buttonA1Target.classList.add("choice-button-selected");
+    this.buttonA2Target.classList.add("choice-button-unselected");
+    this.question2Target.classList.add("d-none");
+    this.question2bisTarget.classList.remove("d-none");
+    this.buttonback3Target.href = "#quizz-student-2nd-bis";
+  }
+
+  q1SecondAnswer(event) {
+    this.firstQuestion = "intellectual";
+    this.buttonA2Target.classList.add("choice-button-selected");
+    this.buttonA1Target.classList.add("choice-button-unselected");
+  }
+
+  q2FirstAnswer(event) {
+    this.secondQuestion = "scientific";
+    this.buttonB1Target.classList.add("choice-button-selected");
+    this.buttonB2Target.classList.add("choice-button-unselected");
+  }
+
+  q2SecondAnswer(event) {
+    this.secondQuestion = "non-scientific";
+    this.buttonB2Target.classList.add("choice-button-selected");
+    this.buttonB1Target.classList.add("choice-button-unselected");
+  }
+
+  q2BisFirstAnswer(event) {
+    this.secondQuestion = "outdoor";
+    this.buttonB1bisTarget.classList.add("choice-button-selected");
+    this.buttonB2bisTarget.classList.add("choice-button-unselected");
+  }
+
+  q2BisSecondAnswer(event) {
+    this.secondQuestion = "indoor";
+    this.buttonB2bisTarget.classList.add("choice-button-selected");
+    this.buttonB1bisTarget.classList.add("choice-button-unselected");
+  }
+
+  q3FirstAnswer(event) {
+    this.thirdQuestion = "alone";
+    this.buttonC1Target.classList.add("choice-button-selected");
+    this.buttonC2Target.classList.add("choice-button-unselected");
+  }
+
+  q3SecondAnswer(event) {
+    this.thirdQuestion = "group";
+    this.buttonC2Target.classList.add("choice-button-selected");
+    this.buttonC1Target.classList.add("choice-button-unselected");
+  }
+
+  preferencesDef() {
+    if (this.firstQuestion == 'manual' && this.secondQuestion == 'indoor' && this.thirdQuestion == 'alone') {
+      this.studentTags = ["#création", "#manutention", "#artisanat", "#opérations", "#industrie", "#transport-logistique", "#Hôtellerie-Restauration", "#entretien", "#art"];
+      console.log(this.studentTags);
+    } else if (this.firstQuestion == 'manual' && this.secondQuestion == 'indoor' && this.thirdQuestion == 'group') {
+      this.studentTags = ["#création", "#manutention", "#artisanat", "#opérations", "#industrie", "#transport-logistique", "#entretien", "#art"];
+    } else if (this.firstQuestion == 'manual' && this.secondQuestion == 'outdoor' && this.thirdQuestion == 'alone') {
+      this.studentTags = ["#création", "#manutention", "#btp", "#environnement", "#opérations", "#industrie", "#transport-logistique", "#entretien", "#art"];
+    } else if (this.firstQuestion == 'manual' && this.secondQuestion == 'outdoor' && this.thirdQuestion == 'group') {
+      this.studentTags = ["#création", "#manutention", "#btp", "#environnement", "#opérations", "#industrie", "#transport-logistique", "#entretien", "#art"];
+    } else if (this.firstQuestion == 'intellectual' && this.secondQuestion == 'scientific' && this.thirdQuestion == 'alone') {
+      this.studentTags = ["#aeronautique", "#finance", "#ingénierie", "#technologie", "#médical", "#informatique", "#informatique", "#comptabilité", "#banque", "#assurance"];
+    } else if (this.firstQuestion == 'intellectual' && this.secondQuestion == 'scientific' && this.thirdQuestion == 'group') {
+      this.studentTags = ["#aeronautique", "#finance", "#ingénierie", "#technologie", "#médical", "#informatique", "#informatique", "#comptabilité", "#banque", "#assurance"];
+    } else if (this.firstQuestion == 'intellectual' && this.secondQuestion == 'non-scientific' && this.thirdQuestion == 'alone') {
+      this.studentTags = ["#audiovisuel", "#commerce", "#communication", "#culture", "#edition", "#enseignement", "#administration", "#immobilier", "#journalisme", "#marketing", "#mode-textile", "#tourisme", "#psychologie"];
+    } else {
+      this.studentTags = ["#audiovisuel", "#commerce", "#communication", "#culture", "#edition", "#enseignement", "#administration", "#immobilier", "#journalisme", "#marketing", "#mode-textile", "#tourisme", "#psychologie"];
+    }
+    return this.studentTags;
+  }
+
+  studentTags(event) {
+    const tags = this.preferencesDef();
+    console.log(tags);
+    this.tagsPlaceHolderTarget.insertAdjacentHTML("beforeend", '<form action="#" method="get" class="">');
+    tags.forEach((tag) => {
+      this.tagsPlaceHolderTarget.insertAdjacentHTML("beforeend", `<input class="tags-btn" type='checkbox' name='name' id=${tag} required> <label for=${tag}>${tag}</label>`);
+    });
+    this.tagsPlaceHolderTarget.insertAdjacentHTML("beforeend", '<input type="submit" value="Subscribe!">');
+    this.tagsRevealBtnTarget.classList.add("d-none");
+    event.preventDefault();
+  }
+}

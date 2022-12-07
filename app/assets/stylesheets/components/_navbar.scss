@@ -31,12 +31,6 @@
   position: absolute;
 }
 
-.form-home {
-  box-sizing:border-box;
-  // position: absolute;
-  // justify-content: space-around;
-}
-
 .form-input {
   position: relative;
   border: 1px solid #ebebeb;
@@ -46,12 +40,12 @@
   padding: 5px 15px;
 }
 
-.form-spacing {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  top: 50%;
-}
+// .form-spacing {
+//   position: absolute;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   top: 50%;
+// }
 
 .navbar-lewagon {
   background-color: transparent;

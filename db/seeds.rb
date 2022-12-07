@@ -124,8 +124,8 @@ s10.photo.attach(
 )
 s10.save!
 
-# professionals
-puts "Creating professionals"
+# mentors
+puts "Creating mentors"
 m1 = User.new(first_name: "Sophie", last_name: "Portier", age: 30, email: "sophie@gmail.com", password: "123456", description: "Meilleur dev en région parisienne, ancienne photographe", status: :mentor)
 m2 = User.new(first_name: "Carla", last_name: "Bruni", age: 58, email: "carla@gmail.com", password: "123456", description: "Actrice/chanteuse sans prétention", status: :mentor)
 m3 = User.new(first_name: "Théobald", last_name: "de Bentzmann", age: 32, email: "theobald@gmail.com", password: "123456", description: "Born leader - un chef c'est fait pour cheffer", status: :mentor)
