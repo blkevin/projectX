@@ -56,38 +56,40 @@
   border-bottom-right-radius: 10px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
-  background:$orange;
+  background:$purple;
   text-decoration: none;
   border: 0px solid #ebebeb;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  transition: all 0.4s;
 
 }
 
 .btn-chat:hover {
-  background: $light-orange;
+  background: $dark-purple;
   transition: 0.3s ease;
   text-decoration: none;
-  color: $dark-purple;
+  color: $purple;
 }
 
 .btn-book {
   position: absolute;
   right: 1px;
   top: -50px;
-  color: $dark-purple;
+  color: $white-purple;
   padding: 5px 10px;
   text-decoration: none;
+  border-radius: 10px;
   font-weight: 600;
-  background-color: $orange;
-  font-size: 16px;
+  background-color: $dark-purple;
+  font-size: 15px;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  transition: all 0.4s;
 
 }
 
 .btn-book:hover {
   color: $dark-purple;
-  background-color: $light-orange;
-  transition: 0.3s ease;
+  background-color: $purple;
   text-decoration: none;
 }
 

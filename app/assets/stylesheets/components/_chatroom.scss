@@ -1,6 +1,6 @@
 .conversation {
-  background: white;
-  border-radius: 5px;
+  background: $white;
+  border-radius: 10px;
   height: 55vh;
   display: flex;
   flex-direction: column;
@@ -28,10 +28,10 @@
 
 .dashboard-conversation {
   background: white;
-  border-radius: 5px;
+  border-radius: 10px;
   height: 55vh;
-  width: 50vw;
-  margin: 0.5em;
+  width: 45vw;
+  margin: 0em 1em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -90,7 +90,7 @@
       width: auto;
       margin: 0;
       border: 1px rgb(200, 200, 200) solid;
-      background-color: $orange;
+      background-color: $blue-nice;
       color: $white;
       padding: 8px 16px;
       border-radius: 5px;
