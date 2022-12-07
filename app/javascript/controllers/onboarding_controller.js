@@ -11,7 +11,7 @@ export default class extends Controller {
 
 // Auto top scroll
   topScroll(event) {
-    window.scrollTo(0, 0);
+    window.scrollTop;
   }
 
 // Prevent scroll
@@ -83,21 +83,21 @@ export default class extends Controller {
 
   preferencesDef() {
     if (this.firstQuestion == 'manual' && this.secondQuestion == 'indoor' && this.thirdQuestion == 'alone') {
-      this.studentTags = ["#création", "#manutention", "#artisanat", "#opérations", "#industrie", "#transport-logistique", "#Hôtellerie-Restauration", "#entretien", "#art"];
+      this.studentTags = ["création", "manutention", "artisanat", "opérations", "industrie", "transport-logistique", "Hôtellerie-Restauration", "entretien", "art"];
     } else if (this.firstQuestion == 'manual' && this.secondQuestion == 'indoor' && this.thirdQuestion == 'group') {
-      this.studentTags = ["#création", "#manutention", "#artisanat", "#opérations", "#industrie", "#transport-logistique", "#entretien", "#art"];
+      this.studentTags = ["création", "manutention", "artisanat", "opérations", "industrie", "transport-logistique", "entretien", "art"];
     } else if (this.firstQuestion == 'manual' && this.secondQuestion == 'outdoor' && this.thirdQuestion == 'alone') {
-      this.studentTags = ["#création", "#manutention", "#btp", "#environnement", "#opérations", "#industrie", "#transport-logistique", "#entretien", "#art"];
+      this.studentTags = ["création", "manutention", "btp", "environnement", "opérations", "industrie", "transport-logistique", "entretien", "art"];
     } else if (this.firstQuestion == 'manual' && this.secondQuestion == 'outdoor' && this.thirdQuestion == 'group') {
-      this.studentTags = ["#création", "#manutention", "#btp", "#environnement", "#opérations", "#industrie", "#transport-logistique", "#entretien", "#art"];
+      this.studentTags = ["création", "manutention", "btp", "environnement", "opérations", "industrie", "transport-logistique", "entretien", "art"];
     } else if (this.firstQuestion == 'intellectual' && this.secondQuestion == 'scientific' && this.thirdQuestion == 'alone') {
-      this.studentTags = ["#aeronautique", "#finance", "#ingénierie", "#technologie", "#médical", "#informatique", "#informatique", "#comptabilité", "#banque", "#assurance"];
+      this.studentTags = ["aéronautique", "finance", "ingénierie", "technologie", "médical", "informatique", "comptabilité", "banque", "assurance"];
     } else if (this.firstQuestion == 'intellectual' && this.secondQuestion == 'scientific' && this.thirdQuestion == 'group') {
-      this.studentTags = ["#aeronautique", "#finance", "#ingénierie", "#technologie", "#médical", "#informatique", "#informatique", "#comptabilité", "#banque", "#assurance"];
+      this.studentTags = ["aéronautique", "finance", "ingénierie", "technologie", "médical", "informatique", "comptabilité", "banque", "assurance"];
     } else if (this.firstQuestion == 'intellectual' && this.secondQuestion == 'non-scientific' && this.thirdQuestion == 'alone') {
-      this.studentTags = ["#audiovisuel", "#commerce", "#communication", "#culture", "#edition", "#enseignement", "#administration", "#immobilier", "#journalisme", "#marketing", "#mode-textile", "#tourisme", "#psychologie"];
+      this.studentTags = ["audiovisuel", "commerce", "communication", "culture", "edition", "enseignement", "administration", "immobilier", "journalisme", "marketing", "mode-textile", "tourisme", "psychologie"];
     } else {
-      this.studentTags = ["#audiovisuel", "#commerce", "#communication", "#culture", "#edition", "#enseignement", "#administration", "#immobilier", "#journalisme", "#marketing", "#mode-textile", "#tourisme", "#psychologie"];
+      this.studentTags = ["audiovisuel", "commerce", "communication", "culture", "edition", "enseignement", "administration", "immobilier", "journalisme", "marketing", "mode-textile", "tourisme", "psychologie"];
     }
     return this.studentTags;
   }
