@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="onboarding"
 export default class extends Controller {
-  static targets = ["firstNameInput", "firstQuestion", "secondQuestion", "thirdQuestion", "firstNamePlaceHolder", "buttonA1", "buttonA2", "question2", "question2bis", "buttonback3", "buttonB1", "buttonB2", "buttonB1bis", "buttonB2bis", "buttonC1", "buttonC2", "buttonNextStep", "studentTags", "tagsPlaceHolder", "tagsRevealBtn"]
+  static targets = ["firstNameInput", "firstQuestion", "secondQuestion", "thirdQuestion", "firstNamePlaceHolder", "buttonA1", "buttonA2", "question2", "question2bis", "buttonback3", "buttonB1", "buttonB2", "buttonB1bis", "buttonB2bis", "buttonC1", "buttonC2", "buttonNextStep", "studentTags", "tagsPlaceHolder", "tagsRevealBtn", "form"]
 
 // Path choice
   pathChoice(event) {
@@ -113,14 +113,22 @@ export default class extends Controller {
     // console.log(div);
     // this.tagsPlaceHolderTarget.innerHTML = div.outerHTML;
     // console.log(div.outerHTML);
-    const displayedTags = ['<form action="/preferences" method="POST" class="">'];
+    const token = document.querySelector('[name="csrf-token"]').content;
+    const displayedTags = ['<form action="/preferences" method="POST" data-onboarding-target="form">'];
     tags.forEach((tag) => {
-      displayedTags.push(`<input class="tags-btn" type="checkbox" name="name" id="${tag}" required> <label for="${tag}"">${tag}</label>`);
+      displayedTags.push(`<input class="tags-btn" type="checkbox" value="${tag}" name="preference[tag_id][]" id="${tag}" required> <label for="${tag}">${tag}</label>`);
     })
-    displayedTags.push('<input type="submit" value="On y va !"> </form>');
+    displayedTags.push(`<input type="hidden" name="authenticity_token" value="${token}">`);
+    displayedTags.push('<input type="submit" value="On y va !" data-action="click->onboarding#submitForm"> </form>');
     console.log(displayedTags.join(" "));
     this.tagsPlaceHolderTarget.innerHTML = displayedTags.join(" ");
     this.tagsRevealBtnTarget.classList.add("d-none");
     event.preventDefault();
   }
+
+  submitForm() {
+    this.formTarget.submit()
+  }
 }
+
+/* <input type="checkbox" value="2" name="preference[tag_id][]" id="preference_tag_id_2"></input> */
