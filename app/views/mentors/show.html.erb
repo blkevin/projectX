@@ -1,6 +1,9 @@
 <div class="show-background" >
   <div class="banner-mentor w-100 d-flex justify-content-between mb-3 position-relative" >
     <div class="ms-5 banner-mentor-description d-flex flex-column justify-content-center">
+      <div class="back">
+        <%= link_to "< Découvrir d'autres mentors", mentors_path, class:"back-button" %>
+      </div>
       <h3> <%= @mentor.first_name %> <%= @mentor.last_name %></h3>
       <p><%=@mentor.description%></p>
       <div class="tags">

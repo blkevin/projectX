@@ -48,6 +48,11 @@ a .card-mentor-vertical {
   &:hover {
     box-shadow: -5px -5px 30px 5px $white-purple, 5px 5px 30px 5px $blue-nice;
   }
+  .card-tag {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 45%;
+  }
 }
 
 
@@ -93,9 +98,6 @@ a .card-mentor-vertical {
   padding: 0.3em 0.6em;
   margin-right: 0.3em;
   margin-bottom: 0.3em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 45%;
   // box-shadow: 0 0 4px 1px $purple;
 }
 
