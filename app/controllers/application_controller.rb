@@ -16,9 +16,10 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_if_incomplete_user
-    return if user_signed_in? && current_user.complete?
+    return if user_signed_in? && current_user.complete? || current_user&.mentor?
     return if params[:controller] == 'pages' && params[:action] == 'student_infos'
     return if params[:controller] == 'preferences' && params[:action] == 'create'
+    return if params[:controller] == 'pages' && params[:action] == 'home' && !user_signed_in?
 
     redirect_to student_infos_path
   end

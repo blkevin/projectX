@@ -2,6 +2,7 @@
   background: linear-gradient(324deg, $blue-nice, $orange-bg, $purple);
   background-size: 120% 120%;
   animation: gradient-animation 4s ease infinite;
+  height: 100%;
 }
 
 @keyframes gradient-animation {
