@@ -1,11 +1,12 @@
 .conversation {
   background: $white;
   border-radius: 10px;
-  height: 55vh;
+  height: 47vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+  margin-top: 3.25em;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
 
 

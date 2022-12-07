@@ -172,3 +172,20 @@
   background-color: $darker-purple;
   color: white;
 }
+
+.back-button {
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.5s;
+  color: $dark-purple;
+  padding: 5px, 10px;
+  font-size: 13px;
+}
+
+.back-button:hover {
+  font-weight: bold;
+}
+ .back {
+  margin-bottom: 2em;
+
+ }
