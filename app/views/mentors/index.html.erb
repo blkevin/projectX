@@ -1,53 +1,57 @@
-<div class="container">
+<div class="container" data-controller="search-mentors">
   <div class="filters">
    <%# search avec texte %>
-    <div class="form-spacing">
-      <%= form_with url: mentors_path, method: :get, class: "form-home" do |f| %>
+    <div class= "form-home" >
+      <%= form_with url: mentors_path, method: :get, class: "d-flex", html: { 'data-search-mentors-target' => 'form' } do |f| %>
         <%= text_field_tag :query,
-        params[:query],
-        class: "form-input",
-        placeholder: "Trouve ton Mentor"%>
-        <%= f.select(:position, options_for_select(Experience.all.pluck(:position).uniq.sort, selected: params[:position]), include_blank: "Poste") %>
-        <%= f.select(:sector, options_for_select(Experience.all.pluck(:sector).uniq.sort, selected: params[:sector]), include_blank: "Secteur") %>
-        <%= f.select(:industry, options_for_select(Experience.all.pluck(:industry).uniq.sort, selected: params[:industry]), include_blank: "Industrie") %>
-        <%= f.select(:field, options_for_select(Education.all.pluck(:field).uniq.sort, selected: params[:field]), include_blank: "Domaine d'études",) %>
-        <%= submit_tag "Search", class: "btn-navbar"%>
+                            params[:query],
+                            class: "search-words search-mentor",
+                            placeholder: "Trouve ton Mentor... ",
+                            data: {
+                              search_mentors_target: "input",
+                              action: "keyup->search-mentors#update"
+                            } %>
+        <%= f.select :position,
+                      options_for_select(
+                        Experience.all.pluck(:position).uniq.sort,
+                        selected: params[:position],
+                      ),
+                      { include_blank: 'Poste' },
+                      'data-action' => 'change->search-mentors#update',
+                      'data-search-mentors-target': 'positionInput',
+                      class: "search-words"%>
+        <%= f.select :sector,
+                      options_for_select(
+                        Experience.all.pluck(:sector).uniq.sort,
+                        selected: params[:sector]
+                      ),
+                      { include_blank: "Secteur" },
+                      'data-action' => 'change->search-mentors#update',
+                      'data-search-mentors-target': 'sectorInput',
+                      class: "search-words" %>
+        <%= f.select :industry,
+                      options_for_select(
+                        Experience.all.pluck(:industry).uniq.sort,
+                        selected: params[:industry]
+                      ),
+                      {include_blank: "Industrie"},
+                      'data-action' => 'change->search-mentors#update',
+                      'data-search-mentors-target': 'industryInput',
+                      class: "search-words" %>
+        <%= f.select :field,
+                      options_for_select(
+                        Education.all.pluck(:field).uniq.sort,
+                        selected: params[:field]
+                      ),
+                      {include_blank: "Domaine d'études"},
+                      'data-action' => 'change->search-mentors#update',
+                      'data-search-mentors-target': 'fieldInput',
+                      class: "search-words" %>
       <% end %>
-      <%= link_to "Supprimer tous les filtres", mentors_path %>
+      <%= link_to "Supprimer tous les filtres", mentors_path, class: "sup-filter" %>
     </div>
   </div>
-
-  <% if @mentors.empty? %>
-    <h3>Nous sommes désolés, aucun résultat ne correspond à ta recherche.</h3>
-    <%= link_to "Supprimer tous les filtres", mentors_path %>
-  <% end %>
-
-  <div class="d-flex flex-wrap justify-content-evenly">
-    <% @mentors.each do |mentor| %>
-      <div class="card-mentor-vertical">
-        <%= link_to mentor_path(mentor) do %>
-          <% if mentor.photo.attached? %>
-            <%= cl_image_tag mentor.photo.key, crop: :fill, class: 'card-mentor-vertical-avatar' %>
-          <% else %>
-            <%= image_tag 'https://img.freepik.com/photos-gratuite/outils-sport_53876-138077.jpg?w=2000', class: 'card-mentor-vertical-avatar' %>
-          <% end%>
-          <div class="">
-            <h4 class="card-fullname"> <%= mentor.first_name %> <%= mentor.last_name %></h4>
-            <p class="card-age"> <%= mentor.age %> ans</p>
-            <p class="card-position"> <%= mentor.experiences.first.position %></p>
-            <div class="school-info">
-              <p class="card-school"> <%= mentor.educations.first.institution.name %></p>
-              <%= cl_image_tag mentor.educations.first.institution.photo.key, crop: :fill, class: 'logo-school' %>
-            </div>
-            <div class="tags">
-              <p class="card-tag">#<%= mentor.experiences.first.sector %></p>
-              <% mentor.experiences.first.industry.split(" ").each do |element|%>
-              <p class="card-tag">#<%= element %></p>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+  <div data-search-mentors-target="list" class="list-mentors">
+  <%= render "list", mentors: @mentors %>
   </div>
 </div>

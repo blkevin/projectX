@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <div class="banner" id="banner-logged">
     <h1>PERSPECTIV</h1>
-    <h2>Welcome back <%= current_user.first_name %></h2>
+    <h2> 👋 Bienvenue <%= current_user.first_name %></h2>
   </div>
   <div class="container">
     <div class="section">
@@ -27,29 +27,86 @@
         <h3>Notre sélection de vidéos pour toi</h3>
         <%= link_to "Voir plus >", mentors_path, class:"link-purple"%>
       </div>
+      <!-- Slider main container -->
+      <div class="swiper" data-controller="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <% @contents.each do |content| %>
+            <div class="swiper-slide">
+              <%= render "shared/item_scroll_video", content: content %>
+            </div>
+          <% end %>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+
       <div class="scroll-horizontal">
-        <%= render "shared/item_scroll_video", content: @contents[1] %>
-        <%= render "shared/item_scroll_video", content: @contents[2] %>
-        <%= render "shared/item_scroll_video", content: @contents[3] %>
-        <%= render "shared/item_scroll_video", content: @contents[4] %>
-        <%= render "shared/item_scroll_video", content: @contents[5] %>
-        <%= render "shared/item_scroll_video", content: @contents[6] %>
-        <%= render "shared/item_scroll_video", content: @contents[7] %>
-        <%= render "shared/item_scroll_video", content: @contents[8] %>
-        <%= render "shared/item_scroll_video", content: @contents[9] %>
-        <%= render "shared/item_scroll_video", content: @contents[10] %>
+        <% @contents.each do |content| %>
+          <div class="modal fade modal-video" id="content-modal-<%= content.id %>" tabindex="-1" aria-labelledby="content-modal-<%= content.id %>Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="content-modal-<%= content.id %>Label">Modal title</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <%= video_tag(content.video.url, autoplay: false, controls: true, loop: false) %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
       </div>
     </div>
   </div>
 
 <% else %>
-  <div class="banner">
-    <h1>PERSPECTIV</h1>
-    <h2>Trouve ta voie et éclaire ta perspective</h2>
-    <%= link_to 'Créer un compte', new_user_registration_path, class: "btn-purple" %>
+  <div class="container-home">
+
+    <div class="home-banner-left" id="first">
+      <div class="home-banner-text" id="left">
+        <h1>PERSPECTIV</h1>
+        <h5>Trouve ta voie, éclaire ta perspective</h5>
+        <%= link_to 'Définis ton futur', new_user_registration_path, class: "btn-call-to-action" %>
+      </div>
+      <div class="home-banner-spline">
+        <iframe src='https://my.spline.design/miniroomartcopy-4db798195503a8e953ea923dec73af01/' frameborder='0' width='100%' height='100%'></iframe>
+      </div>
+    </div>
+
+    <div class="home-banner-right">
+      <div class="home-banner-spline">
+        <%= image_tag "girl_zoomed1.png", width:'100%', height:'100%' %>
+      </div>
+      <div class="home-banner-text" id="right">
+        <h2>Découvre nos mentors</h2>
+        <h5>Accède aux mentors qui te correspondent</h5>
+      </div>
+    </div>
+
+    <div class="home-banner-left">
+      <div class="home-banner-text" id="left">
+        <h2>Rencontre nos mentors</h2>
+        <h5>Réserve un entretien et obtiens des conseils</h5>
+        <%= link_to 'Définis ton futur', new_user_registration_path, class: "btn-call-to-action" %>
+      </div>
+      <div class="home-banner-spline">
+        <%= image_tag "mentor_student.png", width:'100%', height:'100%' %>
+      </div>
+    </div>
+
   </div>
 
-  <div class="container">
+<% end %>
+
+  <%# <div class="container">
     <div class="home-steps">
       <div class="step-home">
         <i class="fa-solid fa-user-plus"></i>
@@ -63,9 +120,8 @@
       </div>
       <div class="step-home">
         <i class="fa-solid fa-comments"></i>
-        <h5>Discute et rencontre</h5>
-        <p>Discute avec les mentors via notre chat et réserve de courts entretiens avec eux</p>
+        <h5>Rencontre un mentor</h5>
+        <p>Réserve uun entretiens avec un mentor et obtiens des conseils</p>
       </div>
     </div>
-  </div>
-<% end %>
+  </div> %>

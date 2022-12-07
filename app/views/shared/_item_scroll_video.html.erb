@@ -1,27 +1,6 @@
-<div class="item">
-  <div class="card-horizontal" data-bs-toggle="modal" data-bs-target="#content-modal-<%= content.id %>">
-    <div class="video-card">
-      <%= video_tag(content.video.url, autoplay: false, controls: false, loop: false) %>
-    </div>
-    <div class="card-info">
-      <div class="card-title"><%= content.title %></div>
-    </div>
+<div class="card-video" data-controller="swiper" data-action="mouseover->swiper#displayControls mouseout->swiper#removeControls">
+  <%= video_tag("#{content.video.url}", autoplay: false, controls: false, loop: false, poster: image_path('thumbnail2.png')) %>
+  <div class="card-title">
+    <%= content.title %>
   </div>
-      <!-- Modal -->
-    <div class="modal fade modal-video" id="content-modal-<%= content.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"><%= content.title %></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <%= video_tag(content.video.url, autoplay: false, controls: true, loop: false) %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn-purple" data-bs-dismiss="modal">Fermer</button>
-          </div>
-        </div>
-      </div>
-    </div>
 </div>

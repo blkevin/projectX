@@ -10,10 +10,16 @@ Rails.application.routes.draw do
   resources :experiences, only: %i[ new create ]
   resources :educations, only: %i[ new create ]
   resources :institutions, only: %i[ show ]
-  resources :meetings, only: %i[ new create ]
+  resources :meetings, only: %i[ new create edit update ] do
+    member do
+      patch :accept
+      patch :refuse
+      patch :cancel
+    end
+  end
   resources :preferences, only: %i[ new create ]
   resources :conversations, only: %i[ create ] do
-    resources :messages, only: :create
+    resources :messages, only: %i[ new create edit update ]
   end
 
   get 'student_infos', to: 'pages#student_infos', as: :student_infos
