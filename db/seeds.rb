@@ -242,47 +242,47 @@ m14.save!
 
 puts "Creating experiences"
 # creating experiences for Paul Portier
-exp1 = Experience.create!(user_id: m1.id, position: "Lead software engineer", company: "Exotec", sector: "R&D", industry: "tech", start_date: "2018-01-01")
-exp2 = Experience.create!(user_id: m1.id, position: "Photographe", company: "Sophie & Co.", sector: "photo", industry: "artisanat", start_date: "2014-01-01")
+exp1 = Experience.create!(user_id: m1.id, position: "Lead software engineer", company: "Exotec", sector: "R&D", industry: "technologie", start_date: "2018-01-01")
+exp2 = Experience.create!(user_id: m1.id, position: "Photographe", company: "Sophie & Co.", sector: "création", industry: "art", start_date: "2014-01-01")
 # creating experiences for Carla Bruni
-exp3 = Experience.create!(user_id: m2.id, position: "Acteur", company: "Mediapro", sector: "cinema", industry: "artisanat", start_date: "1995-01-01")
-exp4 = Experience.create!(user_id: m2.id, position: "Chanteur", company: "Universal Music", sector: "musique", industry: "artisanat", start_date: "2000-01-01")
+exp3 = Experience.create!(user_id: m2.id, position: "Acteur", company: "Mediapro", sector: "création", industry: "art", start_date: "1995-01-01")
+exp4 = Experience.create!(user_id: m2.id, position: "Chanteur", company: "Universal Music", sector: "création", industry: "art", start_date: "2000-01-01")
 # creating experiences for Théobald de Bentzmann
-exp5 = Experience.create!(user_id: m3.id, position: "PDG", company: "Alchimii", sector: "entrepreneur", industry: "evenementiel", start_date: "2017-01-01")
-exp6 = Experience.create!(user_id: m3.id, position: "Analyste financier", company: "Barclays", sector: "finance", industry: "services financiers", start_date: "2013-01-01")
+exp5 = Experience.create!(user_id: m3.id, position: "PDG", company: "Alchimii", sector: "direction", industry: "autre", start_date: "2017-01-01")
+exp6 = Experience.create!(user_id: m3.id, position: "Analyste financier", company: "Barclays", sector: "comptabilité", industry: "finance", start_date: "2013-01-01")
 # creating experiences for Eric Dupont-Moretti
-exp7 = Experience.create!(user_id: m4.id, position: "Ministre de la Justice", company: "Gouvernement", sector: "publique", industry: "administration publique", start_date: "2020-01-01")
-exp8 = Experience.create!(user_id: m4.id, position: "Avocat", company: "Dupont-Moretti Avocat", sector: "juridique", industry: "profession libérale", start_date: "1984-01-01")
+exp7 = Experience.create!(user_id: m4.id, position: "Ministre de la Justice", company: "Gouvernement", sector: "direction", industry: "administration", start_date: "2020-01-01")
+exp8 = Experience.create!(user_id: m4.id, position: "Avocat", company: "Dupont-Moretti Avocat", sector: "autre", industry: "droit", start_date: "1984-01-01")
 # creating experiences for Jonathan Cohen
-exp9 = Experience.create!(user_id: m5.id, position: "Acteur", company: "Canal+", sector: "cinema", industry: "artisanat", start_date: "1995-01-01")
-exp10 = Experience.create!(user_id: m5.id, position: "Commercial", company: "La Foret", sector: "immobilier", industry: "activité immobilière", start_date: "2000-01-01")
+exp9 = Experience.create!(user_id: m5.id, position: "Acteur", company: "Canal+", sector: "création", industry: "art", start_date: "1995-01-01")
+exp10 = Experience.create!(user_id: m5.id, position: "Commercial", company: "La Foret", sector: "vente", industry: "immobilier", start_date: "2000-01-01")
 # creating experiences for Kaaris
-exp11 = Experience.create!(user_id: m6.id, position: "Acteur", company: "Labyrinthe films", sector: "cinema", industry: "artisanat", start_date: "2016-01-01")
-exp12 = Experience.create!(user_id: m6.id, position: "Chanteur", company: "Universal Music", sector: "musique", industry: "artisanat", start_date: "2013-01-01")
+exp11 = Experience.create!(user_id: m6.id, position: "Acteur", company: "Labyrinthe films", sector: "création", industry: "art", start_date: "2016-01-01")
+exp12 = Experience.create!(user_id: m6.id, position: "Chanteur", company: "Universal Music", sector: "création", industry: "art", start_date: "2013-01-01")
 # creating experiences for Oceane
-exp13 = Experience.create!(user_id: m7.id, position: "Chef de projet digital", company: "Colorz", sector: "communication", industry: "digital", start_date: "2018-01-01")
-exp14 = Experience.create!(user_id: m7.id, position: "Junior marketing manager", company: "Procter & Gamble", sector: "marketing", industry: "grande consommation", start_date: "2016-01-01")
+exp13 = Experience.create!(user_id: m7.id, position: "Chef de projet digital", company: "Colorz", sector: "marketing", industry: "technologie", start_date: "2018-01-01")
+exp14 = Experience.create!(user_id: m7.id, position: "Junior marketing manager", company: "Procter & Gamble", sector: "marketing", industry: "autre", start_date: "2016-01-01")
 # creating experiences for Helene
-exp15 = Experience.create!(user_id: m8.id, position: "Senior data analyst", company: "Cenisis", sector: "data", industry: "data", start_date: "2020-01-01")
-exp16 = Experience.create!(user_id: m8.id, position: "Business analyst", company: "ManoMano", sector: "operations", industry: "ecommerce", start_date: "2019-01-01")
+exp15 = Experience.create!(user_id: m8.id, position: "Senior data analyst", company: "Cenisis", sector: "ingénierie", industry: "technologie", start_date: "2020-01-01")
+exp16 = Experience.create!(user_id: m8.id, position: "Business analyst", company: "ManoMano", sector: "opérations", industry: "commerce", start_date: "2019-01-01")
 # creating experiences for Jean
-exp17 = Experience.create!(user_id: m9.id, position: "Business developper", company: "Mirakl", sector: "vente", industry: "tech", start_date: "2020-01-01")
-exp18 = Experience.create!(user_id: m9.id, position: "Libraire", company: "Libraire centrale", sector: "livre", industry: "culture", start_date: "2018-01-01")
+exp17 = Experience.create!(user_id: m9.id, position: "Business developper", company: "Mirakl", sector: "vente", industry: "technologie", start_date: "2020-01-01")
+exp18 = Experience.create!(user_id: m9.id, position: "Libraire", company: "Libraire centrale", sector: "ventre", industry: "culture", start_date: "2018-01-01")
 # creating experiences for Pascal
-exp19 = Experience.create!(user_id: m10.id, position: "Chef de chantier", company: "Sferis", sector: "batiment", industry: "construction", start_date: "2017-01-01")
-exp20 = Experience.create!(user_id: m10.id, position: "Policier", company: "Mairie de Lille", sector: "publique", industry: "protection civile", start_date: "2015-01-01")
+exp19 = Experience.create!(user_id: m10.id, position: "Chef de chantier", company: "Sferis", sector: "manutention", industry: "BTP", start_date: "2017-01-01")
+exp20 = Experience.create!(user_id: m10.id, position: "Policier", company: "Mairie de Lille", sector: "autre", industry: "administation", start_date: "2015-01-01")
 # creating experiences for Jerome
-exp21 = Experience.create!(user_id: m11.id, position: "Senior product manager", company: "Gens de confiance", sector: "operations", industry: "tech", start_date: "2017-01-01")
+exp21 = Experience.create!(user_id: m11.id, position: "Senior product manager", company: "Gens de confiance", sector: "opérations", industry: "technologie", start_date: "2017-01-01")
 exp22 = Experience.create!(user_id: m11.id, position: "Consultant en stratégie", company: "PwC", sector: "conseil", industry: "services", start_date: "2013-01-01")
 # creating experiences for Riza
-exp23 = Experience.create!(user_id: m12.id, position: "Senior account executive", company: "Odaseva", sector: "commerce", industry: "data", start_date: "2019-01-01")
-exp24 = Experience.create!(user_id: m12.id, position: "Account executive", company: "Odaseva", sector: "commerce", industry: "data", start_date: "2016-01-01")
+exp23 = Experience.create!(user_id: m12.id, position: "Senior account executive", company: "Odaseva", sector: "ventre", industry: "technologie", start_date: "2019-01-01")
+exp24 = Experience.create!(user_id: m12.id, position: "Account executive", company: "Odaseva", sector: "vente", industry: "technologie", start_date: "2016-01-01")
 # creating experiences for Camille
-exp25 = Experience.create!(user_id: m13.id, position: "Actuaire", company: "Crédit Agricole Assurances", sector: "assurance", industry: "banque", start_date: "2019-01-01")
-exp26 = Experience.create!(user_id: m13.id, position: "Actuaire", company: "Axa Assurances", sector: "assurance", industry: "banque", start_date: "2016-01-01")
+exp25 = Experience.create!(user_id: m13.id, position: "Actuaire", company: "Crédit Agricole Assurances", sector: "administration", industry: "assurance", start_date: "2019-01-01")
+exp26 = Experience.create!(user_id: m13.id, position: "Actuaire", company: "Axa Assurances", sector: "administration", industry: "assurance", start_date: "2016-01-01")
 # creating experiences for Fatima
-exp27 = Experience.create!(user_id: m14.id, position: "Data Analyst", company: "Kapten", sector: "data", industry: "tech", start_date: "2020-01-01")
-exp28 = Experience.create!(user_id: m14.id, position: "Consultante Data", company: "KPMG", sector: "data", industry: "conseil", start_date: "2018-01-01")
+exp27 = Experience.create!(user_id: m14.id, position: "Data Analyst", company: "Kapten", sector: "ingénierie", industry: "technologie", start_date: "2020-01-01")
+exp28 = Experience.create!(user_id: m14.id, position: "Consultante Data", company: "KPMG", sector: "ingénierie", industry: "finance", start_date: "2018-01-01")
 
 puts "Creating institutions"
 i1 = Institution.new(name: "Le Wagon", description: "Accélérez votre carrière, formez-vous aux métiers de la tech")
@@ -629,12 +629,17 @@ c14.video.attach(
 )
 c14.save!
 
-tags_name = ["#Aéronautique", "#Agro", "#Artisanat", "#Audiovisuel", "#Finance", "#Automobile", "#Banque", "#Assurance", "#BTP", "#Biologie-chimie", "#Commerce", "#Communication", "#Art", "#Culture", "#Défense", "#Droit", "#Edition", "#Enseignement", "#Environnement", "#Administration", "#Hôtellerie-Restauration", "#Humanitaire", "#Immobilier", "#Industrie", "#Informatique", "#Journalisme", "#Luxe", "#Marketing", "#Médical", "#Mode-Textile", "#Paramédical", "#Social", "#Sport", "#Tourisme", "#Transport-Logistique", "#Technologie", "#Médecine", "#Autre", "#R&D", "#RH", "#Production", "#Marketing", "#Achats", "#Comptabilité", "#Direction", "#Gestion", "#Logistique", "#Vente", "#Opérations", "#Manutention", "#Création", "#Entretien", "#Ingénierie", "#Entrepreneur"]
+tags_name = ["Aéronautique", "Agro", "Artisanat", "Audiovisuel", "Finance", "Automobile", "Banque", "Assurance", "BTP", "Biologie-chimie", "Commerce", "Communication", "Art", "Culture", "Défense", "Droit", "Edition", "Enseignement", "Environnement", "Administration", "Hôtellerie-Restauration", "Humanitaire", "Immobilier", "Industrie", "Informatique", "Journalisme", "Luxe", "Marketing", "Médical", "Mode-Textile", "Paramédical", "Social", "Sport", "Tourisme", "Transport-Logistique", "Technologie", "Médecine", "Autre", "R&D", "RH", "Production", "Marketing", "Achats", "Comptabilité", "Direction", "Gestion", "Logistique", "Vente", "Opérations", "Manutention", "Création", "Entretien", "Ingénierie", "Entrepreneur"]
 
 puts "Creating tags"
-
+counter = 0
 tags_name.each do |tag_name|
-  Tag.create!(name: tag_name.downcase)
+  counter += 1
+
+  t = Tag.create!(name: tag_name.downcase)
+  User.student.sample(3).each do |student|
+    Preference.create!(user: student, tag: t)
+  end
 end
 
 # t1 = Tag.create!(name: "transport")
@@ -663,37 +668,23 @@ end
 # t24 = Tag.create!(name: "web")
 # t25 = Tag.create!(name: "photo")
 
-puts "Creating preferences"
-p1 = Preference.create!(user_id: s1.id, tag_id: t22.id)
-p2 = Preference.create!(user_id: s1.id, tag_id: t17.id)
-p3 = Preference.create!(user_id: s1.id, tag_id: t23.id)
-p4 = Preference.create!(user_id: s2.id, tag_id: t16.id)
-p5 = Preference.create!(user_id: s2.id, tag_id: t12.id)
-p6 = Preference.create!(user_id: s3.id, tag_id: t9.id)
-p7 = Preference.create!(user_id: s3.id, tag_id: t3.id)
-p8 = Preference.create!(user_id: s4.id, tag_id: t24.id)
-p9 = Preference.create!(user_id: s4.id, tag_id: t14.id)
-p10 = Preference.create!(user_id: s5.id, tag_id: t23.id)
-p11 = Preference.create!(user_id: s5.id, tag_id: t14.id)
-p12 = Preference.create!(user_id: s5.id, tag_id: t12.id)
-p13 = Preference.create!(user_id: s6.id, tag_id: t4.id)
-p14 = Preference.create!(user_id: s7.id, tag_id: t5.id)
-p15 = Preference.create!(user_id: s7.id, tag_id: t4.id)
-p16 = Preference.create!(user_id: s8.id, tag_id: t3.id)
-p17 = Preference.create!(user_id: s9.id, tag_id: t21.id)
-p18 = Preference.create!(user_id: s9.id, tag_id: t20.id)
-p19 = Preference.create!(user_id: s10.id, tag_id: t18.id)
-p21 = Preference.create!(user_id: m1.id, tag_id: t24.id)
-p22 = Preference.create!(user_id: m1.id, tag_id: t25.id)
-p23 = Preference.create!(user_id: m3.id, tag_id: t14.id)
-p24 = Preference.create!(user_id: m3.id, tag_id: t12.id)
-p25 = Preference.create!(user_id: m3.id, tag_id: t23.id)
-p26 = Preference.create!(user_id: m2.id, tag_id: t6.id)
-p27 = Preference.create!(user_id: m2.id, tag_id: t5.id)
-p28 = Preference.create!(user_id: m2.id, tag_id: t4.id)
-p29 = Preference.create!(user_id: m4.id, tag_id: t3.id)
-p30 = Preference.create!(user_id: m4.id, tag_id: t9.id)
-p31 = Preference.create!(user_id: m5.id, tag_id: t16.id)
-p32 = Preference.create!(user_id: m5.id, tag_id: t6.id)
-p33 = Preference.create!(user_id: m6.id, tag_id: t5.id)
-p34 = Preference.create!(user_id: m6.id, tag_id: t6.id)
+# puts "Creating preferences"
+# p1 = Preference.create!(user: s1, tag_id: t22.id)
+# p2 = Preference.create!(user_id: s1.id, tag_id: t17.id)
+# p3 = Preference.create!(user_id: s1.id, tag_id: t23.id)
+# p4 = Preference.create!(user_id: s2.id, tag_id: t16.id)
+# p5 = Preference.create!(user_id: s2.id, tag_id: t12.id)
+# p6 = Preference.create!(user_id: s3.id, tag_id: t9.id)
+# p7 = Preference.create!(user_id: s3.id, tag_id: t3.id)
+# p8 = Preference.create!(user_id: s4.id, tag_id: t24.id)
+# p9 = Preference.create!(user_id: s4.id, tag_id: t14.id)
+# p10 = Preference.create!(user_id: s5.id, tag_id: t23.id)
+# p11 = Preference.create!(user_id: s5.id, tag_id: t14.id)
+# p12 = Preference.create!(user_id: s5.id, tag_id: t12.id)
+# p13 = Preference.create!(user_id: s6.id, tag_id: t4.id)
+# p14 = Preference.create!(user_id: s7.id, tag_id: t5.id)
+# p15 = Preference.create!(user_id: s7.id, tag_id: t4.id)
+# p16 = Preference.create!(user_id: s8.id, tag_id: t3.id)
+# p17 = Preference.create!(user_id: s9.id, tag_id: t21.id)
+# p18 = Preference.create!(user_id: s9.id, tag_id: t20.id)
+# p19 = Preference.create!(user_id: s10.id, tag_id: t18.id)
