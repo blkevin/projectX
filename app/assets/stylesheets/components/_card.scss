@@ -19,18 +19,17 @@
   box-shadow: 0 0 0.6em rgba(0,0,0,0.2);
 }
 
-.card-mentor-vertical {
-  background: linear-gradient($light-orange, 90%, $white);
-  margin: 0.9em;
-  padding: 1.25em;
+a .card-mentor-vertical {
+  background: $white;
+  margin: 1.2em 0.9em;
+  padding: 1em;
   text-align: center;
   border-radius: 10px;
   width: 20vw;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  a {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   text-decoration: none !important;
   color: $dark-purple;
-  }
+  transition: all 0.8s;
   h4 {
     margin: 0;
   }
@@ -40,7 +39,15 @@
   .card-position, .card-school {
     text-align: start;
   }
+  .card-position {
+    font-weight: bold;
+  }
+  &:hover {
+    box-shadow: -5px -5px 30px 5px $white-purple, 5px 5px 30px 5px $blue-nice;
+  }
 }
+
+
 
 .card-avatar {
   width: 7.5em;
@@ -54,12 +61,13 @@
 }
 
 .card-mentor-vertical-avatar {
-  margin: 0.8em auto;
+  margin: 0.7em auto;
   border-radius: 50%;
   width: 12.5em;
   height: 12.5em;
   object-fit: cover;
   object-position: top;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   @media (max-width: 1190px){
     width: 10em;
     height: 10em;
@@ -76,14 +84,13 @@
 
 .card-tag {
   font-size: 14px;
-  border: 1px solid $orange;
   border-radius: 0.6em;
-  background-color: $orange;
-  color: #ae6c30;
+  background-color: $dark-purple;
+  color: $white-purple;
   padding: 0.3em 0.6em;
   margin-right: 0.3em;
   margin-bottom: 0.3em;
-  box-shadow: 0 0 0.3em rgba(0,0,0,0.1);
+  // box-shadow: 0 0 4px 1px $purple;
 }
 
 .tags {
@@ -126,13 +133,11 @@ white-space: normal;
 }
 
 .experience-card {
-  background: $light-orange;
-  transition: 0.3s ease;
+  background: $white;
   color: $dark-purple;
   border-radius: 10px;
   padding: 0.6em 1.8em 0.6em 0.6em;
-  width: 45vw;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .meeting-card {
@@ -149,7 +154,7 @@ white-space: normal;
     list-style: none;
   }
   & h5 {
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 0.2rem;
   }
 }
@@ -170,14 +175,14 @@ white-space: normal;
 .chat-card {
   background: white;
   color: $dark-purple;
-  padding: 0.6em 0 0 0.6em;
-  margin: 0.6em;
-  width: 96%;
   border-bottom: $dark-purple solid 1px;
   display: flex;
   align-items: center;
-  height: 5em;
+  height: 92px;
   font-size: 13px;
+  & .active {
+    background-color: $purple;
+  }
   & ul {
     list-style: none;
   }
@@ -217,7 +222,6 @@ white-space: normal;
  .school-info {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid $dark-purple;
  }
 
 a {

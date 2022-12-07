@@ -13,7 +13,8 @@
 }
 
 .nav-link {
-  color: #3C454B;
+  color: $dark-purple;
+  transition: all 0.5s;
 }
 .nav-link:hover {
   color: $purple;
