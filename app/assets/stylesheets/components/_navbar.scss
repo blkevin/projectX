@@ -9,18 +9,18 @@
   position: sticky;
   top: 0;
   z-index: 5000;
-  background-color: $dark-purple;
+  background-color: $white;
 }
 .navbar-home {
   background-color: rgba(0, 0, 0, .0);
 }
 
 .nav-link {
-  color: $purple;
+  color: $dark-purple;
   transition: all 0.5s;
 }
 .nav-link:hover {
-  color: $white-purple;
+  color: $purple;
   font-weight: bold;
 }
 
