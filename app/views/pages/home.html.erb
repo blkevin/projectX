@@ -1,35 +1,37 @@
 <% if user_signed_in? %>
-  <div class="banner" id="banner-logged">
-    <h1>PERSPECTIV</h1>
-    <h2> 👋 Bienvenue <%= current_user.first_name %></h2>
-  </div>
-  <div class="container">
-    <div class="section">
-      <div class="d-flex justify-content-between mb-3 headers-section">
-        <h3>Les mentors à découvrir</h3>
-        <%= link_to "Voir plus >", mentors_path, class:"link-purple"%>
-      </div>
-      <div class="scroll-horizontal">
-        <% @custom_mentors.each do |mentor| %>
-          <%= render "shared/item_scroll_mentor", mentor: mentor %>
-        <% end %>
-      </div>
+  <div class="bg-home">
+    <div class="banner" id="banner-logged">
+      <h1>PERSPECTIV</h1>
+      <h2> 👋 Bienvenue <%= current_user.first_name %></h2>
     </div>
-    <div class="section">
-      <div class="d-flex justify-content-between mb-3 headers-section">
-        <h3>Notre sélection de vidéos pour toi</h3>
-        <%= link_to "Voir plus >", mentors_path, class:"link-purple"%>
-      </div>
-      <!-- Slider main container -->
-      <div class="swiper" data-controller="swiper">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-          <!-- Slides -->
-          <% @custom_contents.each do |content| %>
-            <div class="swiper-slide">
-              <%= render "shared/item_scroll_video", content: content %>
-            </div>
+    <div class="container">
+      <div class="section">
+        <div class="d-flex justify-content-between mb-3 headers-section">
+          <h3>Les mentors à découvrir</h3>
+          <%= link_to "Voir plus >", mentors_path, class:"link-purple"%>
+        </div>
+        <div class="scroll-horizontal">
+          <% @custom_mentors.each do |mentor| %>
+            <%= render "shared/item_scroll_mentor", mentor: mentor %>
           <% end %>
+        </div>
+      </div>
+      <div class="section">
+        <div class="d-flex justify-content-between mb-3 headers-section">
+          <h3>Notre sélection de vidéos pour toi</h3>
+          <%= link_to "Voir plus >", mentors_path, class:"link-purple"%>
+        </div>
+        <!-- Slider main container -->
+        <div class="swiper" data-controller="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <% @custom_contents.each do |content| %>
+              <div class="swiper-slide">
+                <%= render "shared/item_scroll_video", content: content %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
