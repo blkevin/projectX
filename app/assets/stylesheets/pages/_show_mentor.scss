@@ -49,7 +49,17 @@ h5 {
 }
 
 .container-mentor {
-  height: calc(100vh - 259px);
+  height: calc(100vh - 240px);
   overflow: hidden;
 }
 
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: rgb(55, 163, 68);
+  border-radius: 50%;
+  display: inline-block;
+  border: 2px solid $white;
+  bottom: 46px;
+  right: 49px;
+}

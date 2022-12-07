@@ -1,6 +1,9 @@
 <div class="show-background" >
-  <div class="banner-mentor w-100 d-flex justify-content-between mb-3" >
+  <div class="banner-mentor w-100 d-flex justify-content-between mb-3 position-relative" >
     <div class="ms-5 banner-mentor-description d-flex flex-column justify-content-center">
+      <div class="back">
+        <%= link_to "< Découvrir d'autres mentors", mentors_path, class:"back-button" %>
+      </div>
       <h3> <%= @mentor.first_name %> <%= @mentor.last_name %></h3>
       <p><%=@mentor.description%></p>
       <div class="tags">
@@ -16,6 +19,7 @@
       <% else %>
         <p>No picture attached</p>
       <% end%>
+      <span class="dot position-absolute"></span>
     </div>
   </div>
 
@@ -62,15 +66,21 @@
         </div>
       <%end%>
 
+      <% unless @contents.nil? %>
+        <h4 class="mt-5 subtitle mb-3"> 🎥 Videos </h4>
+        <div class="video-show-mentor mb-4">
+          <%= video_tag(@contents.first.video.url, autoplay: false, controls: true, loop: false, width:'90%') %>
+        </div>
+      <% end %>
 
     </div>
 
-    <div class="right-side-chat conversation mx-5 my-5 position-relative col-4" data-controller="conversation-subscription" data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
+    <div class="right-side-chat conversation mx-5 position-relative col-4" data-controller="conversation-subscription" data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
       <button type="button" class="btn btn-book" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Propose un créneau
       </button>
       <div class="top-message-name-show">
-        <p class="text-center py-1"><%= @mentor.first_name %> <%= @mentor.last_name %> - 🟢 en ligne</p>
+        <p class="text-center py-1"><%= @mentor.first_name %> <%= @mentor.last_name %> - en ligne</p>
       </div>
       <div class="messages" data-conversation-subscription-target="messages">
           <% @conversation.messages.each do |message| %>
@@ -95,7 +105,6 @@
 
   </div>
 
-</div>
 
 
 

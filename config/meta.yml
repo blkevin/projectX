@@ -1,5 +1,5 @@
 meta_name: "Perspectiv"
 meta_title: "Explore tes voies !"
 meta_description: "Echange avec des mentors inspirants"
-meta_image: "meya.png" # should exist in `app/assets/images/`
+meta_image: "meta.png" # should exist in `app/assets/images/`
 twitter_account: "@PapNdiaye"   # required for Twitter Cards
