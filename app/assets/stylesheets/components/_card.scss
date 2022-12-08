@@ -30,7 +30,7 @@ a .card-mentor-vertical {
     margin: 0;
   }
   .tags {
-    justify-content: center;
+    justify-content: space-between;
   }
   .card-position, .card-school {
     text-align: start;
@@ -89,14 +89,10 @@ a .card-mentor-vertical {
   background-color: $dark-purple;
   color: $white-purple;
   padding: 0.3em 0.6em;
-  margin-right: 0.3em;
-  margin-bottom: 0.3em;
-  // box-shadow: 0 0 4px 1px $purple;
-}
+ }
 
 .tags {
   display: flex;
-  margin-top: 0.8em;
   align-items: center;
 }
 
