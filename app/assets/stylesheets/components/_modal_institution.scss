@@ -10,37 +10,40 @@
     }
   }
 
-.experience-card {
+.education {
+
   :hover {
     cursor: pointer;
   }
-  cursor: none;
 
-  .modal-content {
-    border-radius: 1em;
+  .experience-card {
 
-    h2 {
-      font-weight: bold;
-    }
+    .modal-content {
+      border-radius: 1em;
 
-    h5 {
-      font-weight: normal;
-    }
-
-    .modal-body {
-
-      video {
-        width: 100%;
-        height: 100%;
-        border-radius:10px;
+      h2 {
+        font-weight: bold;
       }
 
-      .institution-show {
-        .card-avatar{
-          width: auto;
-          height: auto;
-          object-fit: contain;
-          margin: 0;
+      h5 {
+        font-weight: normal;
+      }
+
+      .modal-body {
+
+        video {
+          width: 100%;
+          height: 100%;
+          border-radius:10px;
+        }
+
+        .institution-show {
+          .card-avatar{
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            margin: 0;
+          }
         }
       }
     }

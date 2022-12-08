@@ -43,25 +43,27 @@
         </div>
       <%end%>
 
-      <h4 class="mt-5 subtitle mb-3"> 📚 Etudes</h4>
-      <% @educations.each do |education| %>
-        <div class="experience-card mb-3" data-bs-toggle="modal" data-bs-target="#institutionModal<%= education.institution.id %>">
-          <div class="sub-title-study d-flex justify-content-between">
-            <h5><%= education.institution.name %></h5>
-            <%= render "shared/institution", institution: education.institution %>
-            <div class="dates-mentor-study">
-              <p><em>Depuis : </em><%= education.start_date %></p>
-              <% unless education.end_date.nil?  %>
-                <p><em>Jusqu'à : </em><%= education.end_date %></p>
-              <% end %>
+      <div class="education">
+        <h4 class="mt-5 subtitle mb-3"> 📚 Etudes</h4>
+        <% @educations.each do |education| %>
+          <div class="experience-card mb-3" data-bs-toggle="modal" data-bs-target="#institutionModal<%= education.institution.id %>">
+            <div class="sub-title-study d-flex justify-content-between">
+              <h5><%= education.institution.name %></h5>
+              <%= render "shared/institution", institution: education.institution %>
+              <div class="dates-mentor-study">
+                <p><em>Depuis : </em><%= education.start_date %></p>
+                <% unless education.end_date.nil?  %>
+                  <p><em>Jusqu'à : </em><%= education.end_date %></p>
+                <% end %>
+              </div>
             </div>
+              <div class="details-education">
+                <p> <%= education.degree_level %> </p>
+                <p> <%= education.field %> </p>
+              </div>
           </div>
-            <div class="details-education">
-              <p> <%= education.degree_level %> </p>
-              <p> <%= education.field %> </p>
-            </div>
-        </div>
-      <%end%>
+        <%end%>
+      </div>
 
 
     </div>
