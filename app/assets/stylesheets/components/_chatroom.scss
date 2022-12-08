@@ -1,13 +1,15 @@
 .conversation {
   background: $white;
   border-radius: 10px;
-  height: 47vh;
+  height: 55vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
-  margin-top: 3.25em;
+  margin-top: 0.5em;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  position: sticky !important;
+  top: 90px;
 
 
   .messages {
@@ -31,22 +33,26 @@
   background: white;
   border-radius: 10px;
   height: 55vh;
-  width: 45vw;
+  width: 40vw;
   margin: 0em 1em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+  padding: 1em;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+
+
 
   .messages {
     height: 100%;
     overflow: scroll;
-    padding: 1rem;
   }
 
   #new_message {
     border-top: 1px solid $gray-200;
-    padding: 1rem;
+    padding: 1em;
+    padding-bottom: 0em;
 
 
     .form-group {
@@ -100,7 +106,7 @@
 }
 
 // This is what displays the message on the right
-.message.sender {
+.sender-style .message{
   .message-infos {
     flex-direction: row-reverse;
   }
@@ -112,3 +118,29 @@
     color: white;
   }
 }
+
+.message-row {
+  margin-bottom: 1em;
+}
+
+// To style the message itself
+.sender-style, .receiver-style {
+  width: 70%;
+  max-width: 400px;
+  border-radius: 4px;
+  padding: 8px;
+  min-height: 80px;
+}
+
+.sender-style {
+  .message-content p {
+    background-color: $purple;
+    color: $white-purple;
+  }
+}
+
+.receiver-style {
+  .message-content p {
+    background-color: $blue-nice;
+    color: $white-purple;
+  }}

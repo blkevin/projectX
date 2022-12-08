@@ -134,16 +134,18 @@ white-space: normal;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.meeting-card {
+a .meeting-card {
   background: white;
   color: #302D31;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 0.6em;
   margin: 0.6em 0 0 0.6em;
   width: 94%;
   display: flex;
   align-items: center;
   height: 6em;
+  transition: all 1.5s;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
   & ul {
     list-style: none;
   }
