@@ -15,17 +15,19 @@
         <div class="d-flex form-inputs">
           <div class="col-8 offset-2 form-div mx-auto" id="quizz-registration">
             <h5>Avant toutes choses, on a besoin de quelques renseignements sur toi !</h5>
-            <%= f.input :first_name,
-                        :label => false,
-                        required: true,
-                        autofocus: true,
-                        placeholder: "Ton prénom",
-                        input_html: { "data-onboarding-target" => "firstNameInput" } %>
-            <%= f.input :last_name,
-                        :label => false,
-                        placeholder: "Ton nom de famille",
-                        required: true,
-                        autofocus: true %>
+            <div class="name d-flex">
+              <%= f.input :first_name,
+                          :label => false,
+                          required: true,
+                          autofocus: true,
+                          placeholder: "Ton prénom",
+                          input_html: { "data-onboarding-target" => "firstNameInput" } %>
+              <%= f.input :last_name,
+                          :label => false,
+                          placeholder: "Ton nom de famille",
+                          required: true,
+                          autofocus: true %>
+              </div>
             <%= f.input :email,
                         :label => false,
                         placeholder: "Ton mail",
