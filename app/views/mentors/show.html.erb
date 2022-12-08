@@ -38,11 +38,8 @@
             </div>
           </div>
           <div class="details-experience">
-            <p>Secteur : <%= experience.sector %></p>
-            <p>Expertise : <%= experience.industry %></p>
-            <% unless experience.salary.nil?  %>
-              <p>Salaire : <%= experience.salary %></p>
-            <% end %>
+            <p><strong>Secteur : </strong> <%= experience.sector.capitalize %></p>
+            <p><strong>Expertise : </strong><%= experience.industry.capitalize %></p>
           </div>
         </div>
       <%end%>
@@ -60,8 +57,8 @@
             </div>
           </div>
             <div class="details-education">
-              <p> <%= education.degree_level %> </p>
-              <p> <%= education.field %> </p>
+              <p> <strong>Niveau d'études : </strong><%= education.degree_level.capitalize %> </p>
+              <p> <strong>Domaine d'études : </strong><%= education.field.capitalize %> </p>
             </div>
         </div>
       <%end%>
