@@ -71,8 +71,8 @@
 
       <% unless @contents.nil? %>
         <h4 class="mt-5 subtitle mb-3"> 🎥 Videos </h4>
-        <div class="video-show-mentor mb-4">
-          <%= video_tag(@contents.first.video.url, autoplay: false, controls: true, loop: false, width:'90%') %>
+        <div class="card-video mb-4">
+          <%= video_tag(@contents.first.video.url, autoplay: false, controls: true, loop: false) %>
         </div>
       <% end %>
 
