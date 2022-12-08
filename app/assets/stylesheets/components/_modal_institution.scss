@@ -1,0 +1,28 @@
+#institution {
+  max-width: 60%;
+  margin-top: 10%;
+  margin-bottom: 5%;
+  }
+
+  .modal-content {
+    #instit{
+      border-radius: 10px;
+    }
+  }
+
+// .institution-show, video {
+//   width:100%;
+//   border-radius:10px
+// }
+
+.experience-card .modal-content {
+  border-radius: 1em;
+  .modal-body {
+    padding: 0;
+    video {
+      width:100%;
+      height: 100%;
+      border-radius:10px
+    }
+  }
+}
