@@ -49,8 +49,9 @@
                         'data-search-mentors-target': 'fieldInput',
                         class: "search-words" %>
         <% end %>
-        <%= link_to "Supprimer tous les filtres", mentors_path, class: "sup-filter" %>
+        <%= link_to "X", mentors_path, class: "sup-filter" %>
       </div>
+      <%  %>
     </div>
     <div data-search-mentors-target="list" class="list-mentors">
       <%= render "list", mentors: @mentors %>
