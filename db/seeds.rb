@@ -127,11 +127,6 @@ s10.save!
 # mentors
 puts "Creating mentors"
 m1 = User.new(first_name: "Sophie", last_name: "Portier", age: 30, email: "sophie@gmail.com", password: "123456", description: "Meilleur dev en région parisienne, ancienne photographe", status: :mentor)
-m2 = User.new(first_name: "Carla", last_name: "Bruni", age: 58, email: "carla@gmail.com", password: "123456", description: "Actrice/chanteuse sans prétention", status: :mentor)
-m3 = User.new(first_name: "Théobald", last_name: "de Bentzmann", age: 32, email: "theobald@gmail.com", password: "123456", description: "Born leader - un chef c'est fait pour cheffer", status: :mentor)
-m4 = User.new(first_name: "Eric", last_name: "Dupont-Moretti", age: 61, email: "eric@gmail.com", password: "123456", description: "Avocat et garde des Sceaux", status: :mentor)
-m5 = User.new(first_name: "Jonathan", last_name: "Cohen", age: 42, email: "jonathan@gmail.com", password: "123456", description: "Acteur, producteur & homme le plus drole de France", status: :mentor)
-m6 = User.new(first_name: "Kaaris", last_name: "Okou Gnakouri", age: 42, email: "kaaris@gmail.com", password: "123456", description: "Géni artistique: auteur, rappeur, composteur & acteur", status: :mentor)
 m7 = User.new(first_name: "Oceane", last_name: "Gunasena", age: 29, email: "oceane@gmail.com", password: "123456", description: "Chef de projet digital chez Colorz", status: :mentor)
 m8 = User.new(first_name: "Helene", last_name: "Michel", age: 26, email: "helene@gmail.com", password: "123456", description: "Data analyst chez Cenisis", status: :mentor)
 m9 = User.new(first_name: "Jean", last_name: "Jahier", age: 27, email: "jeanj@gmail.com", password: "123456", description: "Business developper chez Mirakl", status: :mentor)
@@ -185,41 +180,6 @@ m1.photo.attach(
   content_type: 'image/jpg'
 )
 m1.save!
-
-m2.photo.attach(
-  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803542/calx7qycxgvjz5p1ormz.png'),
-  filename: 'carla.jpg',
-  content_type: 'image/jpg'
-)
-m2.save!
-
-m3.photo.attach(
-  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803550/icpjb1bbc18dmb5uq8pg.jpg'),
-  filename: 'theobald.jpg',
-  content_type: 'image/jpg'
-)
-m3.save!
-
-m4.photo.attach(
-  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803277/rf5towbj89ifckxe2toy.jpg'),
-  filename: 'eric.jpg',
-  content_type: 'image/jpg'
-)
-m4.save!
-
-m5.photo.attach(
-  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669803305/xxi38wehlvwudiugi5jj.jpg'),
-  filename: 'joko.jpg',
-  content_type: 'image/jpg'
-)
-m5.save!
-
-m6.photo.attach(
-  io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669806673/th2fgerzn7f8nbgbb6k1.jpg'),
-  filename: 'kaaris.jpg',
-  content_type: 'image/jpg'
-)
-m6.save!
 
 m7.photo.attach(
   io: URI.open('https://res.cloudinary.com/dzkld2xzj/image/upload/v1669975053/xpjv7ckkpwasaxiy3du2.webp'),
@@ -533,22 +493,7 @@ puts "Creating experiences"
 # creating experiences for Paul Portier
 exp1 = Experience.create!(user_id: m1.id, position: "Lead software engineer", company: "Exotec", sector: "R&D", industry: "technologie", start_date: "2018-01-01")
 exp2 = Experience.create!(user_id: m1.id, position: "Photographe", company: "Sophie & Co.", sector: "création", industry: "art", start_date: "2014-01-01")
-# creating experiences for Carla Bruni
-exp3 = Experience.create!(user_id: m2.id, position: "Acteur", company: "Mediapro", sector: "création", industry: "art", start_date: "1995-01-01")
-exp4 = Experience.create!(user_id: m2.id, position: "Chanteur", company: "Universal Music", sector: "création", industry: "art", start_date: "2000-01-01")
-# creating experiences for Théobald de Bentzmann
-exp5 = Experience.create!(user_id: m3.id, position: "PDG", company: "Alchimii", sector: "direction", industry: "autre", start_date: "2017-01-01")
-exp6 = Experience.create!(user_id: m3.id, position: "Analyste financier", company: "Barclays", sector: "comptabilité", industry: "finance", start_date: "2013-01-01")
-# creating experiences for Eric Dupont-Moretti
-exp7 = Experience.create!(user_id: m4.id, position: "Ministre de la Justice", company: "Gouvernement", sector: "direction", industry: "administration", start_date: "2020-01-01")
-exp8 = Experience.create!(user_id: m4.id, position: "Avocat", company: "Dupont-Moretti Avocat", sector: "autre", industry: "droit", start_date: "1984-01-01")
-# creating experiences for Jonathan Cohen
-exp9 = Experience.create!(user_id: m5.id, position: "Acteur", company: "Canal+", sector: "création", industry: "art", start_date: "1995-01-01")
-exp10 = Experience.create!(user_id: m5.id, position: "Commercial", company: "La Foret", sector: "vente", industry: "immobilier", start_date: "2000-01-01")
-# creating experiences for Kaaris
-exp11 = Experience.create!(user_id: m6.id, position: "Acteur", company: "Labyrinthe films", sector: "création", industry: "art", start_date: "2016-01-01")
-exp12 = Experience.create!(user_id: m6.id, position: "Chanteur", company: "Universal Music", sector: "création", industry: "art", start_date: "2013-01-01")
-# creating experiences for Oceane
+
 exp13 = Experience.create!(user_id: m7.id, position: "Chef de projet digital", company: "Colorz", sector: "marketing", industry: "technologie", start_date: "2018-01-01")
 exp14 = Experience.create!(user_id: m7.id, position: "Junior marketing manager", company: "Procter & Gamble", sector: "marketing", industry: "autre", start_date: "2016-01-01")
 # creating experiences for Helene
@@ -556,7 +501,7 @@ exp15 = Experience.create!(user_id: m8.id, position: "Senior data analyst", comp
 exp16 = Experience.create!(user_id: m8.id, position: "Business analyst", company: "ManoMano", sector: "opérations", industry: "commerce", start_date: "2019-01-01")
 # creating experiences for Jean
 exp17 = Experience.create!(user_id: m9.id, position: "Business developper", company: "Mirakl", sector: "vente", industry: "technologie", start_date: "2020-01-01")
-exp18 = Experience.create!(user_id: m9.id, position: "Libraire", company: "Libraire centrale", sector: "ventre", industry: "culture", start_date: "2018-01-01")
+exp18 = Experience.create!(user_id: m9.id, position: "Libraire", company: "Libraire centrale", sector: "vente", industry: "culture", start_date: "2018-01-01")
 # creating experiences for Pascal
 exp19 = Experience.create!(user_id: m10.id, position: "Chef de chantier", company: "Sferis", sector: "manutention", industry: "BTP", start_date: "2017-01-01")
 exp20 = Experience.create!(user_id: m10.id, position: "Policier", company: "Mairie de Lille", sector: "autre", industry: "administation", start_date: "2015-01-01")
@@ -582,7 +527,7 @@ exp31 = Experience.create!(user_id: m16.id, position: "Chargé de marketing", co
 exp32 = Experience.create!(user_id: m16.id, position: "Vendeuse", company: "Apple", sector: "vente", industry: "commerce", start_date: "2017-01-18")
 
 # creating experiences for Audrey chargé de mission de sensibilation
-exp33 = Experience.create!(user_id: m17.id, position: "Chargé de mission de sensibiliation", company: "Binhappy", sector: "management", industry: "environnement", start_date: "2022-01-10")
+exp33 = Experience.create!(user_id: m17.id, position: "Chargé de mission", company: "Binhappy", sector: "management", industry: "environnement", start_date: "2022-01-10")
 exp34 = Experience.create!(user_id: m17.id, position: "Agent de police", company: "Commissariat de police Paris 11", sector: "autre", industry: "défense", start_date: "2017-01-18")
 
 # creating experiences for Antonin chargé de mission rse
@@ -590,7 +535,7 @@ exp35 = Experience.create!(user_id: m18.id, position: "Chargé de mission RSE", 
 exp36 = Experience.create!(user_id: m18.id, position: "Agent immobilier", company: "Stéphan Plaza", sector: "vente", industry: "immobilier", start_date: "2017-01-18")
 
 # creating experiences for Séverine chef de projet eco responsable
-exp37 = Experience.create!(user_id: m19.id, position: "Chef de projet Eco responsable", company: "Binhappy", sector: "management", industry: "écologie", start_date: "2022-01-10")
+exp37 = Experience.create!(user_id: m19.id, position: "Chef de projet Eco", company: "Binhappy", sector: "management", industry: "écologie", start_date: "2022-01-10")
 exp38 = Experience.create!(user_id: m19.id, position: "Agent de sécurité", company: "GK SECURITE", sector: "autre", industry: "défense", start_date: "2017-01-18")
 
 # creating experiences for Alexandre academy director
@@ -598,7 +543,7 @@ exp39 = Experience.create!(user_id: m20.id, position: "Academy director", compan
 exp40 = Experience.create!(user_id: m20.id, position: "Conducteur de train", company: "SNCF", sector: "autre", industry: "ferroviaire", start_date: "2017-01-18")
 
 # creating experiences for Cyprien junior imapct marker
-exp41 = Experience.create!(user_id: m21.id, position: "Junior impact marker", company: "Goodness & Co", sector: "direction", industry: "fianance", start_date: "2022-01-10")
+exp41 = Experience.create!(user_id: m21.id, position: "Junior impact marker", company: "Goodness & Co", sector: "direction", industry: "finance", start_date: "2022-01-10")
 exp42 = Experience.create!(user_id: m21.id, position: "Cuisinier", company: "Coco thai", sector: "autre", industry: "autre", start_date: "2017-01-18")
 
 # creating experiences for Isabelle fondatrice pdg goodness
@@ -625,7 +570,7 @@ exp52 = Experience.create!(user_id: m26.id, position: "Developpeur", company: "S
 exp53 = Experience.create!(user_id: m27.id, position: "Directrice générale adjointe", company: "Boursorama", sector: "direction", industry: "banque", start_date: "2022-01-10")
 
 # creating experiences for Mourad responsable support application
-exp54 = Experience.create!(user_id: m28.id, position: "Responsable support application", company: "Boursorama", sector: "opérations", industry: "banque", start_date: "2022-01-10")
+exp54 = Experience.create!(user_id: m28.id, position: "Responsable support", company: "Boursorama", sector: "opérations", industry: "banque", start_date: "2022-01-10")
 
 # creating experiences for Marine controler de gestion
 exp55 = Experience.create!(user_id: m29.id, position: "Contrôleur de gestion", company: "Boursorama", sector: "gestion", industry: "banque", start_date: "2022-01-10")
@@ -637,7 +582,7 @@ exp56 = Experience.create!(user_id: m30.id, position: "Directrice commercial", c
 exp57 = Experience.create!(user_id: m31.id, position: "PDG", company: "Satelia", sector: "direction", industry: "environnement", start_date: "2022-01-10")
 
 # creating experiences for Ludovic responsable culture et experience
-exp58 = Experience.create!(user_id: m32.id, position: "Responsable culture et expérience", company: "Satelia", sector: "R&D", industry: "environnement", start_date: "2022-01-10")
+exp58 = Experience.create!(user_id: m32.id, position: "Responsable culture", company: "Satelia", sector: "R&D", industry: "environnement", start_date: "2022-01-10")
 
 # creating experiences for Aurélie infiriere
 exp59 = Experience.create!(user_id: m33.id, position: "Infirmière", company: "Satelia", sector: "autre", industry: "médical", start_date: "2022-01-10")
@@ -646,7 +591,7 @@ exp59 = Experience.create!(user_id: m33.id, position: "Infirmière", company: "S
 exp60 = Experience.create!(user_id: m34.id, position: "Gestionnaire middle office", company: "Alpheys", sector: "gestion", industry: "ingénierie", start_date: "2022-01-10")
 
 # creating experiences for Marie responsable adjointe service produits
-exp62 = Experience.create!(user_id: m35.id, position: "Responsable adjointe service produits", company: "Alpheys", sector: "logistique", industry: "ingénierie", start_date: "2022-01-10")
+exp62 = Experience.create!(user_id: m35.id, position: "Responsable adjointe", company: "Alpheys", sector: "logistique", industry: "ingénierie", start_date: "2022-01-10")
 
 # creating experiences for Jade chargée de gestion
 exp63 = Experience.create!(user_id: m36.id, position: "Chargée de gestion", company: "Alpheys", sector: "gestion", industry: "ingénierie", start_date: "2022-01-10")
@@ -679,7 +624,7 @@ exp71 = Experience.create!(user_id: m44.id, position: "Directeur Sommellerie", c
 exp72 = Experience.create!(user_id: m45.id, position: "Sous cheffe pâtisserie", company: "Le Meurice", sector: "autre", industry: "hôtellerie", start_date: "2022-01-10")
 
 # creating experiences for Valentine attache de direction experience clients
-exp73 = Experience.create!(user_id: m46.id, position: "Attachée de direction expérience clients", company: "Le Meurice", sector: "direction", industry: "hôtellerie", start_date: "2022-01-10")
+exp73 = Experience.create!(user_id: m46.id, position: "Attachée de direction", company: "Le Meurice", sector: "direction", industry: "hôtellerie", start_date: "2022-01-10")
 
 # creating experiences for Noemie Responsable optimisation
 exp74 = Experience.create!(user_id: m47.id, position: "Responsable optimisation", company: "EDF Store", sector: "achats", industry: "industrie", start_date: "2022-01-10")
@@ -691,7 +636,7 @@ exp75 = Experience.create!(user_id: m48.id, position: "Responsable communication
 exp76 = Experience.create!(user_id: m49.id, position: "Manager des ventes", company: "PP Yarns", sector: "vente", industry: "technologie", start_date: "2022-01-10")
 
 # creating experiences for Chérine responsable evaluation sécurite produits
-exp77 = Experience.create!(user_id: m50.id, position: "Responsable évaluation sécurité produits", company: "Puressentiel", sector: "autre", industry: "environnement", start_date: "2022-01-10")
+exp77 = Experience.create!(user_id: m50.id, position: "Responsable évaluation", company: "Puressentiel", sector: "autre", industry: "environnement", start_date: "2022-01-10")
 
 
 puts "Creating institutions"
@@ -820,51 +765,47 @@ i6.save!
 
 puts "Creating educations"
 ed1 = Education.create!(user_id: m1.id, institution_id: i1.id, start_date: "2016-10-20", degree_level: "Bootcamp", field: "Développement Web")
-ed2 = Education.create!(user_id: m2.id, institution_id: i2.id, start_date: "1990-09-01", degree_level: "License", field: "Theatre & cinema")
-ed3 = Education.create!(user_id: m3.id, institution_id: i3.id, start_date: "2000-09-01", degree_level: "Master", field: "Finance")
-ed4 = Education.create!(user_id: m4.id, institution_id: i4.id, start_date: "1981-09-01", degree_level: "Master", field: "Droit")
-ed5 = Education.create!(user_id: m5.id, institution_id: i2.id, start_date: "1979-09-01", degree_level: "Master", field: "Theatre")
-ed6 = Education.create!(user_id: m6.id, institution_id: i5.id, start_date: "1999-09-01", degree_level: "License", field: "Histoire")
 ed7 = Education.create!(user_id: m7.id, institution_id: i3.id, start_date: "2010-09-01", degree_level: "Master", field: "Gestion")
 ed8 = Education.create!(user_id: m8.id, institution_id: i3.id, start_date: "2016-09-01", degree_level: "Master", field: "Gestion")
 ed9 = Education.create!(user_id: m9.id, institution_id: i5.id, start_date: "2016-09-01", degree_level: "Master", field: "Litterature")
 ed10 = Education.create!(user_id: m10.id, institution_id: i4.id, start_date: "2014-09-01", degree_level: "License", field: "Gestion")
-ed11 = Education.create!(user_id: m11.id, institution_id: i1.id, start_date: "2014-09-01", degree_level: "Bootcamp", field: "Developpement Web")
+ed11 = Education.create!(user_id: m11.id, institution_id: i1.id, start_date: "2014-09-01", degree_level: "Bootcamp", field: "Développement Web")
 ed12 = Education.create!(user_id: m12.id, institution_id: i3.id, start_date: "2012-09-01", degree_level: "Master", field: "Gestion")
 ed13 = Education.create!(user_id: m13.id, institution_id: i3.id, start_date: "2014-09-01", degree_level: "Master", field: "Finance")
 ed14 = Education.create!(user_id: m14.id, institution_id: i3.id, start_date: "2014-09-01", degree_level: "Master", field: "Data")
-ed15 = Education.create!(user_id: m15.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed16 = Education.create!(user_id: m16.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed17 = Education.create!(user_id: m17.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed18 = Education.create!(user_id: m18.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed19 = Education.create!(user_id: m19.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed20 = Education.create!(user_id: m20.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed21 = Education.create!(user_id: m21.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
+ed15 = Education.create!(user_id: m15.id, institution_id: i4.id, start_date: "2009-09-01", degree_level: "Master", field: "Environnement")
+ed16 = Education.create!(user_id: m16.id, institution_id: i5.id, start_date: "2009-09-01", degree_level: "Licence", field: "Droit")
+ed17 = Education.create!(user_id: m17.id, institution_id: i2.id, start_date: "2009-09-01", degree_level: "Master", field: "Litterature")
+ed18 = Education.create!(user_id: m18.id, institution_id: i4.id, start_date: "2009-09-01", degree_level: "Licence", field: "Commerce")
+ed19 = Education.create!(user_id: m19.id, institution_id: i5.id, start_date: "2009-09-01", degree_level: "Master", field: "Ecologie")
+ed20 = Education.create!(user_id: m20.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Finance")
+ed21 = Education.create!(user_id: m21.id, institution_id: i2.id, start_date: "2009-09-01", degree_level: "Licence", field: "Finance")
 ed22 = Education.create!(user_id: m22.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed23 = Education.create!(user_id: m23.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed24 = Education.create!(user_id: m24.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed25 = Education.create!(user_id: m25.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed26 = Education.create!(user_id: m26.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed27 = Education.create!(user_id: m27.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed28 = Education.create!(user_id: m28.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed29 = Education.create!(user_id: m29.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed30 = Education.create!(user_id: m30.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed31 = Education.create!(user_id: m31.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed32 = Education.create!(user_id: m32.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed33 = Education.create!(user_id: m33.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed34 = Education.create!(user_id: m34.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
+ed23 = Education.create!(user_id: m23.id, institution_id: i5.id, start_date: "2009-09-01", degree_level: "Master", field: "Commerce")
+ed24 = Education.create!(user_id: m24.id, institution_id: i1.id, start_date: "2009-09-01", degree_level: "Bootcamp", field: "Développement Web")
+
+ed25 = Education.create!(user_id: m25.id, institution_id: i1.id, start_date: "2009-09-01", degree_level: "Bootcamp", field: "Développement Web")
+ed26 = Education.create!(user_id: m26.id, institution_id: i1.id, start_date: "2009-09-01", degree_level: "Bootcamp", field: "Développement Web")
+ed27 = Education.create!(user_id: m27.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Finance")
+ed28 = Education.create!(user_id: m28.id, institution_id: i4.id, start_date: "2009-09-01", degree_level: "Licence", field: "Comptabilité")
+ed29 = Education.create!(user_id: m29.id, institution_id: i5.id, start_date: "2009-09-01", degree_level: "Licence", field: "Droit")
+ed30 = Education.create!(user_id: m30.id, institution_id: i5.id, start_date: "2009-09-01", degree_level: "Master", field: "Commerce")
+ed31 = Education.create!(user_id: m31.id, institution_id: i4.id, start_date: "2009-09-01", degree_level: "Master", field: "Ecologie")
+ed32 = Education.create!(user_id: m32.id, institution_id: i4.id, start_date: "2009-09-01", degree_level: "Doctorat", field: "Environnement")
+ed33 = Education.create!(user_id: m33.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Concours", field: "Médecine")
+ed34 = Education.create!(user_id: m34.id, institution_id: i5.id, start_date: "2009-09-01", degree_level: "Master", field: "Gestion")
 ed35 = Education.create!(user_id: m35.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
 ed36 = Education.create!(user_id: m36.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed37 = Education.create!(user_id: m37.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed38 = Education.create!(user_id: m38.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed39 = Education.create!(user_id: m39.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed40 = Education.create!(user_id: m40.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
+ed37 = Education.create!(user_id: m37.id, institution_id: i4.id, start_date: "2009-09-01", degree_level: "Master", field: "Communication")
+ed38 = Education.create!(user_id: m38.id, institution_id: i5.id, start_date: "2009-09-01", degree_level: "Master", field: "Communication")
+ed39 = Education.create!(user_id: m39.id, institution_id: i5.id, start_date: "2009-09-01", degree_level: "DUT", field: "Litterature")
+ed40 = Education.create!(user_id: m40.id, institution_id: i4.id, start_date: "2009-09-01", degree_level: "Master", field: "Litterature")
 ed41 = Education.create!(user_id: m41.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
 ed42 = Education.create!(user_id: m42.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed43 = Education.create!(user_id: m43.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed44 = Education.create!(user_id: m44.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed45 = Education.create!(user_id: m45.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
-ed46 = Education.create!(user_id: m46.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
+ed43 = Education.create!(user_id: m43.id, institution_id: i5.id, start_date: "2009-09-01", degree_level: "Master", field: "Environnement")
+ed44 = Education.create!(user_id: m44.id, institution_id: i4.id, start_date: "2009-09-01", degree_level: "Master", field: "Hotellerie")
+ed45 = Education.create!(user_id: m45.id, institution_id: i4.id, start_date: "2009-09-01", degree_level: "Licence", field: "Hotellerie")
+ed46 = Education.create!(user_id: m46.id, institution_id: i5.id, start_date: "2009-09-01", degree_level: "Master", field: "Hotellerie")
 ed47 = Education.create!(user_id: m47.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
 ed48 = Education.create!(user_id: m48.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
 ed49 = Education.create!(user_id: m49.id, institution_id: i3.id, start_date: "2009-09-01", degree_level: "Master", field: "Data")
@@ -872,11 +813,6 @@ ed50 = Education.create!(user_id: m50.id, institution_id: i3.id, start_date: "20
 
 puts "Creating contents"
 c1 = Content.new(user_id: m1.id, title: "Sophie - Lead software engineer")
-c2 = Content.new(user_id: m2.id, title: "Carla - Actrice & chanteuse")
-c3 = Content.new(user_id: m3.id, title: "Théobald - Entrepreneur, ancien analyste financier")
-c4 = Content.new(user_id: m4.id, title: "Eric - Ministre de la Justice, ancien avocat")
-c5 = Content.new(user_id: m5.id, title: "Jonathan - Acteur de cinema, ancien commercial")
-c6 = Content.new(user_id: m6.id, title: "Kaaris - Rappeur & acteur")
 c7 = Content.new(user_id: m7.id, title: "Oceane - Chef de projet digital chez Colorz")
 c8 = Content.new(user_id: m8.id, title: "Helene - Data analyst senior chez Cenisis")
 c9 = Content.new(user_id: m9.id, title: "Jean - Business developper chez Mirakl")
@@ -904,50 +840,6 @@ c1.video.attach(
   content_type: 'video/mp4'
 )
 c1.save!
-
-url_c2 = Aws::S3::Object.new(
-  bucket_name: ENV['AWS_BUCKET'],
-  key: 'carlitaaa.mp4',
-  client: Aws::S3::Client.new(
-    access_key_id: ENV['ACCESS_KEY_ID'],
-    secret_access_key: ENV['SECRET_ACCESS_KEY']
-  )
-).presigned_url(:get, expires_in: 3600)
-
-c2.video.attach(
-  io: URI.open(url_c2),
-  filename: 'carla.mp4',
-  content_type: 'video/mp4'
-)
-c2.save!
-
-c3.video.attach(
-  io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669819798/mksf9uzxy4tbiezzdmln.mp4'),
-  filename: 'entrepreneur.mp4',
-  content_type: 'video/mp4'
-)
-c3.save!
-
-c4.video.attach(
-  io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669819610/stzfth5l9e7p7idywdpz.webm'),
-  filename: 'avocat.mp4',
-  content_type: 'video/mp4'
-)
-c4.save!
-
-c5.video.attach(
-  io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669820410/refmklbc0urrgojd5gcb.mp4'),
-  filename: 'jonathan.mp4',
-  content_type: 'video/mp4'
-)
-c5.save!
-
-c6.video.attach(
-  io: URI.open('https://res.cloudinary.com/dzkld2xzj/raw/upload/v1669820645/dnhlvy2wewmvvsopaxzt.mp4'),
-  filename: 'jonathan.mp4',
-  content_type: 'video/mp4'
-)
-c6.save!
 
 url_c7 = Aws::S3::Object.new(
   bucket_name: ENV['AWS_BUCKET'],
