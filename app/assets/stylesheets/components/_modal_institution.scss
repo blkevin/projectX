@@ -10,16 +10,11 @@
     }
   }
 
-.education {
-
-  :hover {
-    cursor: pointer;
-  }
-
   .experience-card {
 
     .modal-content {
       border-radius: 1em;
+      cursor: default;
 
       h2 {
         font-weight: bold;
@@ -48,4 +43,7 @@
       }
     }
   }
+
+.cursor-pointer {
+  cursor: pointer;
 }
