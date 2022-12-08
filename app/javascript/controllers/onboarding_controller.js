@@ -14,11 +14,9 @@ export default class extends Controller {
     window.scrollTop;
   }
 
-
   next(event) {
     this.nextTarget.click();
   }
-
 
 // Prevent scroll
   preventScroll(event) {

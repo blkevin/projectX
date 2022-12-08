@@ -7,7 +7,11 @@
     <p><span class="user-name"><%= sender ? 'You' : message.user.first_name %></span> at <%= message.created_at.strftime("%H:%M") %></p>
   </div>
   <div class="message-content">
-    <%= cl_image_tag message.user.photo.key, crop: :fill, class: 'card-mentor-vertical-avatar', alt: "#{message.user.first_name}'s avatar", class: 'message-avatar' %>
+    <% if current_user.photo.attached? %>
+      <%= cl_image_tag message.user.photo.key, crop: :fill, class: 'card-mentor-vertical-avatar', alt: "#{message.user.first_name}'s avatar", class: 'message-avatar' %>
+       <% else %>
+        <%= image_tag "https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o=", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% end %>
     <p class="message-inner-content"><%= message.content %></p>
   </div>
 </div>
