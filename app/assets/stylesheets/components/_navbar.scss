@@ -64,7 +64,7 @@
   background-color: white;
   color: white;
   top: 0;
-  z-index: 5000;
+  z-index: 20000;
   .nav-item {
     padding-left: 1em;
   }
@@ -74,4 +74,8 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+.dropdown-toggle {
+  z-index: 10000;
 }
