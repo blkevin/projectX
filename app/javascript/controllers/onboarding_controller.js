@@ -27,7 +27,7 @@ export default class extends Controller {
   }
 
 // Dynamic first name retrieval
-  firstStep(event) {
+  firstStep(event)  {
     const name = this.firstNameInputTarget.value;
     console.log(name, this.firstNamePlaceHolderTargets);
     this.firstNamePlaceHolderTargets.forEach((element) => {
@@ -101,9 +101,9 @@ export default class extends Controller {
     } else if (this.firstQuestion == 'intellectual' && this.secondQuestion == 'scientific' && this.thirdQuestion == 'group') {
       this.studentTags = ["aéronautique", "finance", "ingénierie", "technologie", "médical", "informatique", "comptabilité", "banque", "assurance"];
     } else if (this.firstQuestion == 'intellectual' && this.secondQuestion == 'non-scientific' && this.thirdQuestion == 'alone') {
-      this.studentTags = ["audiovisuel", "commerce", "communication", "culture", "edition", "enseignement", "administration", "immobilier", "journalisme", "marketing", "mode-textile", "tourisme", "psychologie"];
+      this.studentTags = ["audiovisuel", "commerce", "communication", "culture", "edition", "enseignement", "administration", "immobilier", "journalisme", "marketing", "mode-textile", "tourisme"];
     } else {
-      this.studentTags = ["audiovisuel", "commerce", "communication", "culture", "edition", "enseignement", "administration", "immobilier", "journalisme", "marketing", "mode-textile", "tourisme", "psychologie"];
+      this.studentTags = ["audiovisuel", "commerce", "communication", "culture", "edition", "enseignement", "administration", "immobilier", "journalisme", "marketing", "mode-textile", "tourisme"];
     }
     return this.studentTags;
   }

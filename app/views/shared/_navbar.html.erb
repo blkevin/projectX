@@ -1,5 +1,7 @@
 <% if current_page?(controller: '/pages', action: 'home') && !user_signed_in? %>
   <div class="navbar navbar-expand-sm navbar-light" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
+<% elsif current_page?(controller: 'users/registrations', action: 'new')|| current_page?(controller: '/pages', action: 'student_infos') %>
+  <div class="navbar-onboarding navbar-expand-sm navbar-light">
 <% else %>
   <div class="navbar-normal navbar-expand-sm navbar-light">
 <% end %>

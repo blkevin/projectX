@@ -21,29 +21,33 @@
                           required: true,
                           autofocus: true,
                           placeholder: "Ton prénom",
-                          input_html: { "data-onboarding-target" => "firstNameInput" } %>
+                          input_html: { class: "form-box" } %>
               <%= f.input :last_name,
                           :label => false,
                           placeholder: "Ton nom de famille",
                           required: true,
-                          autofocus: true %>
-              </div>
+                          autofocus: true,
+                          input_html: { class: "form-box", "data-onboarding-target" => "firstNameInput" } %>
+            </div>
             <%= f.input :email,
                         :label => false,
                         placeholder: "Ton mail",
                         required: true,
-                        autofocus: true %>
+                        autofocus: true,
+                        input_html: { class: "form-box" } %>
             <%= f.input :password,
                         :label => false,
                         required: true,
                         placeholder: "Ton meilleur mot de passe",
-                        hint: ("#{@minimum_password_length} caractères au minimum 😉" if @minimum_password_length) %>
+                        hint: ("#{@minimum_password_length} caractères au minimum 😉" if @minimum_password_length),
+                        input_html: { class: "form-box" } %>
             <%= f.input :password_confirmation,
                         :label => false,
                         placeholder: "Tu peux nous le reconfirmer ici ?",
-                        required: true %>
-            <div class="form-actions btn-go">
-              <%= f.button :submit, "Go 🚀", input_html: { class: "btn-go" } %>
+                        required: true,
+                        input_html: { class: "form-box" } %>
+            <div class="form-actions">
+              <%= f.button :submit, "Go 🚀", class: "btn-go" %>
             </div>
           </div>
         </div>
