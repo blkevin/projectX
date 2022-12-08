@@ -9,7 +9,8 @@ class MessagesController < ApplicationController
     if @message.save
       ConversationChannel.broadcast_to(
         @conversation,
-        render_to_string(partial: "message", locals: {message: @message})
+        message: render_to_string(partial: "message", locals: { message: @message }),
+        sender_id: @message.user.id
       )
       head :ok
     else
@@ -25,8 +26,6 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     @message.update(message_params)
   end
-
-
 
   private
 

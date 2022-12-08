@@ -16,10 +16,34 @@
   border-top-left-radius: 10px;
 }
 
+.nav-pills {
+  border-radius: 10px;
+}
+
 .nav-pills .nav-link.active {
   background-color: $purple;
+  border-radius: 10px;
+
 }
 
 .conversation-cards {
   flex: 0 0 250px;
+}
+
+.meetings {
+  margin-top: 4.3em;
+  .nav-tabs .nav-link.active {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+
+  }
+
+  .nav-tabs .nav-link {
+    border: none;
+  }
+}
+
+.banner-mentor h2 {
+  font-weight: 600;
 }

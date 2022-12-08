@@ -17,6 +17,7 @@ class MeetingsController < ApplicationController
     ConversationChannel.broadcast_to(
       @conversation,
       render_to_string(partial: "messages/schedule", locals: { message: @message })
+
     )
     redirect_to mentor_path(@mentor)
     flash.alert = "Demande envoyée !"
@@ -42,7 +43,7 @@ class MeetingsController < ApplicationController
     @message.save
     ConversationChannel.broadcast_to(
       @conversation,
-      render_to_string(partial: "messages/schedule", locals: {message: @message})
+      render_to_string(partial: "messages/schedule", locals: {message: @message}),
     )
     redirect_to dashboard_path
   end
