@@ -109,3 +109,13 @@
     font-weight:300;
   }
 }
+
+iframe {
+  #document {
+    .body {
+      .spline-watermark {
+        display: none !important;
+      }
+    }
+  }
+}

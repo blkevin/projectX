@@ -64,9 +64,9 @@
   background-color: white;
   color: white;
   top: 0;
-  z-index: 5000;
+  z-index: 20000;
   .nav-item {
-    padding: 0 0.5em;
+    padding-left: 1em;
   }
 }
 
@@ -76,6 +76,6 @@
   width: 100%;
 }
 
-.navbar-avatar {
-  margin-left: 0.5em;
+.dropdown-toggle {
+  z-index: 10000;
 }

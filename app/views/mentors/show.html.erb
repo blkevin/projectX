@@ -39,10 +39,35 @@
                 <% end %>
               </div>
             </div>
+
             <div class="details-experience">
               <p><strong>Secteur : </strong> <%= experience.sector.capitalize %></p>
               <p><strong>Expertise : </strong><%= experience.industry.capitalize %></p>
+            <% unless experience.salary.nil?  %>
+              <p>Salaire : <%= experience.salary %></p>
+            <% end %>
+          </div>
+        </div>
+      <%end%>
+
+      <div class="education">
+        <h4 class="mt-5 subtitle mb-3"> 📚 Etudes</h4>
+        <% @educations.each do |education| %>
+          <div class="experience-card mb-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#institutionModal<%= education.institution.id %>">
+            <div class="sub-title-study d-flex justify-content-between">
+              <h5><%= education.institution.name %></h5>
+              <div class="dates-mentor-study">
+                <p><em>Depuis : </em><%= education.start_date %></p>
+                <% unless education.end_date.nil?  %>
+                  <p><em>Jusqu'à : </em><%= education.end_date %></p>
+                <% end %>
+              </div>
             </div>
+              <div class="details-education">
+                <p> <%= education.degree_level %> </p>
+                <p> <%= education.field %> </p>
+              </div>
+            <%= render "shared/institution", institution: education.institution %>
           </div>
         <%end%>
 
@@ -64,6 +89,15 @@
               </div>
           </div>
         <%end%>
+      </div>
+
+      <% unless @contents.nil? %>
+        <h4 class="mt-5 subtitle mb-3"> 🎥 Videos </h4>
+        <div class="card-video mb-4">
+          <%= video_tag(@contents.first.video.url, autoplay: false, controls: true, loop: false) %>
+        </div>
+      <% end %>
+
 
         <% unless @contents.nil? %>
           <h5 class="mt-5 subtitle mb-3"> 🎥 Videos </h5>
@@ -249,4 +283,5 @@
       </div>
     </div>
   </div>
-  </div>
+</div>
+
