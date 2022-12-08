@@ -26,8 +26,8 @@
 
 .list-mentors {
   margin-top: 6em;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 19.5vw);
   justify-content: space-between;
 }
 

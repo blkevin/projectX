@@ -15,7 +15,9 @@
 .nav-link {
   color: $dark-purple;
   transition: all 0.5s;
+  padding: 0.5em 0 0.5em 1em !important;
 }
+
 .nav-link:hover {
   color: $purple;
   font-weight: bold;
@@ -65,8 +67,11 @@
   color: white;
   top: 0;
   z-index: 20000;
-  .nav-item {
-    padding-left: 1em;
+  // .nav-item {
+  //   padding-left: 1em;
+  // }
+  .avatar {
+    margin-left: 1em;
   }
 }
 
