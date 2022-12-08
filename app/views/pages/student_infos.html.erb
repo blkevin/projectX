@@ -1,7 +1,7 @@
-<div class="page">
+<div class="page" data-controller="onboarding">
   <%# Student Quizz %>
   <%# Question 1 %>
-  <div class="student-quizz" id="temporaire-id-ok" data-controller="onboarding" data-action="wheel->onboarding#preventScroll">
+  <div class="student-quizz" id="temporaire-id-ok" data-action="wheel->onboarding#preventScroll">
     <div class="col-8 offset-2 form-div" id="quizz-student-1st">
       <h3> Hello <span data-onboarding-target="firstNamePlaceHolder"></span> ! On est ravis de te rencontrer ! Afin de t'aider au mieux dans ta démarche, on a quelques petites questions pour toi 😉</h3>
       <h5> Première question : tu dirais que tu es plutôt... </h5>
@@ -45,7 +45,7 @@
       <h3> C'est tout bon <span data-onboarding-target="firstNamePlaceHolder"></span> ! On t'as préparé une première séléction de domaines qui pourraient t'intéresser !</h3>
       <h5> Sélectionne ceux qui te correspondent vraiment.</h5>
       <div class="d-flex tags-reveal">
-        <a href="#" class="btn-tags-reveal" data-onboarding-target="tagsRevealBtn" data-action="click->onboarding#studentTags">Go 🎯</a>
+        <a href="#" class="btn-go btn-valid" data-onboarding-target="tagsRevealBtn" data-action="click->onboarding#studentTags">Go 🎯</a>
       </div>
       <div class="tags-form" data-onboarding-target="tagsPlaceHolder">
       </div>
