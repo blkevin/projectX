@@ -51,26 +51,6 @@
       <%end%>
 
       <div class="education">
-        <h4 class="mt-5 subtitle mb-3"> 📚 Etudes</h4>
-        <% @educations.each do |education| %>
-          <div class="experience-card mb-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#institutionModal<%= education.institution.id %>">
-            <div class="sub-title-study d-flex justify-content-between">
-              <h5><%= education.institution.name %></h5>
-              <div class="dates-mentor-study">
-                <p><em>Depuis : </em><%= education.start_date %></p>
-                <% unless education.end_date.nil?  %>
-                  <p><em>Jusqu'à : </em><%= education.end_date %></p>
-                <% end %>
-              </div>
-            </div>
-              <div class="details-education">
-                <p> <%= education.degree_level %> </p>
-                <p> <%= education.field %> </p>
-              </div>
-            <%= render "shared/institution", institution: education.institution %>
-          </div>
-        <%end%>
-
         <h5 class="mt-5 subtitle mb-3"> 📚 Etudes</h5>
         <%@educations.each do |education| %>
           <div class="experience-card mb-3">
@@ -97,38 +77,29 @@
           <%= video_tag(@contents.first.video.url, autoplay: false, controls: true, loop: false) %>
         </div>
       <% end %>
+    </div>
 
+    <div class="right-side-chat conversation mx-5 position-relative col-4" data-controller="conversation-subscription" data-conversation-subscription-conversation-id-value="<%= @conversation.id %>" data-conversation-subscription-current-user-id-value="<%= current_user.id %>">
+      <div class="top-message-name-show d-flex justify-content-between align-items-center">
+        <p class="text-center py-1"><%= @mentor.first_name %> <%= @mentor.last_name %> - en ligne</p>
+        <button type="button" class="btn btn-book" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="fa-solid fa-calendar-week"></i>
+        </button>
+    </div>
 
-        <% unless @contents.nil? %>
-          <h5 class="mt-5 subtitle mb-3"> 🎥 Videos </h5>
-          <div class="video-show-mentor mb-4">
-            <%= video_tag(@contents.first.video.url, autoplay: false, controls: true, loop: false, width:'90%') %>
-          </div>
+    <div class="messages" data-conversation-subscription-target="messages">
+        <% @conversation.messages.each do |message| %>
+          <% if message.user %>
+            <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+              <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+                <%= render "messages/message", message: message %>
+              </div>
+            </div>
+          <% else %>
+            <%= render "messages/schedule", message: message %>
+          <% end %>
         <% end %>
-
-      </div>
-
-      <div class="right-side-chat conversation mx-5 position-relative col-4" data-controller="conversation-subscription" data-conversation-subscription-conversation-id-value="<%= @conversation.id %>" data-conversation-subscription-current-user-id-value="<%= current_user.id %>">
-        <div class="top-message-name-show d-flex justify-content-between align-items-center px-2 ">
-          <p class="text-center py-1"><%= @mentor.first_name %> <%= @mentor.last_name %> - en ligne</p>
-          <button type="button" class="btn btn-book" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <i class="fa-solid fa-calendar-week"></i>
-          </button>
-        </div>
-
-        <div class="messages" data-conversation-subscription-target="messages">
-            <% @conversation.messages.each do |message| %>
-              <% if message.user %>
-                <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-                  <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-                    <%= render "messages/message", message: message %>
-                  </div>
-                </div>
-              <% else %>
-                <%= render "messages/schedule", message: message %>
-              <% end %>
-            <% end %>
-        </div>
+    </div>
 
         <%= simple_form_for [@conversation, @message],
           html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }, class: "d-flex"} do |f| %>
@@ -269,13 +240,6 @@
                   <% end %>
                 </div>
               </div>
-
-
-
-
-
-
-
           </div>
           <div class="modal-footer">
           </div>

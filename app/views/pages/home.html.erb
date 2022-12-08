@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <div class="bg-home">
     <div class="banner" id="banner-logged">
-      <h1>Perspectiv</h1>
+      <%= image_tag "logo-big.png", class: "logo-big"%>
       <h2> 👋 Bienvenue <%= current_user.first_name %></h2>
     </div>
     <div class="container">
@@ -38,41 +38,42 @@
   </div>
 
 <% else %>
-  <div class="container-home">
-
-    <div class="home-banner-left" id="first">
-      <div class="home-banner-text" id="left">
-        <h1>PERSPECTIV</h1>
-        <h5>Trouve ta voie, éclaire ta perspective</h5>
-        <%= link_to 'Définis ton futur', new_user_registration_path, class: "btn-call-to-action" %>
+  <div class="bg-landing">
+    <div class="container">
+      <div class="home-banner-left" id="first">
+        <div class="home-banner-text" id="left">
+          <%= image_tag "logo-big.png", class: "logo-big"%>
+          <h5>Trouve ta voie, éclaire ta perspective</h5>
+          <%= link_to 'Réponds au quiz', new_user_registration_path, class: "btn-call-to-action" %>
+        </div>
+        <div class="home-banner-spline">
+          <iframe src='https://my.spline.design/miniroomartcopy-4db798195503a8e953ea923dec73af01/' frameborder='0' width='100%' height='100%'></iframe>
+          <div class="purple-box"></div>
+        </div>
       </div>
-      <div class="home-banner-spline">
-        <iframe src='https://my.spline.design/miniroomartcopy-4db798195503a8e953ea923dec73af01/' frameborder='0' width='100%' height='100%'></iframe>
-        <div class="purple-box"></div>
+
+      <div class="home-banner-right">
+        <div class="home-banner-spline">
+          <%= image_tag "girl_zoomed1.png", width:'100%', height:'100%' %>
+        </div>
+        <div class="home-banner-text" id="right">
+          <h2 style="text-align: end;">Découvre nos mentors</h2>
+          <h5 style="text-align: end;">Accède aux mentors qui te correspondent</h5>
+        </div>
+      </div>
+
+      <div class="home-banner-left">
+        <div class="home-banner-text" id="left">
+          <h2>Rencontre nos mentors</h2>
+          <h5>Réserve un entretien et obtiens des conseils</h5>
+          <%= link_to 'Réponds au quiz', new_user_registration_path, class: "btn-call-to-action" %>
+        </div>
+        <div class="home-banner-spline">
+          <%= image_tag "mentor_student.png", width:'100%', height:'100%' %>
+        </div>
       </div>
     </div>
-
-    <div class="home-banner-right">
-      <div class="home-banner-spline">
-        <%= image_tag "girl_zoomed1.png", width:'100%', height:'100%' %>
-      </div>
-      <div class="home-banner-text" id="right">
-        <h2>Découvre nos mentors</h2>
-        <h5>Accède aux mentors qui te correspondent</h5>
-      </div>
-    </div>
-
-    <div class="home-banner-left">
-      <div class="home-banner-text" id="left">
-        <h2>Rencontre nos mentors</h2>
-        <h5>Réserve un entretien et obtiens des conseils</h5>
-        <%= link_to 'Définis ton futur', new_user_registration_path, class: "btn-call-to-action" %>
-      </div>
-      <div class="home-banner-spline">
-        <%= image_tag "mentor_student.png", width:'100%', height:'100%' %>
-      </div>
-    </div>
-
   </div>
+
 
 <% end %>
