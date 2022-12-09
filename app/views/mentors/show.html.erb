@@ -54,7 +54,7 @@
         <h5 class="mt-5 subtitle mb-3"> 📚 Etudes</h5>
         <%@educations.each do |education| %>
           <div class="experience-card mb-3">
-            <div class="sub-title-study d-flex justify-content-between">
+            <div class="sub-title-study d-flex justify-content-between" data-bs-toggle="institutionModal<%= education.institution.id %>" data-bs-target="#institutionModal">
               <h6><%= education.institution.name %></h6>
               <div class="dates-mentor-study">
                 <p><em>Depuis : </em><%= education.start_date %></p>
@@ -67,6 +67,7 @@
                 <p> <strong>Niveau d'études : </strong><%= education.degree_level.capitalize %> </p>
                 <p> <strong>Domaine d'études : </strong><%= education.field.capitalize %> </p>
               </div>
+              <% render "shared/institution", institution: institution %>
           </div>
         <%end%>
       </div>
