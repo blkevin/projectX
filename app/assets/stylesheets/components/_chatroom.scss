@@ -144,6 +144,7 @@
   .message-content p {
     background-color: $purple;
     color: $white-purple;
+    word-break: break-word;
   }
 }
 
@@ -151,5 +152,6 @@
   .message-content p {
     background-color: $blue-nice;
     color: $white-purple;
+    word-break: break-word;
   }
 }
