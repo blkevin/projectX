@@ -34,7 +34,7 @@
       <%= yield %>
     </div>
     <%= render "shared/flashes" %>
-    <%= render "shared/footer" %>
+    <%= render "shared/footer" unless action_name == "new" || action_name == "student_infos" %>
   </body>
 </html>
 
