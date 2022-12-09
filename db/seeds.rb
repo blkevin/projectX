@@ -127,10 +127,10 @@ s10.save!
 # mentors
 puts "Creating mentors"
 m1 = User.new(first_name: "Sophie", last_name: "Portier", age: 30, email: "sophie@gmail.com", password: "123456", description: "Meilleur dev en région parisienne, ancienne photographe", status: :mentor)
-m7 = User.new(first_name: "Oceane", last_name: "Gunasena", age: 29, email: "oceane@gmail.com", password: "123456", description: "Chef de projet digital chez Colorz", status: :mentor)
-m8 = User.new(first_name: "Helene", last_name: "Michel", age: 26, email: "helene@gmail.com", password: "123456", description: "Data analyst chez Cenisis", status: :mentor)
+m7 = User.new(first_name: "Océane", last_name: "Gunasena", age: 29, email: "oceane@gmail.com", password: "123456", description: "Chef de projet digital chez Colorz", status: :mentor)
+m8 = User.new(first_name: "Hélène", last_name: "Michel", age: 26, email: "helene@gmail.com", password: "123456", description: "Data analyst chez Cenisis", status: :mentor)
 m9 = User.new(first_name: "Jean", last_name: "Jahier", age: 27, email: "jeanj@gmail.com", password: "123456", description: "Business developper chez Mirakl", status: :mentor)
-m10 = User.new(first_name: "Pascal", last_name: "Traore", age: 32, email: "pascal@gmail.com", password: "123456", description: "Chef de chantier chez Sferis, ancien policier", status: :mentor)
+m10 = User.new(first_name: "Pascal", last_name: "Traoré", age: 32, email: "pascal@gmail.com", password: "123456", description: "Chef de chantier chez Sferis, ancien policier", status: :mentor)
 m11 = User.new(first_name: "Christophe", last_name: "Tranier", age: 39, email: "christophe@gmail.com", password: "123456", description: "Senior product manager, ancien consultant chez PwC", status: :mentor)
 m12 = User.new(first_name: "Mihaela", last_name: "Riza", age: 31, email: "mihaela@gmail.com", password: "123456", description: "Senior account executive, ancienne account executive", status: :mentor)
 m13 = User.new(first_name: "Camille", last_name: "Miko", age: 31, email: "camille@gmail.com", password: "123456", description: "Actuaire chez Crédit Agricole Assurances", status: :mentor)
@@ -151,7 +151,7 @@ m26 = User.new(first_name: "Emilien", last_name: "Deschamps", age: 23, email: "e
 m27 = User.new(first_name: "Caroline", last_name: "Morel", age: 37, email: "caroline@gmail.com", password: "123456", description: "Directrice Générale Adjointe", status: :mentor)
 m28 = User.new(first_name: "Mourad", last_name: "Abderrahmane", age: 34, email: "mourad@gmail.com", password: "123456", description: "Responsable support applicatif", status: :mentor)
 m29 = User.new(first_name: "Marine", last_name: "Lambert", age: 26, email: "marine@gmail.com", password: "123456", description: "Controleur de gestion", status: :mentor)
-m30 = User.new(first_name: "Tania", last_name: "Da silva", age: 29, email: "tania@gmail.com", password: "123456", description: "Directrice commerciale", status: :mentor)
+m30 = User.new(first_name: "Tania", last_name: "Da Silva", age: 29, email: "tania@gmail.com", password: "123456", description: "Directrice commerciale", status: :mentor)
 m31 = User.new(first_name: "Bob", last_name: "Pages", age: 41, email: "bob@gmail.com", password: "123456", description: "PDG chez Satelia", status: :mentor)
 m32 = User.new(first_name: "Ludovic", last_name: "Nay", age: 28, email: "ludovic@gmail.com", password: "123456", description: "Responsable culture et expérience collaborateur", status: :mentor)
 m33 = User.new(first_name: "Aurélie", last_name: "Fontaine", age: 22, email: "aurelie@gmail.com", password: "123456", description: "Infirmière", status: :mentor)
@@ -171,7 +171,7 @@ m46 = User.new(first_name: "Valentine", last_name: "Carrière", age: 31, email: 
 m47 = User.new(first_name: "Noémie", last_name: "Boissier", age: 31, email: "noemie@gmail.com", password: "123456", description: "Responsable Optimisation", status: :mentor)
 m48 = User.new(first_name: "Lucile", last_name: "Deprez", age: 29, email: "lucile@gmail.com", password: "123456", description: "Responsable Communication", status: :mentor)
 m49 = User.new(first_name: "Valentin", last_name: "Dubois", age: 32, email: "valentin@gmail.com", password: "123456", description: "Manager des ventes", status: :mentor)
-m50 = User.new(first_name: "Chérine", last_name: "Toure", age: 29, email: "cherine@gmail.com", password: "123456", description: "Responsable Evaluation Sécurité Produits", status: :mentor)
+m50 = User.new(first_name: "Chérine", last_name: "Touré", age: 29, email: "cherine@gmail.com", password: "123456", description: "Responsable Evaluation Sécurité Produits", status: :mentor)
 
 # attaching pictures to students
 m1.photo.attach(
@@ -655,7 +655,7 @@ url1 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 3600)
+).presigned_url(:get, expires_in: 604800)
 
 i1.video.attach(
   io: URI.open(url1),
@@ -670,7 +670,7 @@ url2 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 3600)
+).presigned_url(:get, expires_in: 604800)
 
 i2.video.attach(
   io: URI.open(url2),
@@ -685,7 +685,7 @@ url3 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 3600)
+).presigned_url(:get, expires_in: 604800)
 
 i3.video.attach(
   io: URI.open(url3),
@@ -700,7 +700,7 @@ url4 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 3600)
+).presigned_url(:get, expires_in: 604800)
 
 i4.video.attach(
   io: URI.open(url4),
@@ -715,7 +715,7 @@ url5 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 3600)
+).presigned_url(:get, expires_in: 604800)
 
 i5.video.attach(
   io: URI.open(url5),
@@ -730,7 +730,7 @@ url6 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 3600)
+).presigned_url(:get, expires_in: 604800)
 
 i6.video.attach(
   io: URI.open(url6),
@@ -813,8 +813,8 @@ ed50 = Education.create!(user_id: m50.id, institution_id: i3.id, start_date: "20
 
 puts "Creating contents"
 c1 = Content.new(user_id: m1.id, title: "Sophie - Lead software engineer")
-c7 = Content.new(user_id: m7.id, title: "Oceane - Chef de projet digital chez Colorz")
-c8 = Content.new(user_id: m8.id, title: "Helene - Data analyst senior chez Cenisis")
+c7 = Content.new(user_id: m7.id, title: "Océane - Chef de projet digital chez Colorz")
+c8 = Content.new(user_id: m8.id, title: "Hélène - Data analyst senior chez Cenisis")
 c9 = Content.new(user_id: m9.id, title: "Jean - Business developper chez Mirakl")
 c10 = Content.new(user_id: m10.id, title: "Pascal - Chef de chantier chez Sferis")
 c11 = Content.new(user_id: m11.id, title: "Christophe - Senior product manager ches Gens de Confiance")
@@ -832,7 +832,7 @@ url_c1 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 3600)
+).presigned_url(:get, expires_in: 604800)
 
 c1.video.attach(
   io: URI.open(url_c1),
@@ -848,7 +848,7 @@ url_c7 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 3600)
+).presigned_url(:get, expires_in: 604800)
 
 c7.video.attach(
   io: URI.open(url_c7),
@@ -864,7 +864,7 @@ url_c8 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 3600)
+).presigned_url(:get, expires_in: 604800)
 
 c8.video.attach(
   io: URI.open(url_c8),
@@ -880,7 +880,7 @@ url_c9 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 3600)
+).presigned_url(:get, expires_in: 604800)
 
 c9.video.attach(
   io: URI.open(url_c9),
@@ -896,7 +896,7 @@ url_c10 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 3600)
+).presigned_url(:get, expires_in: 604800)
 
 c10.video.attach(
   io: URI.open(url_c10),
@@ -912,7 +912,7 @@ url_c11 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 3600)
+).presigned_url(:get, expires_in: 604800)
 
 c11.video.attach(
   io: URI.open(url_c11),
@@ -928,7 +928,7 @@ url_c12 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 3600)
+).presigned_url(:get, expires_in: 604800)
 
 c12.video.attach(
   io: URI.open(url_c12),
@@ -944,7 +944,7 @@ url_c13 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 3600)
+).presigned_url(:get, expires_in: 604800)
 
 c13.video.attach(
   io: URI.open(url_c13),
@@ -960,7 +960,7 @@ url_c14 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 3600)
+).presigned_url(:get, expires_in: 604800)
 
 c14.video.attach(
   io: URI.open(url_c14),
