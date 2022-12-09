@@ -5,7 +5,7 @@
 
       <div class="col-8 offset-2 form-div" id="quizz-status">
         <%#= f.collection_radio_buttons :status, [["student", "Lycéen ou étudiant, je cherche ma voie 🧑‍🎓"], ["mentor", "Professionnel, j'aimerais partager mon experience 💼"]], :first, :last, checked: false, input_html: { class: 'path-btn', data: { action: "change->onboarding#next"} } %>
-        <%= f.input :status, as: :radio_buttons, collection: [["Lycéen ou étudiant, je cherche ma voie 🧑‍🎓", "student"], ["Professionnel, j'aimerais partager mon experience 💼", "mentor"]], :label => false, input_html: { checked: false, class: 'path-btn', data: { action: "change->onboarding#next"} } %>
+        <%= f.input :status, as: :radio_buttons, collection: [["Lycéen ou étudiant, je cherche ma voie 🧑‍🎓", "student"], ["Professionnel, j'aimerais partager mon expérience 💼", "mentor"]], :label => false, input_html: { checked: false, class: 'path-btn', data: { action: "change->onboarding#next"} } %>
         <a href="#quizz-registration" class="scroll-button d-none" data-controller="scroll-to" data-onboarding-target="next">Passe à la suite 👇</a>
       </div>
 
