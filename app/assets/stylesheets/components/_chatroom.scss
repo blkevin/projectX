@@ -44,6 +44,7 @@
 
 
 
+
   .messages {
     height: 100%;
     overflow: scroll;
@@ -80,6 +81,7 @@
     color: rgb(200, 200, 200);
     p {
       margin: 0;
+      font-size: 14px;
     }
   }
   .message-avatar {
@@ -116,6 +118,7 @@
   .message-inner-content {
     background-color: $purple;
     color: white;
+    font-size: 14px;
   }
 }
 
@@ -128,8 +131,7 @@
   width: 70%;
   max-width: 400px;
   border-radius: 4px;
-  padding: 8px;
-  min-height: 80px;
+  min-height: 2.5em;
 }
 
 .sender-style {
