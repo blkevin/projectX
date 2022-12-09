@@ -27,6 +27,7 @@ export default class extends Controller {
 // Dynamic first name retrieval
   firstStep(event)  {
     const name = this.firstNameInputTarget.value;
+    console.log(name);
     console.log(name, this.firstNamePlaceHolderTargets);
     this.firstNamePlaceHolderTargets.forEach((element) => {
       element.innerHTML = name;
