@@ -509,7 +509,7 @@ exp20 = Experience.create!(user_id: m10.id, position: "Policier", company: "Mair
 exp21 = Experience.create!(user_id: m11.id, position: "Senior product manager", company: "Gens de confiance", sector: "opérations", industry: "technologie", start_date: "2017-01-01")
 exp22 = Experience.create!(user_id: m11.id, position: "Consultant en stratégie", company: "PwC", sector: "conseil", industry: "services", start_date: "2013-01-01")
 # creating experiences for Riza
-exp23 = Experience.create!(user_id: m12.id, position: "Senior account executive", company: "Odaseva", sector: "ventre", industry: "technologie", start_date: "2019-01-01")
+exp23 = Experience.create!(user_id: m12.id, position: "Senior account executive", company: "Odaseva", sector: "vente", industry: "technologie", start_date: "2019-01-01")
 exp24 = Experience.create!(user_id: m12.id, position: "Account executive", company: "Odaseva", sector: "vente", industry: "technologie", start_date: "2016-01-01")
 # creating experiences for Camille
 exp25 = Experience.create!(user_id: m13.id, position: "Actuaire", company: "Crédit Agricole Assurances", sector: "administration", industry: "assurance", start_date: "2019-01-01")
