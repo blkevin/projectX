@@ -68,7 +68,7 @@
                 <p> <strong>Niveau d'études : </strong><%= education.degree_level.capitalize %> </p>
                 <p> <strong>Domaine d'études : </strong><%= education.field.capitalize %> </p>
               </div>
-              <% render "shared/institution", institution: institution %>
+              <% render "shared/institution", institution: education.institution %>
           </div>
         <%end%>
       </div>

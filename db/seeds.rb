@@ -655,7 +655,7 @@ url1 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 604800)
+).presigned_url(:get, expires_in: 604_800)
 
 i1.video.attach(
   io: URI.open(url1),
@@ -670,7 +670,7 @@ url2 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 604800)
+).presigned_url(:get, expires_in: 604_800)
 
 i2.video.attach(
   io: URI.open(url2),
@@ -685,7 +685,7 @@ url3 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 604800)
+).presigned_url(:get, expires_in: 604_800)
 
 i3.video.attach(
   io: URI.open(url3),
@@ -700,7 +700,7 @@ url4 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 604800)
+).presigned_url(:get, expires_in: 604_800)
 
 i4.video.attach(
   io: URI.open(url4),
@@ -715,7 +715,7 @@ url5 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 604800)
+).presigned_url(:get, expires_in: 604_800)
 
 i5.video.attach(
   io: URI.open(url5),
@@ -730,7 +730,7 @@ url6 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 604800)
+).presigned_url(:get, expires_in: 604_800)
 
 i6.video.attach(
   io: URI.open(url6),
@@ -832,7 +832,7 @@ url_c1 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 604800)
+).presigned_url(:get, expires_in: 604_800)
 
 c1.video.attach(
   io: URI.open(url_c1),
@@ -848,7 +848,7 @@ url_c7 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 604800)
+).presigned_url(:get, expires_in: 604_800)
 
 c7.video.attach(
   io: URI.open(url_c7),
@@ -864,7 +864,7 @@ url_c8 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 604800)
+).presigned_url(:get, expires_in: 604_800)
 
 c8.video.attach(
   io: URI.open(url_c8),
@@ -880,7 +880,7 @@ url_c9 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 604800)
+).presigned_url(:get, expires_in: 604_800)
 
 c9.video.attach(
   io: URI.open(url_c9),
@@ -896,7 +896,7 @@ url_c10 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 604800)
+).presigned_url(:get, expires_in: 604_800)
 
 c10.video.attach(
   io: URI.open(url_c10),
@@ -912,7 +912,7 @@ url_c11 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 604800)
+).presigned_url(:get, expires_in: 604_800)
 
 c11.video.attach(
   io: URI.open(url_c11),
@@ -928,7 +928,7 @@ url_c12 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 604800)
+).presigned_url(:get, expires_in: 604_800)
 
 c12.video.attach(
   io: URI.open(url_c12),
@@ -944,7 +944,7 @@ url_c13 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 604800)
+).presigned_url(:get, expires_in: 604_800)
 
 c13.video.attach(
   io: URI.open(url_c13),
@@ -960,7 +960,7 @@ url_c14 = Aws::S3::Object.new(
     access_key_id: ENV['ACCESS_KEY_ID'],
     secret_access_key: ENV['SECRET_ACCESS_KEY']
   )
-).presigned_url(:get, expires_in: 604800)
+).presigned_url(:get, expires_in: 604_800)
 
 c14.video.attach(
   io: URI.open(url_c14),
