@@ -555,7 +555,7 @@ exp45 = Experience.create!(user_id: m23.id, position: "PDG", company: "Agily", s
 exp46 = Experience.create!(user_id: m23.id, position: "Commercial", company: "SFR", sector: "vente", industry: "commerce", start_date: "2017-01-18")
 
 # creating experiences for Vanessa talent asquisition manager
-exp47 = Experience.create!(user_id: m24.id, position: "Talent asquisition manager", company: "Lynkus", sector: "gestion", industry: "communication", start_date: "2022-01-10")
+exp47 = Experience.create!(user_id: m24.id, position: "Talent aquisition manager", company: "Lynkus", sector: "gestion", industry: "communication", start_date: "2022-01-10")
 exp48 = Experience.create!(user_id: m24.id, position: "Developpeur", company: "EDF", sector: "production", industry: "technologie", start_date: "2017-01-18")
 
 # creating experiences for Théo chief sales officier
