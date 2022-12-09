@@ -95,8 +95,8 @@
       <div class="col-3 meetings">
         <nav>
           <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <button class="nav-link active" id="nav-futur-tab" data-bs-toggle="tab" data-bs-target="#nav-futur" type="button" role="tab" aria-controls="nav-futur" aria-selected="true">Futurs RDV</button>
-            <button class="nav-link" id="nav-passé-tab" data-bs-toggle="tab" data-bs-target="#nav-passé" type="button" role="tab" aria-controls="nav-passé" aria-selected="false">RDV passés</button>
+            <button class="nav-link button-rdv active" id="nav-futur-tab" data-bs-toggle="tab" data-bs-target="#nav-futur" type="button" role="tab" aria-controls="nav-futur" aria-selected="true">Futurs RDV</button>
+            <button class="nav-link button-rdv" id="nav-passé-tab" data-bs-toggle="tab" data-bs-target="#nav-passé" type="button" role="tab" aria-controls="nav-passé" aria-selected="false">RDV passés</button>
           </div>
         </nav>
 
@@ -112,7 +112,7 @@
                         <div class="card-infos">
                           <ul>
                             <li> <h5><%= User.find(meeting.mentor_id).first_name %> <%= User.find(meeting.mentor_id).last_name %></h5></li>
-                            <li> <strong><%= User.find(meeting.mentor_id).experiences.last.position %></strong> chez <%= User.find(meeting.mentor_id).experiences.last.company %></li>
+                            <li> <strong><%= User.find(meeting.mentor_id).experiences.first.position %></strong> chez <%= User.find(meeting.mentor_id).experiences.first.company %></li>
                             <li> Le <strong><%= l(meeting.starting, format: '%-d %B %Y') %></strong> </li>
                             <li> à <strong><%= l(meeting.starting, format: '%l') %></strong> : <strong><%= l(meeting.starting, format: '%M') %></strong> </li>
                           </ul>
@@ -152,7 +152,7 @@
                       <div class="card-infos">
                         <ul>
                           <li> <h5><%= User.find(meeting.mentor_id).first_name %> <%= User.find(meeting.mentor_id).last_name %></h5></li>
-                          <li> <strong><%= User.find(meeting.mentor_id).experiences.last.position %></strong> chez <%= User.find(meeting.mentor_id).experiences.last.company %></li>
+                          <li> <strong><%= User.find(meeting.mentor_id).experiences.first.position %></strong> chez <%= User.find(meeting.mentor_id).experiences.first.company %></li>
                         <li> Le <strong><%= l(meeting.starting, format: '%-d %B %Y') %></strong> </li>
                         <li> à <strong><%= l(meeting.starting, format: '%l %M') %></strong> </li>
                         </ul>
