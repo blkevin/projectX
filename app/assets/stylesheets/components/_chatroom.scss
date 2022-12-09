@@ -16,6 +16,9 @@
     height: 100%;
     overflow: scroll;
     padding: 1rem;
+    p {
+      font-size: 14px;
+    }
   }
 
   #new_message {
@@ -48,6 +51,9 @@
   .messages {
     height: 100%;
     overflow: scroll;
+    p {
+      font-size: 14px;
+    }
   }
 
   #new_message {
@@ -145,4 +151,5 @@
   .message-content p {
     background-color: $blue-nice;
     color: $white-purple;
-  }}
+  }
+}

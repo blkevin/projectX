@@ -7,6 +7,9 @@ import { application } from "./application"
 import ConversationSubscriptionController from "./conversation_subscription_controller"
 application.register("conversation-subscription", ConversationSubscriptionController)
 
+import FlashController from "./flash_controller"
+application.register("flash", FlashController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
@@ -16,8 +19,8 @@ application.register("navbar", NavbarController)
 import OnboardingController from "./onboarding_controller"
 application.register("onboarding", OnboardingController)
 
-import SwiperController from "./swiper_controller"
-application.register("swiper", SwiperController)
-
 import SearchMentorsController from "./search_mentors_controller"
 application.register("search-mentors", SearchMentorsController)
+
+import SwiperController from "./swiper_controller"
+application.register("swiper", SwiperController)
