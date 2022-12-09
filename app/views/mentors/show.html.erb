@@ -53,7 +53,7 @@
       <div class="education">
         <h5 class="mt-5 subtitle mb-3"> 📚 Etudes</h5>
         <%@educations.each do |education| %>
-          <div class="experience-card mb-3" data-bs-toggle="modal" data-bs-target="#institutionModal<%= education.institution.id  %>">
+          <div class="experience-card mb-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#institutionModal<%= education.institution.id  %>">
             <div class="sub-title-study d-flex justify-content-between">
               <h6><%= education.institution.name %></h6>
               <%= render "shared/institution", institution: education.institution %>
