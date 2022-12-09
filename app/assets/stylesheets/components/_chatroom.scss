@@ -16,6 +16,9 @@
     height: 100%;
     overflow: scroll;
     padding: 1rem;
+    p {
+      font-size: 14px;
+    }
   }
 
   #new_message {
@@ -44,9 +47,13 @@
 
 
 
+
   .messages {
     height: 100%;
     overflow: scroll;
+    p {
+      font-size: 14px;
+    }
   }
 
   #new_message {
@@ -80,6 +87,7 @@
     color: rgb(200, 200, 200);
     p {
       margin: 0;
+      font-size: 14px;
     }
   }
   .message-avatar {
@@ -116,6 +124,7 @@
   .message-inner-content {
     background-color: $purple;
     color: white;
+    font-size: 14px;
   }
 }
 
@@ -128,14 +137,14 @@
   width: 70%;
   max-width: 400px;
   border-radius: 4px;
-  padding: 8px;
-  min-height: 80px;
+  min-height: 2.5em;
 }
 
 .sender-style {
   .message-content p {
     background-color: $purple;
     color: $white-purple;
+    word-break: break-word;
   }
 }
 
@@ -143,4 +152,6 @@
   .message-content p {
     background-color: $blue-nice;
     color: $white-purple;
-  }}
+    word-break: break-word;
+  }
+}
