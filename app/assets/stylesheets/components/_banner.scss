@@ -64,6 +64,14 @@
   }
 }
 
+#first {
+  padding-top: 100px;
+}
+
+#last {
+  padding-bottom: 80px;
+}
+
 .home-banner-left {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -76,14 +84,6 @@
   grid-template-columns: 2fr 1fr;
   grid-gap: 1em;
   background-color: $purple;
-}
-
-#first {
-  padding-top: 100px;
-}
-
-#last {
-  padding-bottom: 80px;
 }
 
 .home-banner-spline {
